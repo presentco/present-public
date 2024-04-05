@@ -1,0 +1,445 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<!--Use this file for development purposes; email clients strip out styles if not inlined.-->
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="viewport" content="width=device-width" />
+  <title>Present</title>
+  <style media="screen">
+    .mobile-view{
+      width:40%;
+    }
+    @media only screen and (min-width : 314px) and (max-width : 636px) {
+    .mobile-view{
+      width:70%;
+      }
+    }
+    a:link { 
+      text-decoration: none;
+    }
+    .summary-container {
+      padding: 0px;
+      background-color: #ffffff;
+      height: 100%;
+      margin: 0 auto;
+      border: 2px solid rgb(239,239,244);
+      width: 100%;
+      max-width: 620px;
+    }
+    .summary-section {
+      /* Font and default styles for text. */
+      font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;
+      font-size: 21px;
+      color: #000000;
+      font-weight: normal;
+      text-overflow: ellipsis;
+      overflow: hidden; 
+    }
+    .summary-button {
+      width: 135px;
+      height: 45px;
+      padding: 0px;
+      margin: 15px 15px 15px 0px;
+      border-radius: 22.5px;
+    }
+    .purple {
+      background: #743cce;
+    }
+    .blue {
+      background: #25d8f1;
+    }
+    .yellow {
+      background: #fdd61c;
+    }
+    .pink {
+      background: #ff0aa6;
+    }
+    .summary-button-text {
+      font-size: 19.5px;
+      line-height: 42px;
+      text-align: center;
+      color: #ffffff;
+      display: inline-block;
+      text-decoration:none;
+    }
+    .summary-heading {
+      font-weight: normal;
+      margin: 0px 18px 0px 18px;
+    }
+    .summary-large {
+      font-size: 36px;
+      font-weight: bolder;
+      margin: 0px 18px 0px 18px;
+    }
+    .summary-name {
+      font-size: 21px;
+      font-weight: normal;
+      margin: 10px 0px 0px 0px;
+    }
+    .summary-detail {
+      font-size: 19.5px;
+      margin: 0px 0px 0px 0px;
+    }
+    .summary-link {
+      color: #743cce;
+    }
+    .summary-photo {
+      height: 75px;
+      width: 75px;
+      margin: 0px 18px 25.5px 18px;
+    }
+    .profile-photo {
+      height: 130px;
+      width: 130px;
+      margin: 0px 250px;
+      border-radius: 50%;
+    }
+    .divider {
+      height: 6px;
+      width: 620px;
+      margin: 15px 0px;
+    }
+    .quote {
+      font-size: 21px;
+      text-align: center;
+      color: #9b9b9b;
+      margin: 9px 34px 25.5px 34px;
+    }
+    .unsubscribe {
+      font-size: 18px;
+      text-align: center;
+      color: #9b9b9b;
+      margin: 27px 33px 126px 34px;
+    }
+    .unsubscribe-link {
+      text-decoration: underline;
+      font-size: 18px;
+      text-align: center;
+      color: #9b9b9b;
+    }
+    .unsubscribe-link:hover {
+      color: #9b9b9b;
+    }
+    .search {
+      margin: 18px 19px;
+      width: 586.5px;
+    }
+    .logo {
+      margin: 0px 46px 25px 19px;
+      height: 52.5px;
+    }
+    .social-icon {
+      height: 49px;
+      width: 49px;
+      margin: 0px 9px 25px 9px;
+    }
+    .hidden-text {
+      display: none;
+      font-size: 1px;
+      color: #333333;
+      line-height: 1px;
+      max-height: 0px;
+      max-width: 0px;
+      opacity: 0;
+      overflow: hidden;
+    }
+    .map-pin {
+      width: 4.4px;
+      height: 5.3px;
+      border: solid 0.5px #030303;
+    }
+    .map-pin-inside {
+      width: 2.2px;
+      height: 2.2px;
+      border: solid 0.5px #030303;
+    }
+    hr {
+      color: #e1e1e9;
+      background-color: #e1e1e9;
+      width: 586.5px;
+      height: 1px;
+      border-width:0;
+    }
+    a:hover {
+      color: #ffffff;
+    }
+    table{
+      table-layout:fixed;
+      width:100%;
+      border-spacing:0px;
+      border-collapse: collapse;
+    }
+    td {
+      vertical-align: top;
+    }
+
+  </style>
+</head>
+<body>
+  <center>
+  <!-- <td height="16px" style="font-size:16px;line-height:16px;">&#xA0;</td> -->
+    <div class="summary-container mobile-view" style="width:620px;">
+      <table class="summary-section" style="width:620px;">
+        <tbody>
+          <tr>
+            <!--Vertical Spacer-->
+            <td height="16px" style="font-size:16px;line-height:16px;">&#xA0;</td>
+          </tr>
+          <tr>
+            <!--Profile photo-->
+            <td><img class="profile-photo" src="{{user.profilePhotoUrl}}" alt="Profile Photo"/></td>
+          </tr>
+          <tr>
+            <!--Greeting with name-->
+            <td><p class="summary-large" style="text-align:center;">Hey {{user.firstName}}!</p></td>
+          </tr>
+          <tr>
+            <!--Quote-->
+            <td><p class="quote"><i>&#x201c;{{quote.text}}&#x201d;</i> &mdash;{{quote.author}}</td>
+          </tr>
+          <tr>
+            <!-- Multicolored divider-->
+            <td><img class="divider" src="https://present.co/email/img/divider@2x.png" align="center"/></td>
+          </tr>
+          {{#hasGroupSummaries}}
+          <tr>
+            <!--Vertical Spacer-->
+            <td height="27px" style="font-size:27px;line-height:27px;">&#xA0;</td>
+          </tr>
+          <tr>
+            <td>
+              <!--Your Circles Header-->
+              <p class="summary-heading">YOUR CIRCLES</p>
+              <p class="summary-large">While you were away...</p>
+            </td>
+          </tr>
+          <tr>
+            <!--Vertical Spacer-->
+            <td height="18px" style="font-size:18px;line-height:16px;">&#xA0;</td>
+          </tr>
+          {{/hasGroupSummaries}}
+          {{#groupSummaries}}
+          <tr>
+            <td>
+              <table style="table-layout:fixed;width:100%;">
+                <tbody>
+                  <tr>
+                    <td style="width:114px;">
+                      <!--Group Icon-->
+                      <img class="summary-photo"" src="{{icon}}" align="center" alt="Circle Icon">
+                    </td>
+                    <td style="width:356px;">
+                      <!--Activity Summary-->
+                      <p class="summary-name">{{group.title}}</p>
+                      <p class="summary-detail summary-link">{{summary}}</p>
+                    </td>
+                    <td style="width:150px;">
+                        <!--View Group Button-->
+                        <a href={{group.shortLink}} class="summary-button purple summary-button-text" target="_blank">View</a>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </td>
+          </tr>
+          {{/groupSummaries}}
+          {{#hasMoreGroupSummaries}}
+          <tr>
+            <td><a href="https://present.co/app" class="summary-name">SEE MORE</p><td>
+          </tr>
+          {{/hasMoreGroupSummaries}}
+          {{#hasGroupSummaries}}
+          <tr>
+            <td><hr class="hr" /></td>
+          </tr>
+          {{/hasGroupSummaries}}
+
+          {{#hasJoinSummaries}}
+          <tr>
+            <!--Vertical Spacer-->
+            <td height="27px" style="font-size:27px;line-height:27px;">&#xA0;</td>
+          </tr>
+          <tr>
+            <td>
+              <!--New Joins Header-->
+              <p class="summary-heading">NEW JOINS</p>
+              <p class="summary-large">{{totalJoins}} Joins</p>
+            </td>
+          </tr>
+          <tr>
+            <!--Vertical Spacer-->
+            <td height="18px" style="font-size:18px;line-height:18px;">&#xA0;</td>
+          </tr>
+          {{/hasJoinSummaries}}
+          {{#joinSummaries}}
+          <tr>
+            <td>
+              <table style="table-layout:fixed;width:100%;">
+                <tbody>
+                  <tr>
+                    <td style="width:114px;">
+                      <!--Group Icon-->
+                      <img class="summary-photo"" src="{{icon}}" align="center" alt="Circle Icon">
+                    </td>
+                    <td style="width:356px;">
+                      <!--Activity Summary-->
+                      <p class="summary-name">{{group.title}}</p>
+                      <p class="summary-detail">{{summary}}</p>
+                    </td>
+                    <td style="width:150px;">
+                        <!--View Group Button-->
+                        <a href={{group.shortLink}} class="summary-button yellow summary-button-text" target="_blank">View</a>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </td>
+          </tr>
+          {{/joinSummaries}}
+          {{#hasJoinSummaries}}
+          <tr>
+            <td><hr class="hr" /></td>
+          </tr>
+          {{/hasJoinSummaries}}
+
+          {{#hasInviteSummaries}}
+          <tr>
+            <!--Vertical Spacer-->
+            <td height="27px" style="font-size:27px;line-height:27px;">&#xA0;</td>
+          </tr>
+          <tr>
+            <td>
+              <!--New Invites Header-->
+              <p class="summary-heading">NEW INVITES</p>
+              <p class="summary-large">Join the conversation</p>
+            </td>
+          </tr>
+          <tr>
+            <!--Vertical Spacer-->
+            <td height="18px" style="font-size:18px;line-height:18px;">&#xA0;</td>
+          </tr>
+          {{/hasInviteSummaries}}
+          {{#inviteSummaries}}
+          <tr>
+            <td>
+              <table style="table-layout:fixed;width:100%;">
+                <tbody>
+                  <tr>
+                    <td style="width:114px;">
+                      <!--Group Icon-->
+                      <img class="summary-photo"" src="{{icon}}" align="center" alt="Circle Icon">
+                    </td>
+                    <td style="width:356px;">
+                      <!--Activity Summary-->
+                      <p class="summary-name">{{group.title}}</p>
+                      <p class="summary-detail">{{summary}}</p>
+                    </td>
+                    <td style="width:150px;">
+                        <!--View Group Button-->
+                        <a href={{group.shortLink}} class="summary-button blue summary-button-text" target="_blank">View</a>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </td>
+          </tr>
+          {{/inviteSummaries}}
+          {{#hasInviteSummaries}}
+          <tr>
+            <td><hr class="hr" /></td>
+          </tr>
+          {{/hasInviteSummaries}}
+
+          {{#hasFriendSummaries}}
+          <tr>
+            <!--Vertical Spacer-->
+            <td height="27px" style="font-size:27px;line-height:27px;">&#xA0;</td>
+          </tr>
+          <tr>
+            <td>
+              <!--New Invites Header-->
+              <p class="summary-heading">SAY HELLO</p>
+              <p class="summary-large">New friends on Present</p>
+            </td>
+          </tr>
+          <tr>
+            <!--Vertical Spacer-->
+            <td height="18px" style="font-size:18px;line-height:18px;">&#xA0;</td>
+          </tr>
+          {{/hasFriendSummaries}}
+          {{#friendSummaries}}
+          <tr>
+            <td>
+              <table style="table-layout:fixed;width:100%;">
+                <tbody>
+                  <tr>
+                    <td style="width:114px;">
+                      <!--User Icon-->
+                      <img class="summary-photo"" src="{{icon}}" align="center" alt="User Profile Photo">
+                    </td>
+                    <td style="width:356px;">
+                      <!--Activity Summary-->
+                      <p class="summary-name">{{user.fullName}}</p>
+                      <p class="summary-detail">{{summary}}</p>
+                    </td>
+                    <td style="width:150px;">
+                        <!--View Profile Button-->
+                        <a href={{user.shortLink}} class="summary-button pink summary-button-text" target="_blank">View</a>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </td>
+          </tr>
+          {{/friendSummaries}}
+          {{#hasFriendSummaries}}
+          <tr>
+            <td><hr class="hr" /></td>
+          </tr>
+          {{/hasFriendSummaries}}
+
+          <!--Footer-->
+          <tr>
+            <td><img src="https://present.co/email/img/search@3x.png" class="search" alt="Find your good vibe tribe"></td>
+          </tr>
+          <tr>
+            <td>
+              <table style="table-layout:fixed;width:100%;width:620px;">
+                  <tbody>
+                    <tr>
+                      <td style="width:315px;">
+                        <img src="https://present.co/email/img/logo@3x.png" class="logo" alt="Present Logo">
+                      </td>
+                      <td>
+                        <img src="https://present.co/email/img/instagram@3x.png" class="social-icon" alt="Present on Instagram">     
+                      </td>
+                      <td>
+                        <img src="https://present.co/email/img/medium@3x.png" class="social-icon" alt="Present on Medium">
+                      </td>
+                      <td>
+                        <img src="https://present.co/email/img/twitter@3x.png" class="social-icon" alt="Present on Twitter">
+                      </td>
+                      <td>
+                        <img src="https://present.co/email/img/facebook@3x.png" class="social-icon" alt="Present on Facebook">
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+            </td>
+          </tr>
+
+          <tr>
+            <!-- Multicolored divider-->
+            <td><img class="divider" src="https://present.co/email/img/divider@2x.png" align="center"/></td>
+          </tr>
+          <tr>
+            <td><p class="unsubscribe">Wanna crush our dreams? <a href="[unsubscribe]" class="unsubscribe-link" target="_blank">Unsubscribe</a></p></td>
+          </tr>
+
+        </tbody>
+      </table>
+    </div>
+  </center>
+
+</body>
+</html>

@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<com.google.android.material.appbar.AppBarLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/appbar"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:theme="@style/AppTheme.AppBarOverlay">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/colorPrimary"
+        app:layout_scrollFlags="scroll|enterAlways"
+        app:popupTheme="@style/AppTheme.PopupOverlay"
+        android:paddingBottom="@dimen/spacing_small" 
+        app:titleTextColor="@color/black">
+
+
+        <ImageView
+            android:id="@+id/userProfilePhoto"
+            android:layout_width="@dimen/profile_image_large"
+            android:layout_height="@dimen/profile_image_large"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            android:layout_marginEnd="@dimen/spacing_small"
+            app:layout_constraintTop_toBottomOf="@id/toolbar"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/buttons"
+            android:layout_marginStart="@dimen/spacing_small"
+            tools:background="@drawable/circle_light_gray" />
+
+
+        <co.present.present.feature.profile.info.UserProfileButtons
+            android:id="@+id/buttons"
+            android:layout_width="0dp"
+            android:layout_marginTop="@dimen/spacing_small"
+            app:layout_constraintStart_toEndOf="@id/userProfilePhoto"
+            android:layout_marginEnd="@dimen/spacing_small"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/userProfilePhoto"
+            app:layout_constraintBottom_toBottomOf="@id/userProfilePhoto"
+            android:layout_height="wrap_content"/>
+
+        <TextView xmlns:android="http://schemas.android.com/apk/res/android"
+            style="@style/Body"
+            android:id="@+id/bio"
+            android:maxLength="140"
+            android:ellipsize="end"
+            android:layout_width="match_parent"
+            app:layout_constraintTop_toBottomOf="@id/userProfilePhoto"
+            android:layout_marginTop="@dimen/spacing_medium"
+            android:paddingStart="@dimen/spacing_small"
+            android:paddingEnd="@dimen/spacing_small"
+            android:autoLink="web"
+            android:lineSpacingMultiplier="1.1"
+            android:textColorLink="@color/presentPurple"
+            xmlns:tools="http://schemas.android.com/tools"
+            tools:text="@string/lorem_long"
+            android:layout_height="wrap_content" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tabLayout"
+        style="@style/NavigationTabLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <!-- These are overwritten in the UI; they're just here to help the preview -->
+        <com.google.android.material.tabs.TabItem
+            android:text="@string/circles"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <com.google.android.material.tabs.TabItem
+            android:text="@string/notifications"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <com.google.android.material.tabs.TabItem
+            android:text="@string/friends"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </com.google.android.material.tabs.TabLayout>
+
+</com.google.android.material.appbar.AppBarLayout>

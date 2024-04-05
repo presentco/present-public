@@ -1,0 +1,42 @@
+
+syntax = "proto2";
+package present;
+option java_package = "present.wire.rpc.core";
+
+// Request to invoke an RPC.
+message Request {
+  // Application-specific headers
+  optional bytes header = 3;
+
+  // Argument to decode and pass to the RPC method
+  required bytes argument = 4;
+}
+
+// Result of an RPC invocation.
+message Response {
+  oneof result {
+    // Present when an error occurs.
+    Error error = 1;
+
+    // Encoded result from RPC method
+    // Note: The current client proto generator doesn't like the name 'result' here.
+    bytes resultBytes = 2;
+  }
+}
+
+// RPC Error
+message Error {
+  enum Type {
+    // There was a problem with the request itself.
+    CLIENT = 1;
+
+    // An error occurred while processing the request.
+    SERVER = 2;
+  }
+
+  required Type type = 1;
+
+  // Descriptive message or a key to a descriptive message (when localized)
+  required string message = 2;
+}
+

@@ -1,0 +1,6 @@
+<ripple xmlns:android="http://schemas.android.com/apk/res/android"
+    android:color="?colorControlHighlight">
+    <item android:id="@android:id/mask"
+        android:drawable="@drawable/rounded_ends_white_light_gray_stroke_32dp" />
+    <item android:drawable="@drawable/rounded_ends_white_light_gray_stroke_32dp"/>
+</ripple>

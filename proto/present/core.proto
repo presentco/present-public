@@ -1,0 +1,60 @@
+// Core messages shared between our API and datastore
+// Shared publicly!
+
+syntax = "proto2";
+package present;
+option java_package = "present.proto";
+
+message Empty {}
+
+// A 2D coordinate.
+message Coordinates {
+  // Latitude in degrees.
+  required double latitude = 1;
+
+  // Longitude in degrees.
+  required double longitude = 2;
+
+  // Accuracy in m.
+  required double accuracy = 3;
+}
+
+message EmailAddress {
+  // Email address
+  required string email = 1;
+
+  // Optional external system's label for this email (e.g. "home", "work", etc.)
+  optional string label = 2;
+
+  // Display name
+  optional string name = 3;
+}
+
+// Client platform
+enum Platform {
+  UNKNOWN = 0;
+//  UNKNOWN_PLATFORM = 0;
+  IOS = 1;
+  ANDROID = 2;
+  WEB = 3;
+  TEST = 4;
+  INTERNAL = 5;
+  VIRTUAL = 6;
+}
+
+message City {
+  // Name of city.
+  required string name = 1;
+
+  // Center of city.
+  required Coordinates location = 2;
+
+  // Radius to display in m.
+  required double radius = 3;
+}
+
+// A space is a collection of circles.
+message SpaceResponse {
+  required string id = 1;
+  required string name = 2;
+}

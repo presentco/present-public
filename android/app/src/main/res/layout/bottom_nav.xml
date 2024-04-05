@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/customBottomNav"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:clickable="true"
+    android:elevation="4dp"
+    android:minHeight="56dp"
+    android:transitionName="@string/bottomNav">
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/lightGray"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/feedIcon"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:clickable="true"
+        android:scaleType="center"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/post"
+        app:layout_constraintHorizontal_chainStyle="spread"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:src="@drawable/ic_home"
+        />
+
+    <ImageView
+        android:id="@+id/post"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:clickable="true"
+        android:scaleType="center"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/profileIcon"
+        app:layout_constraintStart_toEndOf="@id/feedIcon"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:src="@drawable/ic_create"
+        />
+
+
+
+
+    <FrameLayout
+        android:id="@+id/profileIcon"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/post"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_width="0dp"
+        android:clickable="true"
+        android:layout_height="0dp">
+
+        <View
+            android:id="@+id/profileRing"
+            android:duplicateParentState="true"
+            android:layout_width="34dp"
+            android:layout_gravity="center"
+            android:background="@drawable/nav_profile_background_selector"
+            android:layout_height="34dp"/>
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/profileImage"
+            android:duplicateParentState="true"
+            android:layout_gravity="center"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            tools:src="@drawable/ic_profile" />
+    </FrameLayout>
+
+    <Button
+        android:id="@+id/badge"
+        tools:text="3"
+        android:textSize="12sp"
+        android:minWidth="20dp"
+        android:paddingEnd="4dp"
+        android:paddingStart="4dp"
+        android:paddingBottom="1dp"
+        android:textColor="@color/white"
+        android:layout_width="wrap_content"
+        android:layout_height="18dp"
+        android:background="@drawable/badge_red_background"
+        android:layout_marginStart="26dp"
+        android:layout_marginTop="6dp"
+        app:layout_constraintTop_toTopOf="@id/profileIcon"
+        app:layout_constraintEnd_toEndOf="@id/profileIcon"
+        app:layout_constraintStart_toStartOf="@id/profileIcon" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

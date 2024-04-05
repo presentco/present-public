@@ -1,0 +1,19 @@
+{
+  "id": "alice-smith",
+  "name": "Alice Smith",
+  "first_name": "Alice",
+  "last_name": "Smith",
+  "email": "alice@present.co",
+  "friends": {
+    "data": [
+      {
+        "name": "Bob Lee",
+        "id": "bob-lee"
+      },
+      {
+        "name": "Janete Perez",
+        "id": "janete-perez"
+      }
+    ]
+  }
+}

@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="@dimen/spacing_large"
+        android:layout_marginRight="@dimen/spacing_large"
+        android:layout_marginTop="@dimen/spacing_large"
+        android:clipChildren="false"
+        android:clipToPadding="false"
+        android:fitsSystemWindows="true"
+        tools:context=".feature.onboarding.step.FacebookLinkActivity">
+
+        <ImageView
+            android:id="@+id/wordmark"
+            android:layout_width="0dp"
+            android:adjustViewBounds="true"
+            app:layout_constraintVertical_chainStyle="spread"
+            android:tint="@color/black"
+            app:layout_constraintWidth_percent=".85"
+            app:srcCompat="@drawable/logo_and_wordmark"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/description"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            />
+
+        <TextView
+            android:id="@+id/description"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:breakStrategy="balanced"
+            android:autoLink="all"
+            android:textColorLink="@color/presentPurple"
+            android:gravity="start"
+            android:fontFamily="sans-serif"
+            app:layout_constraintTop_toBottomOf="@+id/wordmark"
+            app:layout_constraintBottom_toTopOf="@+id/button"
+            android:lineSpacingMultiplier="@dimen/waitlist_subtitle_line_mult"
+            android:textColor="@color/black"
+            android:textSize="@dimen/waitlist_subtitle_size"
+            tools:text="@string/lorem_heading"
+            tools:layout_editor_absoluteY="266dp" />
+
+        <ProgressBar
+            android:id="@+id/spinner"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="?android:progressBarStyleLarge"
+            android:indeterminateTint="@color/black"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/wordmark"
+            app:layout_constraintBottom_toTopOf="@+id/button"
+            android:lineSpacingMultiplier="@dimen/waitlist_subtitle_line_mult" />
+
+        <Button
+            android:text="@string/invite_friends"
+            android:id="@+id/button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/description"
+            app:layout_constraintBottom_toTopOf="@+id/facebookButton"
+            style="@style/RoundedEndsButton.Purple"
+            android:minHeight="50dp"
+            android:minWidth="152dp"/>
+
+        <ImageButton
+            android:id="@+id/facebookButton"
+            style="@style/SocialButtonStyle"
+            android:layout_marginBottom="@dimen/spacing_large"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/instagramButton"
+            app:layout_constraintHorizontal_chainStyle="spread"
+            app:layout_constraintStart_toStartOf="parent"
+            app:srcCompat="@drawable/ic_facebook"
+            />
+
+        <ImageButton
+            android:id="@+id/instagramButton"
+            style="@style/SocialButtonStyle"
+            app:layout_constraintBottom_toBottomOf="@+id/facebookButton"
+            app:layout_constraintEnd_toStartOf="@+id/twitterButton"
+            app:layout_constraintStart_toEndOf="@+id/facebookButton"
+            app:layout_constraintTop_toTopOf="@+id/facebookButton"
+            app:srcCompat="@drawable/ic_instagram" />
+
+        <ImageButton
+            android:id="@+id/twitterButton"
+            style="@style/SocialButtonStyle"
+            app:layout_constraintBottom_toBottomOf="@+id/instagramButton"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/instagramButton"
+            app:layout_constraintTop_toTopOf="@+id/instagramButton"
+            app:srcCompat="@drawable/ic_twitter" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</FrameLayout>

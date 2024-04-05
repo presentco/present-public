@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/lightestGray"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:focusableInTouchMode="true">
+
+            <include layout="@layout/toolbar"
+                android:layout_height="?android:actionBarSize"
+                android:layout_width="match_parent" />
+
+            <co.present.present.feature.common.StandaloneSearchView
+                android:id="@+id/searchView"
+                android:visibility="gone"
+                tools:visibility="visible"
+                android:elevation="4dp"
+                android:layout_width="match_parent"
+                app:layout_constraintTop_toTopOf="@+id/toolbar"
+                app:layout_constraintBottom_toBottomOf="@+id/toolbar"
+                android:layout_height="wrap_content"/>
+
+            <ImageView
+                android:visibility="gone"
+                tools:visibility="visible"
+                android:id="@+id/spacesToolbar"
+                app:srcCompat="@drawable/wordmark"
+                android:tint="@color/black"
+                android:elevation="4dp"
+                android:layout_height="26dp"
+                app:layout_constraintTop_toTopOf="@id/toolbar"
+                app:layout_constraintBottom_toBottomOf="@id/toolbar"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_width="wrap_content"/>
+
+            <ImageView
+                android:id="@+id/searchIcon"
+                android:visibility="gone"
+                tools:visibility="visible"
+                android:elevation="4dp"
+                app:layout_constraintTop_toTopOf="@+id/toolbar"
+                app:layout_constraintBottom_toBottomOf="@+id/toolbar"
+                app:layout_constraintEnd_toEndOf="@+id/toolbar"
+                android:padding="@dimen/spacing_small"
+                android:background="@drawable/ripple_circular"
+                android:layout_marginEnd="@dimen/spacing_medium"
+                app:srcCompat="@drawable/ic_search_new"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+        <androidx.coordinatorlayout.widget.CoordinatorLayout
+            android:id="@+id/main_content"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/toolbar"
+            tools:context="co.present.present.feature.discovery.ExploreFragment">
+
+            <FrameLayout
+                android:id="@+id/feedTab"
+                android:layout_marginTop="@dimen/spacing_tiny"
+                app:layout_constraintTop_toBottomOf="@+id/locationSwitcher"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:layout_width="match_parent"
+                app:layout_behavior="@string/appbar_scrolling_view_behavior"
+                android:layout_height="match_parent"/>
+
+        </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</FrameLayout>
+
+
+

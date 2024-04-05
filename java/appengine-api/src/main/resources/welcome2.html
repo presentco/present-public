@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Present</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+  <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+  <style media="screen">
+  .mobile-view{
+    width:40%;
+  }
+      .event-title{
+      	font-size:18px;
+        margin-left:20px
+      }
+
+
+  @media only screen and (min-width : 314px) and (max-width : 636px) {
+  .mobile-view{
+    width:70%;
+    }
+
+    .event-title{
+        font-size:16px;
+        margin-left:15px
+      }
+    }
+  </style>
+</head>
+<body style="margin:0;padding:0;overflow-y: scroll;overflow-x:hidden;width:100%;height:100%;">
+<center>
+	<div style="padding: 0px;background-color: #ffffff;height: 100%;margin:0px 5px;width: 100%;max-width: 600px;">
+
+     <table style="font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;color: #000000;font-weight: normal;text-overflow: ellipsis;overflow: hidden;">
+    <tbody>
+    <tr>
+      <td style="font-family:'Helvetica Neue','Helvetica',Helvetica,Arial,sans-serif;color:#565a5c;line-height:150%;padding:0;">
+
+            <table width="100%" cellpadding="0" cellspacing="0">
+              <tbody>
+				  <tr style="">
+					  <td align="center">
+					  <img src="{{userImage}}=w172-h172-cc-nu-rj"
+                 style="width: 86px;height: 86px; object-fit: contain;"/>
+		              <p style="font-size: 24px;font-weight: bold;color: #030303;margin:0;margin-bottom: 20px">Hey {{firstName}}!</p>
+						<img src="https://present.co/images/divider@2x.png" style="width:100%;height:4px;margin:0;"/>
+					  </td>
+              </tbody>
+            </table>
+
+
+
+		  <table style="width:100%;margin-top:10px;">
+		  	<tbody>
+				 <tr>
+                <td align="left" valign="top"
+                    style="font-family:'Helvetica Neue','Helvetica',Helvetica,Arial,sans-serif;color:#000;line-height:150%;">
+                  <p style="font-size:24px;font-weight:600;width: 75%;line-height: 2rem;">Welcome to Present</p>
+                  <p style="color:#000;font-size:18px;width: 100%;font-weight:400;margin-top:-9px;">We can't wait for you to discover, chat with, and meet up with extraordinary people in your local community on Present!</p>
+                </td>
+              </tr>
+
+		  	</tbody>
+		  </table>
+
+		<div style="margin:10px 0px 20px;">
+			<table style="width:100%;">
+		  	<tbody>
+				<tr>
+						<p style=";color:#9b9b9b;font-size:14px;font-weight:400;margin-top:3px;margin-bottom:0px;x">GETTING STARTED</p>
+				<p style="color:rgb(3,3,3);font-size:24px;font-weight:600;margin-bottom:11px;margin-top:0;padding:0;">Install the app</p>
+				<p style="color:#000;font-size:18px;font-weight:400;margin-top:0px;">Stay up to date with all the latest happenings in your community on Present</p>
+
+				</tr>
+				<tr align="center">
+					<td>
+						<div>
+							<a href="https://appsto.re/us/0lr-jb.i" title="" style="text-decoration:none;color:#fff;">
+							<img src="https://staging.present.co/email/itunes@2x.png" style="width:151px;"/>
+						</a>
+
+						<a href="https://play.google.com/store/apps/details?id=co.present.present" title="" style="text-decoration:none;color:#fff;">
+						  <img src="https://staging.present.co/email/google-play@2x.png" style="width:151px;"/>
+						</a>
+
+						</div>
+
+					</td>
+				</tr>
+
+		  	</tbody>
+		  </table>
+		</div>
+
+		  <div style="width: 80%;height: 1px;border: solid 0.5px #f8f8f8;margin:10px auto 20px;"></div>
+			<table style="width:100%;margin:0px;">
+			<tbody>
+				<tr>
+					<td>
+
+				<p style="color:rgb(3,3,3);font-size:24px;font-weight:600;margin-bottom:11px;margin-top:0;padding:0;">Invite friends</p>
+				<p style="color:#000;font-size:18px;width: 100%;font-weight:400;margin-top:0px;">Use any of the links below and invite your friends to join your community on Present</p>
+					</td>
+				</tr>
+
+			</tbody>
+		  </table>
+		  	<table style="margin:0px auto 20px;width:100%;">
+			<tbody>
+				<tr>
+					<td align="center"><a href="https://present.co/sms?url={{encodedUrl}}" target="_blank" title="SMS" style="text-decoration:none;color:#000;font-size:14px;font-weight: bold"><img src="https://present.co/images/chat@3x.png" alt="" style="width:45px; height:45px;"/><p style="margin:0">Text</p></a></td>
+					<td align="center"><a href="mailto:?subject=Hey%20You!&body=Join%20me%20on%20Present!%20{{encodedUrl}}" target="_blank" title="Email" style="text-decoration:none;color:#000;font-size:14px;font-weight: bold"><img src="https://present.co/images/email@3x.png" alt="" style="width:45px; height:45px;"/><p style="margin:0">Mail</p></a></td>
+					<td align="center">
+						<a href="https://twitter.com/intent/tweet?source={{encodedUrl}}&text=Join%20me%20on%20Present!%20{{encodedUrl}}" target="_blank" title="Tweet" style="text-decoration:none;color:#000;font-size:14px;font-weight: bold"><img src="https://present.co/images/twitter-email@3x.png" alt="" style="width:45px; height:45px;"/><p style="margin:0">Tweet</p></a>
+					</td>
+					<td align="center">
+						<a href="https://www.facebook.com/sharer/sharer.php?u={{encodedUrl}}" target="_blank" title="Share on Facebook" style="text-decoration:none;color:#000;font-size:14px;font-weight: bold">
+							<img src="https://present.co/images/facebook-email@3x.png" alt="" style="width:45px; height:45px;"/>
+						<p style="margin:0">Share</p></a>
+					</td>
+					<td align="center">
+						<a href="{{url}}" target="_blank" title="Link" style="text-decoration:none;color:#000;font-size:14px;font-weight: bold">
+							<img src="https://present.co/images/link-email@3x.png" alt="" style="width:45px; height:45px;"/>
+						<p style="margin:0">Link</p></a>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		  <div style="width: 80%;height: 1px;border: solid 0.5px #f8f8f8;margin:10px auto 20px;"></div>
+
+		  <table style="width:100%;margin:20px 0px;">
+			<tbody>
+				<tr>
+					<td>
+
+						<p style="color:rgb(3,3,3);font-size:24px;font-weight:600;margin-bottom:11px;margin-top:0;padding:0;">Create a circle</p>
+						<p style="color:#000;font-size:18px;width: 100%;font-weight:400;margin-top:0px;">Build your good vibe tribe and create a circle around your passions for others to discover, join, and contribute to!</p>
+					</td>
+				</tr>
+
+				<tr align="center">
+					<td>
+						<a style="text-decoration: none;" href="https://present.co/app/createCircle">
+							<div style="width: 150px;border-radius: 20px;background-color: #743cce;color:#fff;padding:10px;font-size: 14px;">Create A Circle</div>
+						</a>
+
+					</td>
+				</tr>
+			</tbody>
+		  </table>
+
+      </td>
+    </tr>
+    </tbody>
+  </table>
+	</div>
+
+	 <div style="max-width:600px;color:#000; background-color: #f9f9f9;;padding:0px 0px 15px;">
+			  <table style="line-height:150%;border-spacing:0;width:100%;">
+			  	<tbody >
+					<tr>
+					<td style="padding-top:20px;">
+					  <a href="https://present.co" title="Present"
+						 style="font-family:'Helvetica Neue','Helvetica',Helvetica,Arial,sans-serif;color:#fff;line-height:150%;text-decoration:none"
+						 target="_blank">
+						<img src="https://present.co/images/logn-new@2x.png" alt="Present"
+							 style="border:0;width:140px;padding-left:5%">
+					  </a>
+					</td>
+					  <td style="font-family:'Helvetica Neue','Helvetica',Helvetica,Arial,sans-serif;color:#565a5c;line-height:150%;margin:0 auto;text-align:center;padding-top:20px;">
+					  <a href="https://www.instagram.com/letsbepresent/" title="Instagram"
+						 style="font-family:'Helvetica Neue','Helvetica',Helvetica,Arial,sans-serif;color:#ff5a5f;line-height:150%;margin:0;padding:0;text-decoration:none"
+						 target="_blank">
+						<img alt="Instagram" src="https://present.co/images/instagram-new@2x.png"
+							 style="height:35px;width:35px;">
+					  </a>
+					</td>
+
+					  <td style="font-family:'Helvetica Neue','Helvetica',Helvetica,Arial,sans-serif;color:#565a5c;line-height:150%;margin:0 auto;text-align:center;padding-top:20px;">
+					  <a href="https://blog.present.co/" title="Medium"
+						 style="font-family:'Helvetica Neue','Helvetica',Helvetica,Arial,sans-serif;color:#ff5a5f;line-height:150%;margin:0;padding:0;text-decoration:none"
+						 target="_blank">
+						<img alt="Medium" src="https://present.co/images/medium-new@2x.png"
+							 style="height:35px;width:35px;">
+					  </a>
+					</td>
+
+					<td style="font-family:'Helvetica Neue','Helvetica',Helvetica,Arial,sans-serif;color:#565a5c;line-height:150%;margin:0 auto;text-align:center;padding-top:20px;">
+					  <a href="https://twitter.com/letsbepresent" title="twitter"
+						 style="font-family:'Helvetica Neue','Helvetica',Helvetica,Arial,sans-serif;color:#ff5a5f;line-height:150%;margin:0;padding:0;text-decoration:none"
+						 target="_blank">
+						<img alt="Twitter" src="https://present.co/images/twitter-new@2x.png"
+							 style="height:35px;width:35px;">
+					  </a>
+					</td>
+
+					<td style="font-family:'Helvetica Neue','Helvetica',Helvetica,Arial,sans-serif;color:#565a5c;line-height:150%;margin:0 auto;text-align:center;padding-top:20px;">
+					  <a href="https://www.facebook.com/letsbepresent/" title="facebook"
+						 style="font-family:'Helvetica Neue','Helvetica',Helvetica,Arial,sans-serif;color:#ff5a5f;line-height:150%;margin:0;padding:0;text-decoration:none"
+						 target="_blank">
+						<img alt="Facebook" src="https://present.co/images/facebook-new@2x.png"
+							 style="height:35px;width:35px;">
+					  </a>
+					</td>
+
+				  </tr>
+				  </tbody>
+			  </table>
+		  </div>
+
+
+<p style="font-family:sans-serif;font-size:14px;text-align:center;color:#9b9b9b;margin:27px 33px 126px 34px;">Wanna crush our dreams? <a style="text-decoration:underline;text-align:center;color:#9b9b9b;" href="<%asm_group_unsubscribe_raw_url%>">Unsubscribe</a></p>
+</center>
+</body>
+</html>

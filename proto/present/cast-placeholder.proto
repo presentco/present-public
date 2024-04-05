@@ -1,0 +1,81 @@
+
+syntax = "proto2";
+package cast.placeholder;
+
+option java_package = "cast.placeholder.proto";
+
+service CastService {
+
+  rpc nearbyCasts(NearbyCastsRequest) returns (NearbyCastsResponse);
+
+  rpc putCast(PutCastRequest) returns (Empty);
+
+  rpc flagCast(FlagCastRequest) returns (Empty);
+
+  rpc deleteCast(DeleteCastRequest) returns (Empty);
+
+  rpc castLifetime(Empty) returns (CastLifetimeResponse);
+}
+
+message Empty {}
+
+message Coordinates {
+  // Latitude in degrees.
+  required double latitude = 1;
+
+  // Longitude in degrees.
+  required double longitude = 2;
+
+  // Accuracy in m.
+  required double accuracy = 3;
+}
+
+message CastResponse {
+  required string id = 1;
+  required uint64 creationTime = 2;
+
+  // True if the cast was created by the current client.
+  required bool mine = 3;
+
+  // Image URL
+  required string image = 4;
+
+  required string creator = 5;
+}
+
+message NearbyCastsRequest {
+  required Coordinates location = 1;
+}
+
+message NearbyCastsResponse {
+  repeated CastResponse nearbyCasts = 1;
+}
+
+message PutCastRequest {
+  // Client-generated UUID
+  required string id = 1;
+
+  required Coordinates location = 2;
+
+  // JPEG bytes
+  required bytes image = 3;
+
+  optional string deviceName = 4;
+}
+
+message FlagCastRequest {
+  required string castId = 1;
+}
+
+message DeleteCastRequest {
+  required string castId = 1;
+}
+
+message CastLifetimeResponse {
+  // How long casts will be public in ms.
+  required uint64 ms = 1;
+
+  // Describes how long casts will be public. Example: "24 hours"
+  required string description = 2;
+
+}

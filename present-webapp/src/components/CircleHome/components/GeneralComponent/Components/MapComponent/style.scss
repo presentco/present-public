@@ -1,0 +1,41 @@
+.map-element-g{
+   height: 290px;
+   width:100%;
+}
+
+.map-element-full{
+   height: 290px;
+   width:100%;
+}
+
+.map-element-modal{
+   height: 500px;
+   width:700px;
+}
+
+.map-container-modal{
+  height:500px; width:700px;
+}
+
+.map-container-g{
+   height: 290px;
+   width:100%;
+   margin-top:6px;
+}
+
+.map-container-full{
+   height: 290px;
+   width:100%;
+}
+
+.x-btn,
+.x-btn:hover,
+.x-btn:focus
+ {
+    background: transparent;
+    position: absolute;
+    right: -16px;
+    top: 115px;
+    font-size: 19px;
+    color:#4a4a4a;
+  }

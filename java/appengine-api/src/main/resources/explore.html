@@ -1,0 +1,302 @@
+<html>
+<head>
+  <base href="https://present.co/"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <link href="/styles/foundation.min.css" rel="stylesheet">
+  <link href="/styles/normalize.css" rel="stylesheet">
+  <link href="/styles/aos.css" rel="stylesheet" />
+  <link rel="stylesheet" href="slick/slick.css">
+  <link rel="stylesheet" href="slick/slick-theme.css">
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-99030339-1"></script>
+  <script src="js/jquery.min.js"></script>
+  <script  src="js/moment.min.js"></script>
+  <script src="//d2wy8f7a9ursnm.cloudfront.net/v4/bugsnag.min.js"></script>
+  <script>window.bugsnagClient = bugsnag('40a21d79fb1f15f68b7095e1391f34c0')</script>
+  <script src="/slick/slick.js"></script>
+  <script src="/js/aos.js"></script>
+  <script type="text/javascript">
+  (function(e,t){var n=e.amplitude||{_q:[],_iq:{}};var r=t.createElement("script")
+  ;r.type="text/javascript";r.async=true
+  ;r.src="https://cdn.amplitude.com/libs/amplitude-4.1.0-min.gz.js"
+  ;r.onload=function(){if(e.amplitude.runQueuedFunctions){
+    e.amplitude.runQueuedFunctions()}else{
+      console.log("[Amplitude] Error: could not load SDK")}}
+      ;var i=t.getElementsByTagName("script")[0];i.parentNode.insertBefore(r,i)
+      ;function s(e,t){e.prototype[t]=function(){
+        this._q.push([t].concat(Array.prototype.slice.call(arguments,0)));return this}}
+        var o=function(){this._q=[];return this}
+        ;var a=["add","append","clearAll","prepend","set","setOnce","unset"]
+        ;for(var u=0;u<a.length;u++){s(o,a[u])}n.Identify=o;var c=function(){this._q=[]
+          ;return this}
+          ;var l=["setProductId","setQuantity","setPrice","setRevenueType","setEventProperties"]
+          ;for(var p=0;p<l.length;p++){s(c,l[p])}n.Revenue=c
+          ;var d=["init","logEvent","logRevenue","setUserId","setUserProperties","setOptOut","setVersionName","setDomain","setDeviceId","setGlobalUserProperties","identify","clearUserProperties","setGroup","logRevenueV2","regenerateDeviceId","logEventWithTimestamp","logEventWithGroups","setSessionId"]
+          ;function v(e){function t(t){e[t]=function(){
+            e._q.push([t].concat(Array.prototype.slice.call(arguments,0)))}}
+            for(var n=0;n<d.length;n++){t(d[n])}}v(n);n.getInstance=function(e){
+              e=(!e||e.length===0?"$default_instance":e).toLowerCase()
+              ;if(!n._iq.hasOwnProperty(e)){n._iq[e]={_q:[]};v(n._iq[e])}return n._iq[e]}
+              ;e.amplitude=n})(window,document);
+              amplitude.getInstance().init('6a2ecfb250e9126666553f8b3022f2de');
+              </script>
+
+              <script>
+              function gtag(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],gtag("js",new Date),gtag("config","UA-99030339-1"),window.fadeIn=function(e,t){"Atlanta"===t&&($(".main-cat-section").addClass("for-atlanta"),$(".category-title").addClass("for-atlanta-title")),$(e).fadeTo(500,1)},window.randomInteger=function(e){return Math.floor(Math.random()*(e+1))},window.randomUUID=function(){return Math.floor(65536*(1+Math.random())).toString(16).substring(1)},window.guid=function(){return randomUUID()+randomUUID()+"-"+randomUUID()+"-"+randomUUID()+"-"+randomUUID()+"-"+randomUUID()+randomUUID()+randomUUID()},window.getRequest=function(e){return{header:{clientUuid:"{{clientUuid}}",requestUuid:guid(),authorizationKey:"not implemented",platform:"WEB",apiVersion:"0"},argument:{groupId:e}}},window.getUrl=function(e,t){var a=-1<t.indexOf("staging")?"https://api.staging.present.co/api":"https://api.present.co/api";return-1<$("."+e+"-join-text").text().indexOf("Open")?a+"/GroupService/unsaveGroup":a+"/GroupService/saveGroup"},window.getPhoto=function(e){return-1<e.indexOf("true")?photo="https://present.co/images/false@2x.png":photo="https://present.co/images/true@2x.png",photo},window.onclicknotjoin=function(){window.location="/app/login"},window.onclickjoin=function(e,t,a,n,i){amplitude.getInstance().logEvent("Explore: Join group");var o="."+e+"-image-container",s="."+e+"-join-text",d=getMobileOperatingSystem();-1<$(s).text().indexOf("Open")?window.location=a:(-1<$(s).text().indexOf("Open")?($(o).removeClass("true-image"),$(o).addClass("false-image"),"Android"===d&&($(o).removeClass("true-image-android"),$(o).addClass("false-image-android")),"iOS"===d&&($(o).removeClass("true-image-ios"),$(o).addClass("false-image-ios"))):($(o).removeClass("false-image"),$(o).addClass("true-image"),"Android"===d&&($(o).removeClass("false-image-android"),$(o).addClass("true-image-android")),"iOS"===d&&($(o).removeClass("false-image-ios"),$(o).addClass("true-image-ios"))),$.ajax({type:"POST",url:getUrl(e,a),data:JSON.stringify(getRequest(e)),contentType:"application/json; charset=utf-8",dataType:"json",success:function(e){console.log("success",e)},error:function(e){console.log("error",e)}}),-1<$(s).text().indexOf("Open")?$(s).text("JOIN"):"ANYONE"===n?$(s).text("Open"):$(s).text("REQUESTED"))},window.getMonth=function(e){return moment.unix(e/1e3).format("MMM")},window.getMobileOperatingSystem=function(){var e=navigator.userAgent||navigator.vendor||window.opera;return/windows phone/i.test(e)?"Windows Phone":/android/i.test(e)?"Android":/iPad|iPhone|iPod/.test(e)&&!window.MSStream?"iOS":"unknown"},window.getUnJoinText=function(e){var t="."+e+"-image-container",a="."+e+"-join-text",n=getMobileOperatingSystem();$(t).addClass("false-image"),"Android"===n&&$(t).addClass("false-image-android"),"iOS"===n&&$(t).addClass("false-image-ios"),$(a).text("JOIN")},window.getJoinText=function(e,t,a){var n="."+e+"-image-container",i="."+e+"-join-text",o=getMobileOperatingSystem();"ACTIVE"===a||"REQUESTED"===a||"REJECTED"===a?($(n).addClass("true-image"),"Android"===o&&$(n).addClass("true-image-android"),"iOS"===o&&$(n).addClass("true-image-ios")):($(n).addClass("false-image"),"Android"===o&&$(n).addClass("false-image-android"),"iOS"===o&&$(n).addClass("false-image-ios"));var s="";s="ACTIVE"===a?"Open":"REQUESTED"===a||"INVITED"===a||"REJECTED"===a?"Requested":"Join",$(i).text(s)},window.getDate=function(e){return moment.unix(e/1e3).format("D")},window.onClickCategory=function(e){$(".check-filter").each(function(){"All"!==e?($(this).hasClass(e+"-filter")&&$(this).hasClass("display-none")&&$(this).removeClass("display-none"),$(this).hasClass(e+"-filter")||$(this).addClass("display-none")):$(this).removeClass("display-none")}),$(".font-filter").each(function(){$(this).hasClass(e+"-font-bold")?$(this).addClass("font-bold"):$(this).removeClass("font-bold")}),$(".icon-img-container").each(function(){$(this).hasClass(e+"-icon")?$(this).addClass("smaller-icon"):$(this).removeClass("smaller-icon")})},window.escapeHtml=function(e){for(var t=[["&","&amp;"],["<","&lt;"],[">","&gt;"],['"',"&quot;"],["'","&#39;"],["/","&#x2F;"],["`","&#x60;"],["=","&#x3D;"]],a=0;a<t.length;a++)-1<e.indexOf(t[a][1])&&(e=e.replace(t[a][1],t[a][0]));return e},window.getTitleText=function(e,t){var a="."+t+"-text",n="."+t+"-title-container",i=escapeHtml(e);21<=i.length&&i.length<=44?($(a).addClass("description-container"),$(n).addClass("less-margin")):45<i.length?($(a).addClass("description-container description-container-long"),$(n).addClass("less-margin")):$(a).addClass("normal-container"),$(a).text(i)},window.getTitleTextForOneLine=function(e,t,a){var n="."+t+"-text",i=escapeHtml(e),o=$(window).width();o<=320?"REQUESTED"===a||"REJECTED"===a?$(n).addClass("get-title-contaier-iphone-5-requested"):$(n).addClass("get-title-contaier-iphone-5"):321<o&&o<360?"REQUESTED"===a||"REJECTED"===a?$(n).addClass("get-title-contaier-android-requested"):$(n).addClass("get-title-contaier-android-6"):360<=o&&o<375?"REQUESTED"===a||"REJECTED"===a?$(n).addClass("get-title-contaier-iphone-6-requested"):$(n).addClass("get-title-contaier-nexus-6"):375<=o&&o<=400?"REQUESTED"===a||"REJECTED"===a?$(n).addClass("get-title-contaier-iphone-6-requested"):$(n).addClass("get-title-contaier-iphone-6"):400<o&&("REQUESTED"===a||"REJECTED"===a?$(n).addClass("get-title-contaier-iphone-plus-requested"):$(n).addClass("get-title-contaier-iphone-plus")),$(n).text(i)},window.getLocationText=function(e,t,a){var n=$(window).width(),i=".location-span."+t;n<=320?"REQUESTED"===a||"REJECTED"===a?$(i).addClass("location-span-iphone5-requested"):$(i).addClass("location-span-iphone5"):321<n&&n<=400?"REQUESTED"===a||"REJECTED"===a?$(i).addClass("location-span-iphone6-requested"):$(i).addClass("location-span-iphone6"):400<n&&("REQUESTED"===a||"REJECTED"===a?$(i).addClass("location-span-iphoneplus-requested"):$(i).addClass("location-span-iphoneplus")),$(i).text(e)},window.getTitleTextUnJoin=function(e,t){var a="."+t+"-text",n="."+t+"-title-container",i=escapeHtml(e);35<=i.length&&i.length<=55?($(a).addClass("description-container description-unjoin"),$(n).addClass("less-margin")):55<i.length?$(a).addClass("description-container description-container-long"):$(a).addClass("normal-container"),$(a).text(i)},window.addFriendSection=function(e){"Trending"===e&&$("<div class='name-container add-container'><a class='target-a' href='/app/addFriends'><div class='view-card-border'><div class='card-view'><img src='/images/add-friends-explore@2x.png' class='card-img no-card-view-border' /><div class='info-section'><div class='info-text friends-text'><div class='what-are'>What Are Your Friends Up To?</div><p class='card-location friend-location'>Add them to find out.</p></div></div></div></div></a></div>").insertAfter(".All-filter")};
+              </script>
+
+              <style media="screen">
+              body,button{outline:0}.career-bg,.events-bg,.fitness-bg,.foodie-bg,.times-up-section{position:relative}.let-text,.month{text-transform:uppercase}.category-title,.category-title span,.word-break-class{word-break:break-word}body,html{max-width:100%;overflow-x:hidden;padding:0;margin:0}body{overflow-y:scroll;-webkit-overflow-scrolling:touch;-webkit-tap-highlight-color:transparent;-webkit-touch-callout:none;-webkit-user-select:none;-khtml-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;font-family:-apple-system,BlinkMacSystemFont,sans-serif;background-color:#fff;padding-bottom:20px}.custom-divider{width:92%;margin:0 auto;height:1px;background-color:#f2f2f2}.category-section,.white-bg{background-color:#fff}.let-text{font-size:11px;margin:0 0 -17px 2px}.career-bg img{margin-bottom:6px}.fitness-bg img{margin-bottom:2px}.fitness-bg{margin-bottom:4px}.vibe-text{margin:0;padding-top:12px;font-size:18px;font-weight:500;line-height:21px;padding-bottom:10px;color:#000}.second,.times-up-section,.women-supporting-section{background-size:cover;background-repeat:no-repeat;color:#fff}.test-container .small-4{padding:0!important}.small-6{padding:3px!important}.woman-fi{margin-bottom:0;font-size:15px}.word-break-class{width:157px;line-height:19px;padding-top:5px;font-size:15px}.woman-thir{font-size:19px;margin-bottom:10px;margin-top:31px;font-weight:400}.divider{margin:15px 5px -4px}.less-margin{padding-bottom:24px!important;margin-top:-8.5px}.divider img{height:5px}.times-up-section{padding:0}.women-supporting-section{position:relative;padding:0 4px;margin-bottom:6px}.smaller-icon{animation-name:make-them-bigger;animation-duration:.3s;animation-fill-mode:forwards;margin-bottom:-3px!important}.category-section{white-space:nowrap;width:100%;overflow-y:hidden;overflow-x:scroll;visibility:visible}.inner-category-section{width:6500px;margin-left:-3px;-ms-overflow-style:none;overflow:-moz-scrollbars-none}.card-location,.category-title{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.cat-photo{margin:0 -52% 0 0;position:absolute;top:50%;left:50%;transform:translate(-50%,-50%)!important;width:26px}.description-unjoin{width:266px!important}.slick-slide.slick-current{outline:0!important}.main-cat-section{text-align:center;margin-top:11px;margin-right:-11px;display:inline-block;border-radius:3px}.for-atlanta{margin-right:-3px}.category-title{padding-top:10px;padding-bottom:8px;color:#333;font-size:12px;line-height:13px;z-index:1000000;width:75px;text-align:center}.for-atlanta-title{width:72px}.slick-slide img{display:inline-block!important}.card-view{z-index:1000;position:relative;display:flex!important;padding:1px 0 0}.view-card-border{height:77.4px}.small-4.medium-4.large-4.columns{padding-left:11px!important}.joined-image img{width:20pt;height:17.5pt}.joined-image{z-index:4000000;right:0;position:absolute;padding:9px 8px 11px 20px;top:7px}.card-title{margin:0;font-size:18px}.target-a,.target-a:focus,.target-a:hover{color:#fff;outline:0}.card-location{padding-bottom:10px;border-bottom:1px solid #f2f2f2;margin:0;font-size:14px;font-weight:300;word-wrap:break-word;width:250%;text-align:left;color:#979797}.friend-location{border:none;color:#fff;font-size:15px}.info-section{padding:16px 7px}.add-display{display:flex;justify-content:space-between}.display-none{display:none!important}.cards-section{padding:0 7px 10px;overflow-x:scroll;overflow-y:hidden;width:100%}.get-title-contaier-android-6,.get-title-contaier-android-requested,.get-title-contaier-iphone-5,.get-title-contaier-iphone-5-requested,.get-title-contaier-iphone-6,.get-title-contaier-iphone-6-requested,.get-title-contaier-iphone-plus,.get-title-contaier-nexus-6{overflow:hidden;text-overflow:ellipsis}.category-title-section{margin-top:-15px}.All-filter{margin-top:23px}.add-container{margin-bottom:19px}.aspect-ratio{width:100%;padding-top:61.25%;box-shadow:0 2px 4px 0 rgba(0,0,0,.12)}.card-img{border:1px solid #fbfbfb;margin:8px 0;width:60px;height:60px;border-radius:100px;object-fit:cover}.expo-card{width:100%;height:inherit}.small-4 .medium-4{text-align:right;padding-right:7px}.small-8{padding-left:11px}.explore-view{padding:0}.category-section.more-padding{padding:0 9px 8px}.purple{background-color:#743CCE}.month{font-weight:500;display:block;font-size:10px;margin:0}.day{margin:-6px 0 0;font-size:18px}.background{position:absolute;width:100%;height:100%;top:0;left:0;opacity:.8;z-index:100;border-radius:3px}.view-all-btn,.view-all-btn:focus,.view-all-btn:hover{right:10px;background-color:transparent;color:#743CCE;line-height:16px;font-size:14px;position:absolute;top:17px;padding:0}.donate-container{margin:6px}.padding-top-image{margin-top:20px}.donate-button,.donate-button:focus,.donate-button:hover{padding:5px;width:100%;height:50px;font-size:17px;font-weight:500;text-align:center;color:#fff;background:#743cce;border-radius:5px;text-decoration:none}.tour-bg{background:url(/images/tour.svg) top right no-repeat;position:relative;background-size:cover;padding:8px 12px 7px}.date-container{padding:3px 0 0;width:25pt;text-align:center;position:absolute;top:0;color:#000;right:8px;height:30pt;z-index:0;background:#fff;border-bottom-left-radius:5px;border-bottom-right-radius:5px;border:.5px solid rgba(0,0,0,.13)}.add-border,.test-container{border-top:1px solid #f2f2f2;border-bottom:1px solid #f2f2f2}.tour-bg img{top:12px;right:12px;position:absolute;cursor:pointer;z-index:100000}.false-image,.true-image{right:-9px;top:30px;border-radius:15px;position:absolute}.tour-title{font-size:12px;color:#fff;margin:0;opacity:.56}.tour-second-title{font-size:21px;font-weight:600;color:#fff;margin:-6px 0 0;letter-spacing:1px}.no-caros div:last-child{margin-bottom:23px}.info-text{color:#333;width:104px;height:50px;font-weight:500}.friends-text{width:250px;margin:0;padding:0;color:#fff;font-size:17px}.get-title-contaier-iphone-5{width:145px}.get-title-contaier-iphone-5-requested{width:115px}.get-title-contaier-iphone-6{width:201px}.get-title-contaier-nexus-6{width:188px}.get-title-contaier-android-6{width:164px}.get-title-contaier-iphone-6-requested{width:157px}.get-title-contaier-android-requested{width:147px}.get-title-contaier-iphone-plus{width:230px}.get-title-contaier-iphone-plus-requested{overflow:hidden;text-overflow:ellipsis;width:188px}.add-margin-top{margin-top:-20px}.false-image button,.true-image button{text-transform:uppercase;margin:0;font-size:13px;font-weight:500;letter-spacing:.5px}.true-image{background:#f2f2f2;color:#333}.true-image button{color:#979797}.true-image-android button{padding:5px 8px 4px}.true-image-ios button{padding:5px 12px 7px}.false-image button{color:#fff;padding:5px 15px}.Add-button,.font-bold,.location-name,.name-text,.no-circles-state{font-weight:700}.false-image-android button{padding:5px 10px 4px}.false-image-ios button{padding:5px 15px 7px}.false-image{background-color:#743CCE}.join-btn,.join-btn:focus,.join-btn:hover{background:0 0}.location-icon{width:12px;height:13.57px;margin-bottom:5px;margin-right:3px}.comment-icon,.members-icon{height:14px;margin-bottom:5px;margin-right:3px}.comment-icon{width:14px}.card-location span{margin-right:3px;display:inline-block}.members-icon{width:8.32px}.no-circles-state{font-size:18px;line-height:21px;margin-top:15px;margin-bottom:6px}.create-circle-btn{background:#743CCE;color:#fff;border-radius:15px;position:absolute;right:10px;top:17px;padding:6px 16px}.create-circle-btn p{margin:0;font-size:13px;font-weight:700;line-height:15px}.test-container{width:1059px!important;white-space:nowrap;overflow-y:hidden;overflow-x:scroll;visibility:visible}.location-span{position:absolute;word-wrap:break-word;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;height:20px;color:#979797}.description-container-long,.no-results-view{position:relative}.location-span-iphone5{width:68px;color:#979797}.location-span-iphone5-requested{width:17px}.location-span-iphone6{width:99px;color:#979797}.location-span-iphone6-requested{width:60px}.location-span-iphoneplus{width:154px;color:#979797}.location-span-iphoneplus-requested{width:105px}.no-results-view{background:#fff;padding:5px 13px;margin-bottom:23px}a{color:#fff;text-decoration:none;outline:0}.description-container{width:178px;word-break:break-word;white-space:initial;overflow:hidden;-webkit-line-clamp:2;line-height:1.2em;height:44px;font-size:18px;color:#000}.description-container-long:after{content:'...';position:absolute;right:9px;top:18px;width:2em;height:1em;margin-top:.2em;background:#fff}.less-width{padding-left:11px!important;width:47%!important}.normal-container{margin:0;font-size:18px;color:#000}.nearby-icon-size{width:20px;height:23.93px}.Trending-icon-size{width:25px;height:15.98px}.New-icon-size{width:20px;height:19.2px}.Career-icon-size{width:25px;height:22.2px}.Communities-icon-size{width:25px;height:25px}.Events-icon-size{width:25px;height:18px}.Family-icon-size{width:20px;height:17.83px}.Fitness-icon-size{width:32.9px;height:15.9px}.Food-icon-size{width:30px;height:23.39px}.Health-icon-size{width:25px;height:21.88px}.slick-list.draggable{height:229px}.slick-slider{margin-bottom:13px!important}.Style-icon-size{width:30px;height:20.41px}.Woman-icon-size{width:18px;height:30.57px}.Social-icon-size{width:25.6px;height:28.75px}.icon-img-container{margin:0 auto;width:47px;height:47px;border-radius:100px;position:relative}.icon-img-container.All{background-color:#FF0AA6}.location-container{display:flex;padding:14px 0 11px 11px}.no-margin-left{margin-right:0!important}.location-name{color:#333;font-size:18px;line-height:21px;margin:0}.location-unjoin{width:178px!important}.location-pin{width:12px;height:13.97px;margin-top:3px;margin-right:6px}.some-padding{padding:0 44px 0 10px}.check-length{border-top:1px solid #f2f2f2}.but-no-vibe{padding:0 10px}.name-container{background-color:#fff;padding:3px 13px 15px}.name-text{font-size:30px;margin:0;padding:0}.we-text{font-size:14px;margin:0;line-height:16px}.add-container{position:relative;padding:9px 11px;background-image:linear-gradient(to right,#743CCE,#25D8F1);margin-top:-13px;color:#fff}.All-filter .category-section .carousel-slick div div div div:nth-child(3) div div div a div .card-location{border:none}.Add-button{font-size:13px;top:29px;position:absolute;right:-3px;background-color:#743CCE;border-radius:15px;width:68px;height:28px;text-align:center;letter-spacing:5%;padding-top:4px}.cta-button,.last-child-view{font-size:16px;font-weight:500;border-radius:5px}.last-child-view{width:50%;background:#f2f2f2;margin:25px auto 0;padding:5px 0;color:#743CCE}.add-friends-text{color:#fff;padding-bottom:2px;padding-top:3px}.no-caros .card-view .info-section .false-image,.no-caros .card-view .info-section .true-image{right:11px}.slick-slider{top:-10px}.no-caros{height:106px}.show-are-new-container{position:absolute;top:0;background:#fff;width:100%;padding-top:14px;z-index:3000}.cta-button{background:#f2f2f2;color:#743CCE;text-align:center;padding:5px 30px;margin-right:13px}.two-btn-container{display:flex;justify-content:space-between;margin:13px 0 13px 13px}.close-image-container{padding:17px;position:absolute;right:2px;top:0}.for-new{z-index:3000}.for-woman{z-index:2000}.for-update{z-index:1100}.close-image{width:10.6px;height:10.6px}.new-name{padding-left:15px}.show-are-woman-container{background-image:linear-gradient(to right,#FF0AA6 0,#743CCE 100%);position:absolute;top:0;width:100%;z-index:2000}.show-update-available-container{background-image:linear-gradient(to right,#0069E3 0,#743CCE 100%);position:absolute;top:0;width:100%;z-index:1000}.woman-location{line-height:20px;font-size:14px;font-weight:300;width:100%}.are-you{font-size:18px;font-weight:500}.no-card-view-border{border:none}.woman-section{padding:7px}.no-results-view .custom-divider{margin-top:20px}.map-img{border-top:1px solid #f2f2f2;border-bottom:1px solid #f2f2f2}.cta-button.for-woman.no-thanks{padding:5px 34px}.passion-con{margin-top:0}@keyframes make-them-bigger{from{width:45px;height:45px}to{width:50px;height:50px}}@media screen and (max-width:340px){.are-you{font-size:16px}.woman-location{font-size:12px}.cta-button{font-size:14px;padding:5px 23px}}@media screen and (min-width:341px) and (max-width:360px){.cta-button{font-size:14px;padding:5px 34px}}@media screen and (min-width:413px){.cta-button{padding:5px 41px}}
+              </style>
+            </head>
+            <body>
+            {{#showUpdateAvailable}}
+            <div class="{{showUpdateAvailable}} show-update-available-container display-none">
+              <div class="close-image-container for-update" >
+                <img src="/images/x-btn-explore@3x.png" alt="close" class="close-image"/>
+              </div>
+              <div class="card-view new-name">
+                <img src="/images/present-logo-explore@2x.png" class="card-img no-card-view-border"/>
+                <div class="info-section woman-section">
+                  <div class="info-text friends-text">
+                    <div class="are-you">
+                      Present Update Available
+                    </div>
+                    <p class="woman-location">Experience the latest features and upgrades!</p>
+                  </div>
+                </div>
+              </div>
+              <div class="two-btn-container">
+                <a class="target-a send-for-update" target="_blank">
+                  <div class="cta-button for-update">
+                    Update Now
+                  </div>
+                </a>
+                  <div class="cta-button for-update">
+                    Maybe Later
+                  </div>
+              </div>
+            </div>
+            {{/showUpdateAvailable}}
+            {{#showAreYouAWoman}}
+            <div class="{{showAreYouAWoman}} show-are-woman-container display-none">
+              <div class="close-image-container for-woman" >
+                <img src="/images/x-btn-explore@3x.png" alt="close" class="close-image"/>
+              </div>
+              <div class="card-view new-name ">
+                <img src="/images/women-only-explore@2x.png" class="card-img no-card-view-border"/>
+                <div class="info-section woman-section">
+                  <div class="info-text friends-text">
+                    <div class="are-you">
+                      Are you a woman?
+                    </div>
+                    <p class="woman-location">Link Facebook to confirm your gender and access women-only circles.</p>
+                  </div>
+                </div>
+              </div>
+              <div class="two-btn-container">
+                <a class="target-a" href="/app/linkFacebook">
+                  <div class="cta-button for-woman">
+                    Yes, Let's Do It!
+                  </div>
+                </a>
+
+                <div class="cta-button for-woman no-thanks">
+                  No Thanks
+                </div>
+
+              </div>
+            </div>
+            {{/showAreYouAWoman}}
+            {{#showWereNew}}
+            <div class="{{showWereNew}} show-are-new-container display-none">
+              <div class="close-image-container for-new">
+                <img src="/images/x-btn-explore@3x.png" alt="close" class="close-image"/>
+              </div>
+              <p class="name-text new-name">Hello, {{memberName}}!</p>
+              <p class="we-text new-name">We're new in town. Help us get the party started!</p>
+
+              <div class="two-btn-container">
+                <a class="target-a" href="/app/inviteFriends">
+                  <div class="cta-button for-new">
+                    Invite Friends
+                  </div>
+                </a>
+                <a class="target-a" href="/app/createCircle">
+                  <div class="cta-button for-new">
+                    Start A Circle
+                  </div>
+                </a>
+              </div>
+            </div>
+            {{/showWereNew}}
+            <div class="name-container">
+              {{#canJoin}}
+              <p class="name-text">Hello, {{memberName}}!</p>
+              {{/canJoin}}
+              {{^canJoin}}
+              <p class="name-text">Hello!</p>
+              {{/canJoin}}
+              <p class="we-text">We picked these circles just for you.</p>
+            </div>
+            <!-- <div>
+              <a class="target-a" href="/t/All">
+                <img class="map-img" src="{{mapImage}}&size=414x126&scale=2" alt="map"/>
+              </a>
+            </div> -->
+            <!-- <div class="category-section">
+              <a class="target-a" href="/t/All">
+                <div class="main-cat-section padding-left-more" onclick="onClickCategory('All')">
+                  <div class="icon-img-container All All-icon smaller-icon" data-aos="zoom-in">
+                    <img onload="fadeIn(this, '{{city}}')" class="cat-photo nearby-icon-size" src="/images/All-icon@2x.png"/>
+                  </div>
+                  <div class="category-title">
+                    <span class="All-font-bold font-filter font-bold">All</span>
+                  </div>
+                </div>
+              </a>
+
+              {{#categories}}
+              <a class="target-a" href="/t/{{encodedName}}">
+                <div class="main-cat-section">
+                  <div class="icon-img-container {{encodedName}}-icon" data-aos="zoom-in">
+                    <img onload="fadeIn(this)" class="cat-photo {{encodedName}}-icon-size" src="/images/{{encodedName}}-icon@2x.png"
+                    onerror="this.onerror=null; this.src='/images/Random-icon@2x.png'; this.style='width:22.8px;height:22.7px;'"/>
+                  </div>
+                  <div class="category-title">
+                    <span class="{{encodedName}}-font-bold font-filter">{{name}}</span>
+                  </div>
+                </div>
+              </a>
+              {{/categories}}
+            </div> -->
+            <div class="custom-divider"></div>
+            <div class='name-container add-container passion-con'>
+              <a class='target-a' href='/app/createCircle'>
+                <div class='view-card-border'>
+                  <div class='card-view'>
+                    <img src='/images/add-create-circle@2x.png' class='card-img no-card-view-border' />
+                    <div class='info-section'>
+                      <div class='info-text friends-text'>
+                        <div class='what-are'>What's your passion?</div>
+                        <p class='card-location friend-location'>Start your own circle!</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </a>
+            </div>
+
+          <section class="explore-view">
+            {{#sections}}
+            {{#hasGroups}}
+
+            <div class="{{encodedName}}-filter check-filter ">
+
+              <div class="category-title-section">
+                <div class="small-8 medium-8 large-8 columns">
+                  <a href="/t/{{encodedName}}" class="target-a">
+                    <p class="vibe-text">{{name}}</p>
+                  </a>
+                </div>
+                <div class="small-4 medium-4 large-4 columns">
+                  <a href="/app/createCircle" class="target-a">
+                    <button class="view-all-btn">&nbsp;{{#hasGroups}}Create&nbsp;Circle{{/hasGroups}}</button>
+                  </a>
+                </div>
+
+              </div>
+
+              <div class="category-section white-bg">
+
+                <div class="carousel-slick">
+                  {{#groups}}
+
+                  <div class="{{encodedName}} view-card-border columns">
+                    <div class="card-view">
+                      <a class="target-a getUrl" href="{{url}}">
+                        <!-- TODO: Request 880x495 images. -->
+                        <img onload="fadeIn(this)" class="card-img" style="opacity: 0"
+                        src="{{cover.content}}"/>
+                      </a>
+                      <div class="info-section {{uuid}}-title-container">
+                        <a class="target-a" href="{{url}}">
+                          <div class="info-text">
+
+                            <div class="{{uuid}}-text ">
+                              <script type="text/javascript">
+                                getTitleTextForOneLine('{{title}}', '{{uuid}}', '{{membershipState}}')
+                              </script>
+                              <!-- <script type="text/javascript">
+                              getTitleText('{{title}}', '{{uuid}}');
+                              </script> -->
+                            </div>
+                              <p class="card-location">
+                                <span class="no-location members-containers"><img src="/images/Members@3x.png" alt="members" class="members-icon"/>{{memberCount}}</span>
+                                <span class="no-location comments-containers"><img src="/images/Comments@3x.png" alt="members" class="comment-icon"/>{{commentCount}}</span>
+                                <span class="no-margin-left"><img src="/images/location@3x.png" alt="members" class="location-icon"/></span>
+                                <span class="location-span {{uuid}}">
+                                  <script type="text/javascript">
+                                    getLocationText('{{locationName}}', '{{uuid}}', '{{membershipState}}')
+                                  </script>
+                                </span>
+                              </p>
+
+                            </div>
+                        </a>
+                        {{#canJoin}}
+                        <div class="{{uuid}}-image {{uuid}}-image-container" onclick="onclickjoin('{{uuid}}', '{{joined}}', '{{url}}', '{{preapprove}}', '{{canJoin}}')">
+                          <button class='{{uuid}}-join-text join-btn'/>
+                          <script>
+                          getJoinText('{{uuid}}','{{joined}}','{{membershipState}}', '{{canJoin}}');
+                          </script>
+                        </button>
+                      </div>
+                      {{/canJoin}}
+                      {{^canJoin}}
+                      <div class="{{uuid}}-image {{uuid}}-image-container" onclick="onclicknotjoin()">
+                        <button class='{{uuid}}-join-text join-btn'/>
+                        <script>
+                        getUnJoinText('{{uuid}}');
+                        </script>
+                      </button>
+                    </div>
+                      {{/canJoin}}
+
+                    </div>
+                    {{#schedule}}
+                    <!-- <div class="date-container">
+                    <p class="month">
+                    <script>
+                    document.write(getMonth({{startTime}}));
+                  </script>
+                </p>
+                <p class="day">
+                <script>
+                document.write(getDate({{startTime}}));
+              </script>
+            </p>
+          </div> -->
+          {{/schedule}}
+        </div>
+      </div>
+
+      {{/groups}}
+    </div>
+  </div>
+</div>
+
+{{/hasGroups}}
+
+</section>
+<script>
+  addFriendSection('{{name}}')
+</script>
+{{/sections}}
+
+<script>
+AOS.init(),$(document).ready(function(){disableSelectionScriptString="document.documentElement.style.webkitUserSelect='none';",disableCalloutScriptString="document.documentElement.style.webkitTouchCallout='none';";var s=["#FDD61C","#25D8F1","#0069E3","#743CCE","#FF0AA6"];$(".icon-img-container").each(function(a){$(this).hasClass("All")||($(this).css("background-color",s[a-1]),s.push(s[a-1]))})});var newFirstclass,womanFirstClass,updateFirstClass,device=getMobileOperatingSystem();$(".show-are-new-container").hasClass("true")&&(newFirstclass=$(".show-are-new-container").attr("class").split(" ")[0]),$(".show-are-woman-container").hasClass("true")&&(womanFirstClass=$(".show-are-woman-container").attr("class").split(" ")[0]),$(".show-update-available-container").hasClass("true")&&(updateFirstClass=$(".show-update-available-container").attr("class").split(" ")[0]),"Android"===device?$(".send-for-update").attr("href","https://play.google.com/store/apps/details?id=co.present.present"):$(".send-for-update").attr("href","https://appsto.re/us/0lr-jb.i"),$(".for-new").click(function(){localStorage.setItem("showWereNew",!1),$(".show-are-new-container").addClass("display-none")}),$(".for-woman").click(function(){localStorage.setItem("showAreYouAWoman",!1),$(".show-are-woman-container").addClass("display-none")}),$(".for-update").click(function(){localStorage.setItem("showUpdateAvailable",!1),$(".show-update-available-container").addClass("display-none")}),$(window).width()<350&&($(".what-are").addClass("word-break-class"),$(".friend-location").addClass("display-none")),$(".cat-photo").each(function(){$(this).hasClass("Women-Only-icon-size")&&$(this).addClass("Woman-icon-size"),$(this).hasClass("Social%20Good-icon-size")&&$(this).addClass("Social-icon-size"),$(this).hasClass("Food%20&%20Drink-icon-size")&&$(this).addClass("Food-icon-size")}),$(".carousel-slick").each(function(){var s=$(this).children().attr("class").split(" ")[0];"Trending"===s&&(s="All");var a=parseInt(this.childElementCount);a<=3?($(this).removeClass("carousel-slick"),$(this).addClass("no-caros")):(a%3!=0&&$(this).append("<a class='target-a' href=/t/"+s+"><div class='text-center'><div class='last-child-view'>View All</div></div></a>"),$(this).children().addClass("small-4 medium-4 large-4 end columns"))}),$(".comments-containers").each(function(){"0"===$(this).text()&&$(this).addClass("display-none")}),$(".carousel-slick").slick({arrows:!1,infinite:!1,speed:300,cssEase:"ease",swipe:!0,slidesToShow:1.06,slideToScroll:1,variableWidth:!1,initialSlide:0,rtl:!1,rows:3});
+</script>
+</body>
+</html>

@@ -1,0 +1,62 @@
+syntax = "proto2";
+package present;
+option java_package = "present.proto";
+
+import "present/group.proto";
+import "present/user.proto";
+
+// Converts URLs to entities. Extracts the path from the URL and ignores everything else,
+// meaning we support the "https://" scheme as well as "present://".
+service UrlResolverService {
+  // Turns a URL into an entity.
+  rpc resolveUrl (ResolveUrlRequest) returns (ResolveUrlResponse);
+}
+
+message ResolveUrlRequest {
+  // The full URL. sExample: "https://present.co/a/qplwGwl8"
+  required string url = 1;
+}
+
+message ResolveUrlResponse {
+  // The user who generated the link.
+  optional UserResponse referrer = 1;
+
+  // Entity type
+  enum Type {
+    // Returned for `/a/[id]`. `app` will be set.
+    APP = 1;
+
+    // Returned for `/u/[id]`. `user` will be set.
+    USER = 2;
+
+    // Returned for `/g/[id]`. `group` will be set.
+    GROUP = 3;
+
+    // Returned for `/c/[id]`. `comment` will be set.
+    COMMENT = 4;
+
+    // Returned for `/t/[name]`. `category` will be set.
+    CATEGORY = 5;
+  }
+
+  // Type of entity returned.
+  required Type type = 6;
+
+  // The entity to which the url refers.
+  oneof result {
+    AppResponse app = 2;
+    UserResponse user = 3;
+    GroupResponse group = 4;
+    CommentResponse comment = 5;
+    CategoryResponse category = 7;
+  }
+}
+
+// Represents a link to the app.
+message AppResponse {}
+
+// A link to a category.
+message CategoryResponse {
+  // The category name. May be different from the name in the URL if this category was renamed.
+  required string name = 1;
+}

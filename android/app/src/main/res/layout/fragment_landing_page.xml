@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/constraintLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:clipChildren="false"
+    tools:background="@color/presentPurple"
+    android:fitsSystemWindows="true"
+    tools:context=".feature.onboarding.step.FacebookLinkActivity">
+
+    <ImageView
+        android:id="@+id/wordmark"
+        android:layout_width="0dp"
+        android:tint="@color/white"
+        android:adjustViewBounds="true"
+        app:layout_constraintWidth_percent=".75"
+        app:srcCompat="@drawable/logo_and_wordmark"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:transitionName="@string/transition_name_wordmark"
+        />
+
+    <TextView
+        android:id="@+id/description"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="@dimen/spacing_medium"
+        android:breakStrategy="balanced"
+        android:fontFamily="sans-serif-medium"
+        android:gravity="center_horizontal"
+        android:text="@string/onboarding_subtitle"
+        android:textColor="@color/white"
+        android:textSize="@dimen/splash_subtitle_size"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/wordmark" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,27 @@
+// Internal Live Server API
+
+syntax = "proto2";
+package present;
+option java_package = "present.proto";
+
+import "present/core.proto";
+
+// Live server API.
+service LiveService {
+  // Dispatches a comment to other clients. Internal only.
+  rpc dispatchComment(DispatchCommentRequest) returns (Empty);
+}
+
+message DispatchCommentRequest {
+  // The uuid of the sending client.
+  required string clientUuid = 1;
+
+  // Group to dispatch comment to.
+  required string groupId = 2;
+
+  // Comment to dispatch. An encoded CommentResponse--there's no need for this server to decode it.
+  required bytes comment = 3;
+
+  // com.google.common.hash.BloomFilter<Ref<User>> serialized using its writeTo() method.
+  optional bytes blockedUsersFilter = 4;
+}

@@ -1,0 +1,37 @@
+// Ping Service (used for testing)
+
+syntax = "proto2";
+package present;
+option java_package = "present.proto";
+
+import "present/core.proto";
+
+service PingService {
+  // Used for testing.
+  rpc ping(PingRequest) returns (PingResponse);
+
+  // Deprecated: This service is for testing only!
+  // Check the version information supplied in the client headers.
+  rpc versionCheck(Empty) returns (VersionCheckResult);
+}
+
+message PingRequest {
+  required uint32 value = 1;
+}
+
+message PingResponse {
+  required uint32 value = 1;
+}
+
+message VersionCheckResult {
+  enum Status {
+    Current = 1; 
+    UpgradeAvailable = 2;
+    UpgradeRequired = 3;
+  }
+  // The status of the client application
+  required Status status = 1;
+
+  // A URL for the user to get the latest version of the client app.
+  required string latestVersionUrl = 2;
+}

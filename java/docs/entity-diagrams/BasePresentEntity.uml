@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>present.server.model.BasePresentEntity</OriginalElement>
+  <nodes>
+    <node x="456.25" y="322.0">present.server.model.user.User</node>
+    <node x="1604.0661764705883" y="86.0">present.server.model.BasePresentEntity</node>
+    <node x="285.0" y="1191.0">present.server.model.user.Client</node>
+    <node x="301.0" y="746.0">present.server.model.group.Group</node>
+    <node x="3006.25" y="400.0">present.server.model.activity.Event</node>
+    <node x="894.0" y="1191.0">present.shortid.ShortIdCounter</node>
+    <node x="1530.0661764705883" y="889.0">present.server.model.user.BlockedUsers</node>
+    <node x="2056.25" y="361.0">present.server.model.comment.CommentContainerView</node>
+    <node x="1125.25" y="374.0">present.server.model.comment.Comment</node>
+    <node x="193.25" y="478.0">present.server.model.comment.BaseCommentContainer</node>
+    <node x="150.0" y="151.0">present.server.model.comment.CommentContainer</node>
+    <node x="865.25" y="413.0">present.server.model.whitelist.WhitelistedUser</node>
+    <node x="987.6911764705883" y="915.0">present.server.model.whitelist.geofence.WhitelistGeofences</node>
+    <node x="2620.25" y="374.0">present.server.model.contact.Contact</node>
+    <node x="0.0" y="902.0">present.server.model.chat.Chat</node>
+    <node x="1619.25" y="465.0">present.server.model.SingletonEntity</node>
+    <node x="0.0" y="1191.0">present.server.model.user.VerificationRequest</node>
+    <node x="637.0" y="1191.0">present.server.facebook.FacebookFriendship</node>
+    <node x="1932.0661764705883" y="902.0">present.server.model.group.SavedGroups</node>
+    <node x="913.9411764705883" y="0.0">present.server.model.PresentEntity</node>
+    <node x="1823.25" y="452.0">present.server.model.content.Content</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="present.server.model.activity.Event" target="present.server.model.BasePresentEntity">
+      <point x="0.0" y="-109.0" />
+      <point x="3215.75" y="272.0" />
+      <point x="1825.0661764705883" y="272.0" />
+      <point x="104.0" y="83.0" />
+    </edge>
+    <edge source="present.server.model.comment.BaseCommentContainer" target="present.server.model.BasePresentEntity">
+      <point x="60.75" y="-31.0" />
+      <point x="375.5" y="272.0" />
+      <point x="1617.0661764705883" y="272.0" />
+      <point x="-104.0" y="83.0" />
+    </edge>
+    <edge source="present.server.model.whitelist.geofence.WhitelistGeofences" target="present.server.model.SingletonEntity">
+      <point x="0.0" y="-31.0" />
+      <point x="1165.1911764705883" y="721.0" />
+      <point x="1649.916666666667" y="721.0" />
+      <point x="-61.33333333333303" y="44.0" />
+    </edge>
+    <edge source="present.server.model.comment.CommentContainer" target="present.server.model.PresentEntity">
+      <point x="0.0" y="-18.0" />
+      <point x="254.0" y="61.0" />
+      <point x="953.1911764705883" y="61.0" />
+      <point x="-39.25" y="18.0" />
+    </edge>
+    <edge source="present.server.model.comment.Comment" target="present.server.model.BasePresentEntity">
+      <point x="0.0" y="-135.0" />
+      <point x="1362.25" y="302.0" />
+      <point x="1695.0661764705883" y="302.0" />
+      <point x="-26.0" y="83.0" />
+    </edge>
+    <edge source="present.server.model.comment.BaseCommentContainer" target="present.server.model.comment.CommentContainer">
+      <point x="-60.75" y="-31.0" />
+      <point x="0.0" y="18.0" />
+    </edge>
+    <edge source="present.server.model.content.Content" target="present.server.model.BasePresentEntity">
+      <point x="0.0" y="-57.0" />
+      <point x="1929.75" y="302.0" />
+      <point x="1747.0661764705883" y="302.0" />
+      <point x="26.0" y="83.0" />
+    </edge>
+    <edge source="present.server.model.comment.CommentContainerView" target="present.server.model.BasePresentEntity">
+      <point x="0.0" y="-148.0" />
+      <point x="2328.25" y="292.0" />
+      <point x="1773.0661764705883" y="292.0" />
+      <point x="52.0" y="83.0" />
+    </edge>
+    <edge source="present.server.model.BasePresentEntity" target="present.server.model.PresentEntity">
+      <point x="0.0" y="-83.0" />
+      <point x="1721.0661764705883" y="61.0" />
+      <point x="1031.6911764705883" y="61.0" />
+      <point x="39.25" y="18.0" />
+    </edge>
+    <edge source="present.server.model.user.User" target="present.server.model.BasePresentEntity">
+      <point x="0.0" y="-187.0" />
+      <point x="650.75" y="282.0" />
+      <point x="1643.0661764705883" y="282.0" />
+      <point x="-78.0" y="83.0" />
+    </edge>
+    <edge source="present.server.model.group.SavedGroups" target="present.server.model.SingletonEntity">
+      <point x="0.0" y="-44.0" />
+      <point x="2075.0661764705883" y="721.0" />
+      <point x="1772.583333333333" y="721.0" />
+      <point x="61.33333333333303" y="44.0" />
+    </edge>
+    <edge source="present.server.model.user.BlockedUsers" target="present.server.model.SingletonEntity">
+      <point x="0.0" y="-57.0" />
+      <point x="1721.0661764705883" y="721.0" />
+      <point x="1711.25" y="721.0" />
+      <point x="0.0" y="44.0" />
+    </edge>
+    <edge source="present.server.model.whitelist.WhitelistedUser" target="present.server.model.BasePresentEntity">
+      <point x="0.0" y="-96.0" />
+      <point x="985.25" y="292.0" />
+      <point x="1669.0661764705883" y="292.0" />
+      <point x="-52.0" y="83.0" />
+    </edge>
+    <edge source="present.server.model.contact.Contact" target="present.server.model.BasePresentEntity">
+      <point x="0.0" y="-135.0" />
+      <point x="2803.25" y="282.0" />
+      <point x="1799.0661764705883" y="282.0" />
+      <point x="78.0" y="83.0" />
+    </edge>
+    <edge source="present.server.model.chat.Chat" target="present.server.model.comment.BaseCommentContainer">
+      <point x="0.0" y="-44.0" />
+      <point x="140.5" y="721.0" />
+      <point x="254.0" y="721.0" />
+      <point x="-60.75" y="31.0" />
+    </edge>
+    <edge source="present.server.model.group.Group" target="present.server.model.comment.BaseCommentContainer">
+      <point x="0.0" y="-200.0" />
+      <point x="489.0" y="721.0" />
+      <point x="375.5" y="721.0" />
+      <point x="60.75" y="31.0" />
+    </edge>
+    <edge source="present.server.model.SingletonEntity" target="present.server.model.BasePresentEntity">
+      <point x="0.0" y="-44.0" />
+      <point x="1711.25" y="302.0" />
+      <point x="1721.0661764705883" y="302.0" />
+      <point x="0.0" y="83.0" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="0.4499014160243771" x="1679.5" y="765.0862549800797" />
+  <SelectedNodes />
+  <Categories>
+    <Category>Fields</Category>
+    <Category>Inner Classes</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>public</VISIBILITY>
+</Diagram>
+

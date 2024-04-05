@@ -1,0 +1,58 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <parent>
+    <groupId>present</groupId>
+    <artifactId>module</artifactId>
+    <version>1.0</version>
+    <relativePath>../module/pom.xml</relativePath>
+  </parent>
+
+  <artifactId>cast-placeholder-proto</artifactId>
+  <packaging>jar</packaging>
+
+  <dependencies>
+    <dependency>
+      <groupId>com.squareup.wire</groupId>
+      <artifactId>wire-runtime</artifactId>
+    </dependency>
+  </dependencies>
+
+  <build>
+    <plugins>
+      <!-- Wire Protocol Buffer compiler -->
+      <plugin>
+        <groupId>com.squareup.wire</groupId>
+        <artifactId>wire-maven-plugin</artifactId>
+        <configuration>
+          <protoPaths><param>root/proto</param></protoPaths>
+          <protoFiles>
+            <param>cast-placeholder.proto</param>
+            <param>headers.proto</param>
+          </protoFiles>
+        </configuration>
+      </plugin>
+
+      <plugin>
+        <groupId>present</groupId>
+        <artifactId>wire-service-generator</artifactId>
+        <version>1.0</version>
+        <executions>
+          <execution>
+            <goals>
+              <goal>generate-sources</goal>
+            </goals>
+            <phase>generate-sources</phase>
+          </execution>
+        </executions>
+        <configuration>
+          <protoPaths><param>root/proto</param></protoPaths>
+          <protoFiles>
+            <param>cast-placeholder.proto</param>
+          </protoFiles>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+</project>

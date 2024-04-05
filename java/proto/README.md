@@ -1,0 +1,1 @@
+Generates Java classes from our protocol buffers

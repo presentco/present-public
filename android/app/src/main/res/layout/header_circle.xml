@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/appbar"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:theme="@style/AppTheme.AppBarOverlay"
+    tools:parentTag="androidx.constraintlayout.widget.ConstraintLayout">
+
+
+    <co.present.present.feature.detail.CircleToolbar
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:id="@+id/circleToolbar" />
+
+    <ImageView
+        android:id="@+id/coverImage"
+        android:background="@drawable/circle_light_gray"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="@id/circleToolbar"
+        android:layout_marginEnd="@dimen/spacing_small"
+        android:layout_width="@dimen/circle_image_sm"
+        android:layout_height="@dimen/circle_image_sm" />
+
+    <View
+        android:id="@+id/dropDown"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:background="@color/lightestGray"
+        app:layout_constraintBottom_toBottomOf="@id/infoText"
+        app:layout_constraintTop_toBottomOf="@id/circleToolbar" />
+
+    <ImageButton
+        android:id="@+id/joinIcon"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:padding="@dimen/spacing_small"
+        android:background="@drawable/ripple_circular"
+        app:layout_constraintEnd_toStartOf="@id/muteIcon"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/dropDown"
+        app:srcCompat="@drawable/ic_not_joined" />
+
+    <TextView
+        android:id="@+id/joinText"
+        style="@style/CircleButtonCaption"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/spacing_small"
+        app:layout_constraintEnd_toEndOf="@id/joinIcon"
+        app:layout_constraintStart_toStartOf="@id/joinIcon"
+        app:layout_constraintTop_toBottomOf="@id/joinIcon"
+        tools:text="@string/join" />
+
+    <ImageButton
+        android:id="@+id/muteIcon"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:padding="@dimen/spacing_small"
+        android:background="@drawable/ripple_circular"
+        app:layout_constraintEnd_toStartOf="@id/addIcon"
+        app:layout_constraintStart_toEndOf="@id/joinIcon"
+        app:layout_constraintTop_toTopOf="@id/dropDown"
+        app:srcCompat="@drawable/ic_mute" />
+
+    <TextView
+        android:id="@+id/muteText"
+        style="@style/CircleButtonCaption"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="@id/muteIcon"
+        app:layout_constraintStart_toStartOf="@id/muteIcon"
+        app:layout_constraintTop_toBottomOf="@id/muteIcon"
+        tools:text="@string/mute" />
+
+    <ImageButton
+        android:id="@+id/addIcon"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:padding="@dimen/spacing_small"
+        android:background="@drawable/ripple_circular"
+        app:layout_constraintEnd_toStartOf="@id/shareIcon"
+        app:layout_constraintStart_toEndOf="@id/muteIcon"
+        app:layout_constraintTop_toTopOf="@id/dropDown"
+        app:srcCompat="@drawable/ic_add_user" />
+
+    <TextView
+        android:id="@+id/addText"
+        style="@style/CircleButtonCaption"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="@id/addIcon"
+        app:layout_constraintStart_toStartOf="@id/addIcon"
+        app:layout_constraintTop_toBottomOf="@id/addIcon"
+        android:text="@string/add_members" />
+
+    <ImageButton
+        android:id="@+id/shareIcon"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:padding="@dimen/spacing_small"
+        android:background="@drawable/ripple_circular"
+        app:layout_constraintEnd_toStartOf="@id/infoIcon"
+        app:layout_constraintStart_toEndOf="@id/addIcon"
+        app:layout_constraintTop_toTopOf="@id/dropDown"
+        app:srcCompat="@drawable/ic_share_outline" />
+
+    <TextView
+        android:id="@+id/shareText"
+        style="@style/CircleButtonCaption"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="@id/shareIcon"
+        app:layout_constraintStart_toStartOf="@id/shareIcon"
+        app:layout_constraintTop_toBottomOf="@id/shareIcon"
+        android:text="@string/share" />
+
+    <ImageButton
+        android:id="@+id/infoIcon"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:padding="@dimen/spacing_small"
+        android:background="@drawable/ripple_circular"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/shareIcon"
+        app:layout_constraintTop_toTopOf="@id/dropDown"
+        app:srcCompat="@drawable/ic_details" />
+
+    <TextView
+        android:id="@+id/infoText"
+        style="@style/CircleButtonCaption"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingBottom="@dimen/spacing_small"
+        app:layout_constraintEnd_toEndOf="@id/infoIcon"
+        app:layout_constraintStart_toStartOf="@id/infoIcon"
+        app:layout_constraintTop_toBottomOf="@id/infoIcon"
+        android:text="@string/details" />
+
+    <androidx.constraintlayout.widget.Group
+        android:id="@+id/join"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:constraint_referenced_ids="joinIcon,joinText" />
+
+    <androidx.constraintlayout.widget.Group
+        android:id="@+id/mute"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:constraint_referenced_ids="muteIcon,muteText" />
+
+    <androidx.constraintlayout.widget.Group
+        android:id="@+id/add"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:constraint_referenced_ids="addIcon,addText" />
+
+    <androidx.constraintlayout.widget.Group
+        android:id="@+id/share"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:constraint_referenced_ids="shareIcon,shareText" />
+
+    <androidx.constraintlayout.widget.Group
+        android:id="@+id/info"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:constraint_referenced_ids="infoIcon,infoText" />
+
+</merge>

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="EmptyView" customModule="Present" customModuleProvider="target">
+            <connections>
+                <outlet property="button" destination="w3V-uK-cgq" id="4s2-KU-bBW"/>
+                <outlet property="mainText" destination="uKS-rd-cvI" id="Dln-mP-j54"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label with very long demo text what does this look" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uKS-rd-cvI">
+                    <rect key="frame" x="32" y="221" width="311" height="55"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="55" id="YaI-Nc-xef"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w3V-uK-cgq" customClass="ThemeableButton" customModule="Present" customModuleProvider="target">
+                    <rect key="frame" x="97" y="308" width="180" height="50"/>
+                    <color key="backgroundColor" red="0.4549019608" green="0.23529411759999999" blue="0.80784313730000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="180" id="AMF-jn-zvN"/>
+                        <constraint firstAttribute="height" constant="50" id="o7m-Mc-N5P"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                    <state key="normal" title="Add Friends">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                </button>
+            </subviews>
+            <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="w3V-uK-cgq" firstAttribute="top" secondItem="uKS-rd-cvI" secondAttribute="bottom" constant="32" id="31g-Ax-H4d"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="uKS-rd-cvI" secondAttribute="trailing" constant="32" id="8Qm-hO-Jmh"/>
+                <constraint firstItem="uKS-rd-cvI" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="32" id="O9I-LW-uo4"/>
+                <constraint firstItem="w3V-uK-cgq" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="h0C-ZP-bJj"/>
+                <constraint firstItem="w3V-uK-cgq" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="jAp-fz-XRm"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <point key="canvasLocation" x="24.5" y="51.5"/>
+        </view>
+    </objects>
+</document>

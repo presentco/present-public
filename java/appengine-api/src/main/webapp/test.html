@@ -1,0 +1,43 @@
+<html>
+<head>
+    <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+</head>
+<body>
+<h1>Present Notification Tests</h1>
+<img width="50px" src="images/generic-admin.png"/><br/>
+Auth code:  <input size="40" type="text" name="auth" id="auth"><p/>
+<p>
+<h2>Comment on Circle</h2>
+<input size="40" type="text" placeholder="Exact title of an existing circle" name="groupName" id="groupName"><p/>
+<textarea rows="5" cols="36" id="comment" name="comment" placeholder="Comment text..."></textarea><p/>
+<input id="submit" type="submit" value="Post" name="post" onclick="
+    $('#commentResults').load('/testMessage', { auth: auth.value, groupName: groupName.value, comment: comment.value }); 
+    $('#comment').val('');
+"/>
+<div id="commentResults"></div>
+<p>
+<h2>Message User</h2>
+<input type="text" placeholder="+1314" name="phone" id="phone"></p>
+<textarea rows="5" cols="36" id="message" name="message" placeholder="Message text..."></textarea></p>
+<input id="submit2" type="submit" value="Send" name="send" onclick="
+    $('#messageResults').load('/testMessage', { auth: auth.value, phone: phone.value, message: message.value }); 
+    $('#message').val('');
+"/>
+<div id="messageResults"></div>
+<p>
+<h2>Test Notifications</h2>
+<input type="text" placeholder="bob@present.co" name="email" id="email"></p>
+<input id="submit3" type="submit" value="Notify" name="send" onclick="
+    $('#notificationResults').load('/rest/notify?email=' + email.value);
+"/>
+<div id="notificationResults"></div>
+<script>
+    function getURLParameter(name) {
+        return decodeURIComponent((new RegExp('[?|&]' + name + '=' + '([^&;]+?)(&|#|;|$)').exec(location.search) || [null, ''])[1].replace(/\+/g, '%20')) || null;
+    }
+    $('#auth').val(getURLParameter('auth'));
+</script>
+</body>
+</html>
+

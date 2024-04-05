@@ -1,0 +1,22 @@
+syntax = "proto2";
+package present;
+option java_package = "present.proto";
+
+import "present/core.proto";
+
+service SlackService {
+  rpc post(SlackPostRequest) returns (Empty);
+}
+
+message SlackPostRequest {
+  optional string username = 1 [default = "Present"];
+  required string channel = 2;
+  optional string emoji = 3 [default = ":new:"];
+  required string text = 4;
+  repeated SlackAttachment attachments = 5;
+}
+
+message SlackAttachment {
+  required string fallback = 1;
+  required string image_url = 2;
+}

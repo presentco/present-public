@@ -1,0 +1,21 @@
+# See http://sequencediagram.org/
+
+Client->GroupService:1. getPastComments()
+GroupService-->Client://comments//
+
+Client->GroupService:2. findLiveServer()
+GroupService-->Client://live server location//
+
+Client->Live Server:3. Connect to **wss:\/\/HOST:PORT\/comments**
+
+Client->Live Server:4. LiveCommentsRequest
+
+Live Server->Client:LiveCommentsResponse
+
+note over Client,GroupService:Retrieve comments that came in while\n we were connecting to the live server.
+
+Client->GroupService:5. getPastComments()
+GroupService-->Client:past comments
+
+Live Server->Client:CommentResponse
+Live Server->Client:CommentResponse

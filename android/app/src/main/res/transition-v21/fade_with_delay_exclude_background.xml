@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<transitionSet xmlns:android="http://schemas.android.com/apk/res/android"
+    android:duration="@integer/link_facebook_enter_duration"
+    android:startDelay="@integer/link_facebook_enter_delay"
+    android:transitionOrdering="together"
+    android:interpolator="@android:interpolator/fast_out_slow_in">
+    <fade>
+        <targets>
+            <target android:excludeId="@id/background"/>
+        </targets>
+    </fade>
+</transitionSet>

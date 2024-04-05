@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    >
+
+    <View android:layout_height="1dp"
+        android:background="@color/lighterGray"
+        android:layout_width="match_parent"/>
+
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tabLayout"
+        style="@style/HeaderTabLayout"
+        app:tabMode="scrollable"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <!-- These tabs are just here for preview purposes,
+        they're not actually used by the app -->
+        <com.google.android.material.tabs.TabItem
+            android:text="@string/description"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <com.google.android.material.tabs.TabItem
+            android:text="@string/categories"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <com.google.android.material.tabs.TabItem
+            android:text="@string/time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <com.google.android.material.tabs.TabItem
+            android:text="@string/privacy"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+    </com.google.android.material.tabs.TabLayout>
+
+    <View android:layout_height="1dp"
+        app:layout_constraintTop_toBottomOf="@+id/tabLayout"
+        android:background="@color/lighterGray"
+        android:layout_width="match_parent"/>
+
+
+    <co.present.present.view.WrapContentViewPager
+        android:id="@+id/viewPager"
+        android:layout_marginTop="@dimen/spacing_medium"
+        app:layout_constraintTop_toBottomOf="@id/tabLayout"
+        android:layout_width="match_parent"
+        tools:layout_height="200dp"
+        android:layout_height="wrap_content"/>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

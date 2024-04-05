@@ -1,0 +1,577 @@
+// User API Messages
+
+syntax = "proto2";
+package present;
+option java_package = "present.proto";
+
+import "present/core.proto";
+import "present/content.proto";
+
+// Signup flow:
+//
+// 1. linkFacebook()
+// 2. putUserProfile()
+// 3. completeSignup()
+//
+// The client should call synchronize() on each launch to synchronize Facebook and for
+// instructions on how to pick up where it left off.
+//
+// linkFacebook(), completeSignup() and synchronize() all return AuthorizationResponse which
+// tells the client what to do next.
+
+service UserService {
+
+  // Links a Facebook account to the current client, creating a new User if necessary.
+  rpc linkFacebook(LinkFacebookRequest) returns (AuthorizationResponse);
+
+  // Requests account verification via SMS.
+  rpc requestVerification(RequestVerificationRequest) returns (RequestVerificationResponse);
+
+  // Verifies ownership of an email address or phone number.
+  rpc verify(VerifyRequest) returns (AuthorizationResponse);
+
+  // Tells the server that the signup process is complete. Called once at the end of signup.
+  // Puts User in the MEMBER or REVIEWING state.
+  rpc completeSignup(Empty) returns (AuthorizationResponse);
+
+  // Synchronizes Facebook, checks the user's authorization status, etc. Should be called
+  // by clients (asynchronously) at launch and polled from the block screen in case the user's
+  // state changes.
+  rpc synchronize(SynchronizeRequest) returns (SynchronizeResponse);
+
+  // Gets the user's profile.
+  rpc getUserProfile(Empty) returns (UserProfile);
+
+  // Set or update the user's profile.
+  rpc putUserProfile(UserProfileRequest) returns (UserProfile);
+
+  // Updates the user's name.
+  // TODO: Deprecated: Use putUserProfile()
+  rpc putUserName(UserName) returns (Empty);
+
+  // Updates the notifications device token for (one of) the user's client devices.
+  rpc putDeviceToken(PutDeviceTokenRequest) returns (Empty);
+
+  // Updates a user's profile photo.
+  rpc putUserPhoto(PutUserPhotoRequest) returns (ContentResponse);
+
+  // Updates the user's notification settings
+  rpc putUserNotificationSettings(UserNotificationSettings) returns (Empty);
+
+  // Get the public profile of another Present user.
+  rpc getUser(UserRequest) returns (UserResponse);
+
+  // Blocks the specified user.
+  rpc blockUser(UserRequest) returns (Empty);
+
+  // Unblocks the specified user.
+  rpc unblockUser(UserRequest) returns (Empty);
+
+  // Get the list of blocked users.
+  rpc getBlockedUsers(Empty) returns (UsersResponse);
+
+  // Computes unread counts and pushes them to a user's devices.
+  rpc computeUnreadCounts(ComputeUnreadCountsRequest) returns (Empty);
+
+  // Client callback to notify the server of a push notification received
+  rpc notificationReceived(NotificationReceivedRequest) returns (Empty);
+
+  // User Search
+  rpc search(UserSearchRequest) returns (UsersResponse);
+
+  // Geocode the specified user (for internal use).
+  rpc geocodeSignupLocation(UserRequest) returns (Empty);
+
+  // Emails a summary of activity to the given user. Typically called by a cron job.
+  rpc sendSummary(SummaryRequest) returns (Empty);
+
+  // Gets the spaces available to the current user.
+  rpc getSpaces(Empty) returns (SpacesResponse);
+
+  // Deletes the user's account. The client should not call more RPCs after invoking this RPC.
+  rpc deleteAccount(UserRequest) returns (Empty);
+
+  // Gets states an admin can transition this user to.
+  rpc getValidStateTransitions(UserRequest) returns (ValidStateTransitionsResponse);
+
+  // Transitions the given user's state. Admins only.
+  rpc transitionState(TransitionStateRequest) returns (Empty);
+
+  // Deprecated
+  rpc getFollowing(UserRequest) returns (UsersResponse);
+
+  // Deprecated
+  rpc getFollowers(UserRequest) returns (UsersResponse);
+
+  // Get the full administrator profile of a Present user
+  rpc adminSearch(AdminSearchRequest) returns (AdminSearchResponse);
+
+  // Gets the current user's Facebook friends who are also on Present.
+  rpc getFacebookFriends(Empty) returns (UsersResponse);
+
+  // Gets the specified user's friends on Present. Defaults to the current user. A user
+  // must be an admin or friends with the other user to see their friends.
+  rpc getFriends(UserRequest) returns (UsersResponse);
+
+  // Gets friend requests for the current user.
+  rpc getIncomingFriendRequests(Empty) returns (UsersResponse);
+
+  // Gets friend requests from the current user.
+  rpc getOutgoingFriendRequests(Empty) returns (UsersResponse);
+
+  // Requests or accepts a friendship.
+  rpc addFriend(UserRequest) returns (AddFriendResponse);
+
+  // Removes a friend or rejects a request.
+  rpc removeFriend(UserRequest) returns (Empty);
+
+  // Adds contacts by phone. Returns user IDs matching any contacts.
+  rpc addContacts(AddContactsRequest) returns (AddContactsResponse);
+
+  // Tells us the user is not a woman or not interested in women-only features.
+  rpc setOtherGender(Empty) returns (Empty);
+}
+
+// Indicates whether or not the user is allowed to access the app.
+message Authorization {
+  enum NextStep {
+    // Proceed to the app!
+    PROCEED = 1;
+
+    // Link Facebook.
+    AUTHENTICATE = 2;
+
+    // Continue signup.
+    SIGN_UP = 3;
+
+    // Show the block screen. The client should poll synchronize() to see if it should proceed.
+    BLOCK = 4;
+  }
+
+  // Instructs the client on what to do next.
+  required NextStep nextStep = 1;
+
+  // If nextStep == BLOCK, display this content.
+  optional BlockScreen blockScreen = 2;
+}
+
+message BlockScreen {
+  required string text = 1;
+}
+
+message LinkFacebookRequest {
+  // The user access token generated by the client SDK via a user interaction.
+  required string accessToken = 1;
+
+  // Used in testing. Ignored otherwise.
+  optional string facebookId = 2;
+}
+
+
+message AuthorizationResponse {
+  required Authorization authorization = 1;
+
+  // The user's current profile. Null if authorization.nextStep == AUTHENTICATE.
+  optional UserProfile userProfile = 2;
+}
+
+enum Feature {
+  COINS_FOR_JOINS = 1;
+  CIRCLE_CREATION = 2;
+}
+
+message SynchronizeResponse {
+  required Authorization authorization = 1;
+
+  // The user's current profile. Null if authorization.nextStep == AUTHENTICATE.
+  optional UserProfile userProfile = 2;
+
+  // Feature flags.
+  repeated Feature features = 3;
+}
+
+enum Gender {
+
+  UNKNOWN = 0;
+
+  // TODO: The iOS Client build process requires enum names to be unique.
+  // TODO: We temporarily change the name for the iOS build.  The wire format is unaffected.
+//  UNKNOWN_GENDER = 0;
+
+  WOMAN = 1;
+  MAN = 2;
+  OTHER = 3;
+}
+
+// Public information about a user
+message UserResponse {
+  // User ID
+  required string id = 1;
+
+  // User's public name (Example: "Bob L.")
+  optional string name = 2;
+
+  // First name by itself
+  optional string firstName = 7;
+
+  // URL for author's JPEG photo
+  required string photo = 3;
+
+  // The user's short self description.
+  // Optional: This field may be excluded from bulk user responses. Retrieve with getUser().
+  optional string bio = 4;
+
+  // The user's chosen interests.
+  // TODO: Describe the relationship of interests to circle categories (subset?)
+  // Optional: This field may be excluded from bulk user responses. Retrieve with getUser().
+  repeated string interests = 5;
+
+  // Deprecated. Always empty. Use getFriends() instead.
+  repeated FriendResponse friends = 6;
+
+  // The user's signup location. Returned for admins only.
+  optional string signupLocation = 8;
+
+  // An HTTPS link to this user.
+  required string link = 9;
+
+  // True if the user is a Present member.
+  required bool member = 10;
+}
+
+// Deprecated.
+message FriendResponse {
+  required UserResponse user = 1;
+}
+
+message UsersResponse {
+  repeated UserResponse users = 1;
+}
+
+message UserName {
+  required string first = 1;
+  required string last = 2;
+}
+
+// Specify which types of system activity generate notifications for the user.
+// Settings naming convention: "When a(n)..."
+//   actor-action
+//   actor-action-"On"-target
+//   qualifier-actor-qualifier-action-"On"-qualifier-target
+message UserNotificationSettings {
+  // Begin: legacy
+
+  // Unsupported:
+  // Last shipped with client version iOS v0.1.1.
+  // Notify for groups the user has created
+  optional bool deprecated_ownedGroups = 1;
+
+  // Deprecated: This field is mapped to userCommentsOnJoinedGroup.
+  // Last shipped: client version iOS v0.1.1.
+  // Notify for groups the user has favorited
+  optional bool deprecated_favoritedGroups = 2;
+
+  // Unsupported:
+  // Last shipped with client version iOS v0.1.1.
+  // Notify for groups to which the user has posted content
+  optional bool deprecated_contributedGroups = 3;
+
+  // End: legacy
+
+  // Another user comments on a group I have joined.
+  optional bool userCommentsOnJoinedGroup = 4;
+
+  // Another user joins a group that I own.
+  optional bool userJoinsOwnedGroup = 5;
+
+  // Positive affirmations from Present
+  optional bool affirmations = 6;
+}
+
+// The UserProfile is the user's private view of their profile data.
+// It includes all of the public fields as well as private settings.
+// Note: We could compose a UserResponse inside for the common parts of both, but let's see how
+//   this evolves first.
+message UserProfile {
+  // User ID
+  required string id = 1;
+
+  // Can be null if the client has logged in but has not set the user name.
+  optional UserName name = 2;
+
+  // URL for user's JPEG photo. Can be null if the client has not uploaded a photo.
+  optional string photo = 3;
+
+  // The user's short self description.
+  optional string bio = 5;
+
+  // The user's chosen interests.
+  // TODO: Describe the relationship of interests to circle categories (subset?)
+  repeated string interests = 6;
+
+  // Deprecated. Always empty. Use getFriends() instead.
+  repeated FriendResponse friends = 7;
+
+  // The user's notification preferences.
+  optional UserNotificationSettings notificationSettings = 4;
+
+  // If true this user is a Present administrator.  Administrators may edit content owned by others.
+  optional bool isAdmin = 8;
+
+  // Link used to share the app with other users. Embeds referrer information.
+  required string appShareLink = 9;
+
+  // The user's home city.
+  optional City home = 10;
+
+  // An HTTPS link to this user.
+  required string link = 11;
+
+  // User's gender identification.
+  optional Gender gender = 12;
+
+  // True if the user has a Facebook account linked.
+  optional bool facebookLinked = 13;
+
+  // True if the user has verified a phone number.
+  optional bool phoneVerified = 14;
+
+  // Number of open friend requests.
+  optional uint32 incomingFriendRequests = 15;
+}
+
+// User updatable elements of the user profile.
+message UserProfileRequest {
+
+  // The user supplied name
+  optional UserName name = 1;
+
+  // A content reference for an uploaded user photo.
+  optional ContentReferenceRequest photo = 2;
+
+  // A short self description
+  optional string bio = 5;
+
+  // A set of interests chosen by the user.
+  repeated string interests = 6;
+
+  // User's 5-digit zip code
+  optional string zip = 7;
+
+  // The user's notification preferences.
+  // Each setting is optional and may be updated indivdiually.
+  optional UserNotificationSettings notificationSettings = 3;
+}
+
+message PutUserPhotoRequest {
+  // The user's photo
+  required ContentReferenceRequest photoRef = 2;
+}
+
+message PutDeviceTokenRequest {
+  // Token that identifies the device to the downstream notification service.
+  //
+  // Setting this to null clears the device's token; can be used by the client when switching
+  // between staging and production.
+  optional string deviceToken = 1;
+
+  enum ApnsEnvironment {
+    SANDBOX = 1;
+    PRODUCTION = 2;
+  }
+
+  // iOS only. Which APNS server to send notifications to.
+  optional ApnsEnvironment apnsEnvironment = 4;
+}
+
+//
+// Social Graph messages
+//
+
+// A request that simply identifies a Present user
+message UserRequest {
+  oneof id {
+    string userId = 1;
+    string phoneNumber = 2;
+  }
+}
+
+// A request that identifies a list of Present users
+message UsersRequest {
+  repeated string userIds = 1;
+}
+
+message ComputeUnreadCountsRequest {
+  required string userId = 1;
+
+  // From User.unreadVersion.
+  required uint32 unreadVersion = 4;
+}
+
+message SynchronizeRequest {
+  // Whether or not notifications are enabled on this client.
+  optional bool notificationsEnabled = 1;
+}
+
+// Inform the server that the client received a push notification
+message NotificationReceivedRequest {
+  // A JSON string containing the full notification as received
+  optional string notification = 1;
+}
+
+message UserSearchRequest {
+  required string searchText = 1;
+}
+
+message UnreadCounts {
+  required uint32 total = 1;
+  required uint32 groups = 2;
+  // field 3 was used for chats
+  required uint32 incomingFriendRequests = 4;
+}
+
+message SummaryRequest {
+  required string userId = 1;
+}
+
+message VerifyRequest {
+  oneof value {
+    // https://present.co/v/[code]
+    string url = 1;
+
+    // N-digit code typed by user. Length should match VerificationRequestResponse.codeLength.
+    string code = 2;
+  }
+}
+
+message SpacesResponse {
+  repeated SpaceResponse spaces = 1;
+}
+
+message ValidStateTransitionResponse {
+  required string id = 1;
+
+  // Action of transitioning to this state. Intended for use in UI.
+  required string verb = 2;
+
+  // Describes this state.
+  required string description = 3;
+}
+
+message ValidStateTransitionsResponse {
+  repeated ValidStateTransitionResponse validStateTransitions = 1;
+}
+
+message TransitionStateRequest {
+  required string userId = 1;
+  required string stateId = 2;
+}
+
+message AdminSearchRequest {
+  enum Direction {
+    FORWARD = 1;
+    BACKWARD = 2;
+  }
+
+  // Query cursor.
+  optional string cursor = 1;
+
+  // Number of results to return. Defaults to 100.
+  optional uint32 limit = 2;
+
+  // Direction to page. Required if cursor is set.
+  optional Direction direction = 3;
+
+  // Search text.
+  optional string query = 4;
+}
+
+message AdminSearchResponse {
+  // Null if we've reached the end of the results.
+  optional string cursor = 1;
+
+  repeated AdminUserResponse users = 2;
+
+  // Total result count. Set only when AdminSearchRequest.query is null.
+  optional uint64 count = 3;
+}
+
+// Full profile of a Present user
+message AdminUserResponse {
+  // User uuid
+  required string uuid = 1;
+
+  // URL to profile photo
+  optional string photo = 2;
+
+  optional string firstName = 3;
+  optional string lastName = 4;
+  optional string gender = 5;
+  optional string phone = 6;
+  optional string email = 7;
+
+  // Facebook profile url
+  optional string facebookLink = 8;
+
+  // Present profile url
+  required string presentLink = 9;
+
+  required uint64 signupTime = 10;
+  optional bool notificationsEnabled = 11;
+  optional uint64 lastActivityTime = 12;
+  optional string signupCity = 13;
+  optional string signupState = 14;
+  optional double signupLat = 15;
+  optional double signupLong = 16;
+  optional double signupLocationAccuracy = 17;
+  required string userState = 18;
+  optional string review = 19;
+  repeated string clients = 20;
+  repeated string availableActions = 21;
+  required string debugString = 22;
+}
+
+message RequestVerificationRequest {
+  // U.S. phone number in E.164 format. Like "14155550000" (1 + 10 digits).
+  required string phoneNumber = 1;
+}
+
+message RequestVerificationResponse {
+  required uint32 codeLength = 1;
+}
+
+enum FriendshipState {
+  // Friendship was requested.
+  REQUESTED = 1;
+
+  // A friendship request was accepted.
+  ACCEPTED = 2;
+}
+
+message AddFriendResponse {
+  required FriendshipState result = 1;
+
+  // The existing or newly created (placeholder) user added by the request.
+  required UserResponse user = 2;
+}
+
+message ContactRequest {
+  // Phone number in E.164 format.
+  required string phoneNumber = 1;
+  optional string fullName = 2;
+  optional string firstName = 3;
+  optional string lastName = 4;
+}
+
+message AddContactsRequest {
+  repeated ContactRequest contacts = 1;
+}
+
+message PhoneUserResponse {
+  required string phoneNumber = 1;
+  required UserResponse user = 2;
+}
+
+message AddContactsResponse {
+  repeated PhoneUserResponse results = 1;
+}

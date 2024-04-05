@@ -1,0 +1,53 @@
+# Xcode
+*.pbxuser
+!default.pbxuser
+*.mode1v3
+!default.mode1v3
+*.mode2v3
+!default.mode2v3
+*.perspectivev3
+!default.perspectivev3
+xcuserdata
+*.xccheckout
+*.moved-aside
+DerivedData
+*.hmap
+*.ipa
+*.xcuserstate
+
+# General
+.DS_Store
+*.diff
+*.patch
+
+# Java
+java/build/
+java/classes/
+target/
+.idea/
+*.iml
+api*.log
+api*.log.readable
+tmux-out.*
+devserver.log
+console.log
+
+# Vim
+*.swp
+
+# Tmp files
+a
+a.log
+b
+b.log
+
+# emacs
+[#]*
+.[#]*
+*~
+android/app/src/main/gen/co/present/present/BuildConfig.java
+android/app/src/main/gen/co/present/present/Manifest.java
+android/app/src/main/gen/co/present/present/R.java
+*.class
+present-webapp/package-lock.json
+java/appengine-api/src/main/java/present/server/tool/Test.java

@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/bottomSheet"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:paddingStart="@dimen/spacing_medium"
+    android:paddingEnd="@dimen/spacing_medium"
+    android:paddingBottom="@dimen/spacing_large">
+
+    <ImageButton
+        android:id="@+id/shareButton"
+        style="@style/PinkButton"
+        android:layout_marginTop="@dimen/spacing_medium"
+        android:background="@drawable/button_round_pink"
+        app:layout_constraintEnd_toStartOf="@+id/emailButton"
+        app:layout_constraintHorizontal_chainStyle="spread_inside"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/ic_share_white_32dp" />
+
+    <TextView
+        android:id="@+id/label1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/spacing_tiny"
+        android:text="@string/share"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="@id/shareButton"
+        app:layout_constraintStart_toStartOf="@id/shareButton"
+        app:layout_constraintTop_toBottomOf="@+id/shareButton" />
+
+    <ImageButton
+        android:id="@+id/emailButton"
+        style="@style/YellowButton"
+        android:tint="@color/white"
+        app:layout_constraintEnd_toStartOf="@+id/tweetButton"
+        app:layout_constraintStart_toEndOf="@+id/shareButton"
+        app:layout_constraintTop_toTopOf="@id/shareButton"
+        app:srcCompat="@drawable/ic_email" />
+
+    <TextView
+        android:id="@+id/label2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/spacing_tiny"
+        android:text="@string/email"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="@id/emailButton"
+        app:layout_constraintStart_toStartOf="@id/emailButton"
+        app:layout_constraintTop_toBottomOf="@+id/emailButton" />
+
+    <ImageButton
+        android:id="@+id/tweetButton"
+        style="@style/TurquoiseButton"
+        app:layout_constraintEnd_toStartOf="@+id/facebookButton"
+        app:layout_constraintStart_toEndOf="@+id/emailButton"
+        app:layout_constraintTop_toTopOf="@id/shareButton"
+        android:tint="@color/white"
+        app:srcCompat="@drawable/ic_twitter" />
+
+    <TextView
+        android:id="@+id/label3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/spacing_tiny"
+        android:text="@string/tweet"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="@id/tweetButton"
+        app:layout_constraintStart_toStartOf="@id/tweetButton"
+        app:layout_constraintTop_toBottomOf="@+id/tweetButton" />
+
+    <ImageButton
+        android:id="@+id/facebookButton"
+        style="@style/BlueButton"
+        android:tint="@color/white"
+        app:layout_constraintEnd_toStartOf="@+id/linkButton"
+        app:layout_constraintStart_toEndOf="@+id/tweetButton"
+        app:layout_constraintTop_toTopOf="@+id/shareButton"
+        app:srcCompat="@drawable/ic_facebook" />
+
+    <TextView
+        android:id="@+id/label4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/spacing_tiny"
+        android:text="@string/facebook"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="@+id/facebookButton"
+        app:layout_constraintStart_toStartOf="@+id/facebookButton"
+        app:layout_constraintTop_toBottomOf="@+id/facebookButton" />
+
+    <ImageButton
+        android:id="@+id/linkButton"
+        style="@style/PurpleButton"
+        android:tint="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/facebookButton"
+        app:layout_constraintTop_toTopOf="@+id/shareButton"
+        app:srcCompat="@drawable/ic_link" />
+
+    <TextView
+        android:id="@+id/label5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/spacing_tiny"
+        android:text="@string/link"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="@+id/linkButton"
+        app:layout_constraintStart_toStartOf="@+id/linkButton"
+        app:layout_constraintTop_toBottomOf="@+id/linkButton" />
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+

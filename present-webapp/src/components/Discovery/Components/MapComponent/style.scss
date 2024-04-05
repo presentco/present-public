@@ -1,0 +1,164 @@
+.map-container-d{
+  max-width: 100%;
+}
+
+.map-element{
+   height: 320px;
+   width:100%;
+   border-top-left-radius: 5px;
+   border-top-right-radius: 5px;
+}
+
+ .map-x-container{
+   background-color: #f2f2f2;
+   padding-top: 20px;
+   padding-right: 20px;
+   max-width: 100% !important;
+ }
+
+.window-onfo{
+  background-color: yellow !important;
+}
+
+.redo-bth,
+.redo-bth:focus,
+.redo-bth:hover
+ {
+  position: absolute;
+  z-index: 200;
+  left: 44%;
+  top: 24px;
+  font-size: 14px;
+  color: #fff;
+  background-color: #7141db;
+  padding: 5px 10px;
+  border-radius: 20px;
+}
+
+.reload-btn{
+  font-size: 14px;
+  color: #fff;
+  background-image: #7141db;
+  padding: 9px 55px;
+  border-radius: 20px;
+}
+
+.x-btn,
+.x-btn:hover,
+.x-btn:focus{
+    background: transparent;
+    position: absolute;
+    right: -16px;
+    top: 115px;
+    font-size: 19px;
+    color:#4a4a4a;
+  }
+
+  .map-x-container {
+    max-width: 110%;
+}
+
+
+.info-container{
+  display: flex;
+  justify-content: flex-start;
+  cursor:pointer;
+  border-bottom: none;
+}
+
+.loc-icon.map-component{
+  bottom:15px;
+}
+
+.member-img-name.map-component img{
+  margin-top:0;
+}
+
+.error-got-text {
+    font-size: 18px;
+    margin-top: 46px;
+    font-weight: 500;
+    margin-bottom:0;
+}
+
+.error-got-btn,
+.error-got-btn:hover,
+.error-got-btn:focus  {
+    margin: 21px;
+    border-radius: 25px;
+    padding: 10px 24px;
+    color: #fff;
+    background: #743cce;
+    font-size: 15px;
+    font-weight: 500;
+}
+
+.member-img-name.map-component{
+  right:27px;
+}
+
+.info-container.map-component{
+  width: 179px;
+  padding-bottom: 10px;
+}
+
+
+
+.owner-photo{
+  width:40px;
+  height:40px;
+  object-fit: cover;
+  border-radius:100%
+}
+
+.marker-name{
+  font-weight: 500;
+  line-height: 1.07;
+  color: #030303;
+  font-size: 12px;
+  margin-top:12px;
+  margin-left:13px;
+  margin-right:29px;
+
+}
+
+.interest-btn-map,
+.interest-btn-map:hover,
+.interest-btn-map:focus{
+  background: transparent;
+  margin:0;
+  padding:0
+}
+
+.marker-title{
+  margin-bottom: 6px;
+  font-weight: 600;
+  line-height: 1.3rem;
+  color: #030303;
+  font-size: 16px;
+  margin-right: 37px;
+}
+
+.loc-icon {
+  position: absolute;
+  bottom: 10px;
+  height: 13px;
+  width: 10px;
+}
+
+.gm-style-iw{
+  top:16px !important;
+}
+
+.gm-style-iw + div{
+   display: none !important;
+}
+
+.gm-style-pbc + div + div:nth-child(4){
+  top: 32px !important;
+  left: 1px !important;
+}
+
+.gm-style-pbc + div + div:nth-child(4) :first-child :first-child :nth-child(3){
+  display: none;
+}

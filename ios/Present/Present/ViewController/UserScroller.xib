@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="UserScroller" customModule="Present" customModuleProvider="target">
+            <connections>
+                <outlet property="scrollView" destination="YHh-G8-XCv" id="O6q-Ka-u1n"/>
+                <outlet property="stackView" destination="bdA-Tm-rlh" id="T0E-Cn-DPl"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="790" height="132"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YHh-G8-XCv">
+                    <rect key="frame" x="0.0" y="0.0" width="790" height="132"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="y9h-0d-uuR">
+                            <rect key="frame" x="0.0" y="0.0" width="125" height="132"/>
+                            <subviews>
+                                <stackView opaque="NO" contentMode="scaleAspectFit" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="bdA-Tm-rlh">
+                                    <rect key="frame" x="0.0" y="0.0" width="125" height="132"/>
+                                    <subviews>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qkj-q0-ATL" customClass="UserScrollerCell" customModule="Present" customModuleProvider="target">
+                                            <rect key="frame" x="0.0" y="0.0" width="50" height="132"/>
+                                            <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="50" id="HBS-2i-XFh"/>
+                                            </constraints>
+                                        </view>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XPI-GS-8AX" customClass="UserScrollerCell" customModule="Present" customModuleProvider="target">
+                                            <rect key="frame" x="75" y="0.0" width="50" height="132"/>
+                                            <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="50" id="tbw-Qf-sfb"/>
+                                            </constraints>
+                                        </view>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </stackView>
+                            </subviews>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstAttribute="bottom" secondItem="bdA-Tm-rlh" secondAttribute="bottom" id="7S0-ar-Bnj"/>
+                                <constraint firstItem="bdA-Tm-rlh" firstAttribute="leading" secondItem="y9h-0d-uuR" secondAttribute="leading" id="dcu-bF-rgy"/>
+                                <constraint firstAttribute="trailing" secondItem="bdA-Tm-rlh" secondAttribute="trailing" id="hh8-yG-PSN"/>
+                                <constraint firstItem="bdA-Tm-rlh" firstAttribute="top" secondItem="y9h-0d-uuR" secondAttribute="top" id="ocK-37-08G"/>
+                            </constraints>
+                        </view>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="y9h-0d-uuR" firstAttribute="top" secondItem="YHh-G8-XCv" secondAttribute="top" id="BXk-Y7-0lg"/>
+                        <constraint firstAttribute="trailing" secondItem="y9h-0d-uuR" secondAttribute="trailing" id="Yys-wj-wjf"/>
+                        <constraint firstItem="y9h-0d-uuR" firstAttribute="leading" secondItem="YHh-G8-XCv" secondAttribute="leading" id="epu-36-Jrx"/>
+                        <constraint firstAttribute="bottom" secondItem="y9h-0d-uuR" secondAttribute="bottom" id="wOi-er-QS0"/>
+                        <constraint firstItem="y9h-0d-uuR" firstAttribute="height" secondItem="YHh-G8-XCv" secondAttribute="height" id="wSu-ut-TzQ"/>
+                    </constraints>
+                </scrollView>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="YHh-G8-XCv" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="9Mk-bk-Sd5"/>
+                <constraint firstAttribute="trailing" secondItem="YHh-G8-XCv" secondAttribute="trailing" id="F6b-ZJ-qWd"/>
+                <constraint firstAttribute="bottom" secondItem="YHh-G8-XCv" secondAttribute="bottom" id="LdH-Iz-IpR"/>
+                <constraint firstItem="YHh-G8-XCv" firstAttribute="height" secondItem="iN0-l3-epB" secondAttribute="height" id="SyV-gR-Hev"/>
+                <constraint firstItem="YHh-G8-XCv" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="TBF-7i-Euj"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="-6" y="-202"/>
+        </view>
+    </objects>
+</document>

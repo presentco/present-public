@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap-theme.min.css">
+
+  <!-- Kendo -->
+  <link href="https://kendo.cdn.telerik.com/2017.2.504/styles/kendo.common.min.css" rel="stylesheet" />
+  <link href="https://kendo.cdn.telerik.com/2017.2.504/styles/kendo.default.min.css" rel="stylesheet" />
+  <link href="https://kendo.cdn.telerik.com/2017.2.504/styles/kendo.default.mobile.min.css" rel="stylesheet" />
+  <script src="https://code.jquery.com/jquery-1.12.3.min.js"></script>
+  <script src="https://kendo.cdn.telerik.com/2017.2.504/js/kendo.all.min.js"></script>
+
+  <!-- jquery map api -->
+  <!--<script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>-->
+  <script src="https://netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src='https://maps.google.com/maps/api/js?key=AIzaSyDAkC7ZPpRvdt2Nh1NS7fKxKJis6ZTf6N4&sensor=false&libraries=places'></script>
+  <script src="../lib/locationpicker.jquery.min.js"></script>
+  
+  <title>Present Whitelist Geofences</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+<div style="margin-left: 50px; margin-top: 50px; margin-right: 50px">
+  <h2>Present Geofence Whitelist</h2>
+  <br/>
+  <div id="grid"></div>
+  <script>
+      function getURLParameter(name) {
+          return decodeURIComponent((new RegExp('[?|&]' + name + '=' + '([^&;]+?)(&|#|;|$)').exec(location.search) || [null, ''])[1].replace(/\+/g, '%20')) || null;
+      }
+      var auth = getURLParameter('auth');
+      var apiUrl = "/rest/whitelist-geofence";
+      $("#grid").kendoGrid({
+          sortable: true,
+          filterable: true, //{ mode: "row" },
+          editable: "popup", // "inline"
+          height: 300,
+          dataSource: {
+              transport: {
+                  read: { url: apiUrl+"?auth="+auth, dataType: "json" },
+                  destroy: { url: apiUrl+"/delete?auth="+auth, type: "POST" }
+              },
+              schema: {
+                  data: "geofences",
+                  model: {
+                      id: "uuid",
+                      fields: {
+                          name: { editable: false },
+                          address: { editable: false },
+                          latitude: { editable: false },
+                          longitude: { editable: false },
+                          radius: { editable: false },
+                          whitelisted: { type: "boolean" }
+                      }
+                  }
+              }
+          },
+          columns: [
+              { field: "name", title: "Name", width: 200
+              }, { field: "address", title: "Address", width: 300
+              }, { field: "latitude", title: "Latitude"
+              }, { field: "longitude", title: "Longitude"
+              }, { field: "radius", title: "Radius (m)"
+              },{ field: "whitelisted", title: "Whitelisted",
+                  template: '<input type="checkbox" #= whitelisted ? "checked=checked" : "" # disabled="disabled" ></input>'
+              },
+              { command: ["destroy"], title: "&nbsp;", width: "250px" }
+          ],
+          edit: function(e) {
+              //e.container.find("[for=uuid]").remove();
+              //e.container.find("[data-container-for=uuid]").remove();
+          }
+      })
+  </script>
+</div>
+
+<div class="form-horizontal" style="margin-left: 50px; margin-top: 50px; width: 600px">
+  <h3>Add a Geofence to the Whitelist</h3>
+  <br/>
+  <div class="form-group">
+    <label class="col-sm-2 control-label">Name:</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="name" />
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="col-sm-2 control-label">Location:</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="map-address" />
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="col-sm-2 control-label">Radius:</label>
+    <div class="col-sm-5">
+      <input type="text" class="form-control" id="map-radius" />
+    </div>
+  </div>
+  <div id="map" style="width: 550px; height: 400px;"></div>
+
+  <div class="clearfix">&nbsp;</div>
+  <input hidden="true" id="submit" type="submit" value="Create" name="post" style="font-size: larger" onclick="
+    var post = {
+        name: $('#name').val(),
+        address: $('#map-address').val(),
+        radius: $('#map-radius').val(),
+        latitude: lastLocation.latitude,
+        longitude: lastLocation.longitude
+    };
+    $.post(apiUrl+'/create?auth='+auth, post,
+      function(response, status){
+        $('#grid').data('kendoGrid').dataSource.read(); // reload the grid
+          $('#submit').prop('hidden',true);
+          $('#movepin').prop('hidden',false);
+      });
+  "/>
+  <div id="movepin" style="font-size: larger">Move the pin to set a location.</div>
+
+  <div class="clearfix">&nbsp;</div>
+  <div class="clearfix"></div>
+  <script>
+    var lastLocation;
+    $('#map').locationpicker({
+        location: { latitude: 37.7749, longitude: -122.4194 }, // San Francisco
+        radius: 300,
+        inputBinding: {
+            radiusInput: $('#map-radius'),
+            locationNameInput: $('#map-address')
+        },
+        enableAutocomplete: true,
+        onchanged: function (currentLocation, radius, isMarkerDropped) {
+            // alert("Location changed. New location (" + currentLocation.latitude + ", " + currentLocation.longitude + ")");
+            lastLocation = currentLocation;
+            $('#submit').prop('hidden',false);
+            $('#movepin').prop('hidden',true);
+        }
+    });
+  </script>
+</div>
+</body>
+</html>

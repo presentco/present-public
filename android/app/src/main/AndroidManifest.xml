@@ -1,0 +1,269 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="co.present.present">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="true" />
+
+    <application
+        android:name=".PresentApplication"
+        android:installLocation="auto"
+        android:allowBackup="false"
+        android:fullBackupContent="false"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme"
+        tools:replace="android:allowBackup">
+
+        <!-- Set custom default Firebase notification icon. This is used when no icon is set for
+        incoming notification messages. See https://goo.gl/l4GJaQ for more. -->
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_icon"
+            android:resource="@drawable/ic_notification_present" />
+
+        <!-- Set color used with incoming notification messages. This is used when no color is set
+        for the incoming notification message. See https://goo.gl/6BKBk7 for more. -->
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_color"
+            android:resource="@color/presentPurple" />
+
+        <!-- Google maps API key -->
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="@string/google_maps_key" />
+
+        <!-- Facebook API key -->
+        <meta-data
+            android:name="com.facebook.sdk.ApplicationId"
+            android:value="@string/facebook_app_id"
+            tools:replace="android:value" />
+
+        <!-- Launch -->
+        <activity
+            android:name=".LaunchActivity"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:theme="@style/LaunchTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+            <intent-filter android:autoVerify="true">
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data
+                    android:host="present.co"
+                    android:pathPrefix="/app"
+                    android:scheme="https" />
+                <data
+                    android:host="present.co"
+                    android:pathPrefix="/g/"
+                    android:scheme="https" />
+                <data
+                    android:host="present.co"
+                    android:pathPrefix="/t/"
+                    android:scheme="https" />
+                <data
+                    android:host="present.co"
+                    android:pathPrefix="/u/"
+                    android:scheme="https" />
+                <data
+                    android:host="present.co"
+                    android:pathPrefix="/v/"
+                    android:scheme="https" />
+                <data
+                    android:host="staging.present.co"
+                    android:pathPrefix="/app"
+                    android:scheme="https" />
+                <data
+                    android:host="staging.present.co"
+                    android:pathPrefix="/g/"
+                    android:scheme="https" />
+                <data
+                    android:host="staging.present.co"
+                    android:pathPrefix="/t/"
+                    android:scheme="https" />
+                <data
+                    android:host="staging.present.co"
+                    android:pathPrefix="/u/"
+                    android:scheme="https" />
+                <data
+                    android:host="staging.present.co"
+                    android:pathPrefix="/v/"
+                    android:scheme="https" />
+
+                <!-- app.present.co and app.staging.present.co for web deep links -->
+                <data
+                    android:host="app.present.co"
+                    android:pathPrefix="/app"
+                    android:scheme="https" />
+                <data
+                    android:host="app.present.co"
+                    android:pathPrefix="/g/"
+                    android:scheme="https" />
+                <data
+                    android:host="app.present.co"
+                    android:pathPrefix="/t/"
+                    android:scheme="https" />
+                <data
+                    android:host="app.present.co"
+                    android:pathPrefix="/u/"
+                    android:scheme="https" />
+                <data
+                    android:host="app.present.co"
+                    android:pathPrefix="/v/"
+                    android:scheme="https" />
+                <data
+                    android:host="app.staging.present.co"
+                    android:pathPrefix="/app"
+                    android:scheme="https" />
+                <data
+                    android:host="app.staging.present.co"
+                    android:pathPrefix="/g/"
+                    android:scheme="https" />
+                <data
+                    android:host="app.staging.present.co"
+                    android:pathPrefix="/t/"
+                    android:scheme="https" />
+                <data
+                    android:host="app.staging.present.co"
+                    android:pathPrefix="/u/"
+                    android:scheme="https" />
+                <data
+                    android:host="app.staging.present.co"
+                    android:pathPrefix="/v/"
+                    android:scheme="https" />
+            </intent-filter>
+        </activity>
+
+        <!-- Onboarding -->
+        <activity
+            android:name=".feature.onboarding.OnboardingActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".feature.onboarding.step.FacebookLinkActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name="com.facebook.FacebookActivity"
+            android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation"
+            android:label="@string/app_name" />
+        <activity
+            android:name="com.facebook.CustomTabActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data android:scheme="@string/fb_login_protocol_scheme" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.theartofdev.edmodo.cropper.CropImageActivity"
+            android:theme="@style/Theme.AppCompat" />
+        <activity
+            android:name=".feature.onboarding.WaitlistActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme" />
+
+        <!-- Circle chat and info -->
+        <activity
+            android:name=".feature.detail.CircleActivity"
+            android:label="@string/app_name"
+            android:theme="@style/AppTheme.NoBackground" />
+
+        <!-- Create circle -->
+        <activity
+            android:name=".feature.create.EditCircleActivity"
+            android:label="@string/app_name"
+            android:theme="@style/AppTheme"
+            android:windowSoftInputMode="adjustResize" />
+
+        <!-- User profile view -->
+        <activity
+            android:name=".feature.profile.UserProfileActivity"
+            android:label="@string/app_name"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".feature.profile.EditProfileActivity"
+            android:windowSoftInputMode="adjustResize" />
+
+        <activity android:name=".location.LocationPermissionActivity" />
+
+        <!-- File provider for images -->
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="${applicationId}.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
+
+        <meta-data
+            android:name="io.fabric.ApiKey"
+            android:value="" />
+
+        <service android:name=".notifications.FirebaseIdService">
+            <intent-filter>
+                <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
+            </intent-filter>
+        </service>
+        <service android:name=".notifications.FirebaseMessagingService">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
+
+        <activity android:name=".feature.image.ImageGalleryActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:theme="@style/ImageGalleryTheme"/>
+        <activity android:name=".feature.NotificationActivity" />
+
+        <activity android:name=".feature.MainActivity"
+            android:launchMode="singleTask"
+            android:windowSoftInputMode="adjustPan"/>
+        <activity android:name=".feature.CategoryActivity" />
+        <activity android:name=".feature.onboarding.step.LinkVerificationActivity"
+            />
+        <activity android:name=".feature.profile.FriendsActivity" />
+        <activity android:name=".feature.create.CircleShareActivity" android:theme="@style/AppTheme.Translucent" />
+        <activity android:name=".feature.detail.info.MembersActivity" />
+        <activity android:name=".feature.onboarding.PhoneLoginActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize"/>
+        <activity android:name=".feature.onboarding.PhoneVerificationActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize"/>
+        <activity android:name=".feature.CityPickerActivity" />
+        <activity android:name=".feature.SignUpDialogActivity" android:theme="@style/Theme.AppCompat.Dialog" />
+        <activity android:name=".feature.create.PreApproveActivity" />
+        <activity android:name=".feature.detail.CircleDetailActivity" />
+        <activity android:name=".feature.invite.AddToCircleActivity" android:windowSoftInputMode="adjustPan" />
+        <activity android:name=".feature.invite.FacebookLinkActivity"  />
+        <activity android:name=".feature.invite.AddFriendsActivity" android:windowSoftInputMode="adjustPan" />
+        <activity android:name=".feature.profile.SettingsActivity" />
+        <activity android:name=".feature.invite.OnboardingAddFriendsActivity" />
+    </application>
+
+</manifest>

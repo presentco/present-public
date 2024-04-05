@@ -1,0 +1,57 @@
+source 'https://github.com/CocoaPods/Specs'
+
+project 'Present.xcodeproj'
+
+platform :ios, '10.0'
+
+# ignore all warnings from pods
+inhibit_all_warnings!
+# ignore warnings from specific pods
+#pod 'Aardvark', :inhibit_warnings => true
+
+use_frameworks!
+
+def top_level_dependencies
+  pod 'Aardvark', '~> 3.0' # https://github.com/square/Aardvark
+  pod 'Crashlytics', '~> 3.0' # https://fabric.io
+  pod 'Fabric', '~> 1.0' # https://fabric.io
+  pod 'FacebookCore'  # https://github.com/facebook/Facebook-SDK-Swift
+  pod 'FacebookLogin'  # https://github.com/facebook/Facebook-SDK-Swift
+  pod 'ImagePickerSheetController', :git => 'https://github.com/lbrndnr/ImagePickerSheetController', :tag => 'swift3'
+  pod 'JSQMessages', :path => 'Present/External/JSQMessagesViewController/JSQMessages.podspec'
+  pod 'NYTPhotoViewer', '~> 1.0' # https://github.com/NYTimes/NYTPhotoViewer
+  pod 'PresentProtos', :path => 'Present/Proto/PresentProtos.podspec'
+  pod 'ProtocolBuffers-Swift', :inhibit_warnings => true # Dependency copied from PresentProtos.podspec to allow us to ignore the warning.
+  pod 'Relativity', '~> 0.9' # https://github.com/dfed/Relativity
+  pod 'SDWebImage', '~> 3.0' # https://github.com/rs/SDWebImage
+  pod 'Starscream', '~> 2.0' # https://github.com/daltoniam/Starscream
+  pod 'Then', '~> 2.1' # https://github.com/devxoul/Then
+  pod 'TTTAttributedLabel', '~> 2.0', :inhibit_warnings => true # https://github.com/TTTAttributedLabel/TTTAttributedLabel
+  pod 'Valet', '~> 2.0' # https://github.com/square/Valet
+  pod 'FBAnnotationClustering', '~> 0.2'
+  pod 'Amplitude-iOS', '~> 4.0.1'
+  pod 'StringStylizer', '~> 3.2'
+  pod 'SwiftyPickerPopover'
+  pod 'Eureka', :git => 'https://github.com/xmartlabs/Eureka' # 4.1.1
+  pod 'RxSwift', '~> 4.0'
+  pod 'RxCocoa', '~> 4.0'
+  pod 'Tabman', '~> 1.0'
+  pod "MIBadgeButton-Swift", :git => 'https://github.com/mustafaibrahim989/MIBadgeButton-Swift.git', :branch => 'master'
+  pod 'CropViewController'
+end
+
+target 'Present' do
+  top_level_dependencies
+end
+
+# Hack to allow us to have a mix of Swift 3.2 and Swift 4 dependencies.
+post_install do |installer|
+        installer.pods_project.targets.each do |target|
+            if ['Starscream', 'ImagePickerSheetController', 'ProtocolBuffers-Swift', 'SwiftyPickerPopover', 'StringStylizer'].include? target.name
+                target.build_configurations.each do |config|
+                    config.build_settings['SWIFT_VERSION'] = '3.2'
+                end
+            end
+        end
+    end
+

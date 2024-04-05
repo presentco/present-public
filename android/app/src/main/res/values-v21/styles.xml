@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Base.LaunchTheme.21" parent="Base.LaunchTheme">
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:windowActivityTransitions">true</item>
+        <item name="android:windowEnterTransition">@transition/fade_with_delay_exclude_background</item>
+        <item name="android:windowExitTransition">@transition/fade_exclude_background</item>
+        <item name="android:windowAllowEnterTransitionOverlap">true</item>
+        <item name="android:windowAllowReturnTransitionOverlap">true</item>
+        <item name="android:windowSharedElementEnterTransition">@transition/shared_element_exclude_background</item>
+    </style>
+
+    <style name="LaunchTheme" parent="Base.LaunchTheme.21" />
+
+    <style name="ShareButton" parent="ShareButton19">
+        <item name="android:stateListAnimator">@animator/button_elevation</item>
+    </style>
+
+    <style name="UserProfileButton" parent="UserProfileButton19">
+        <item name="android:stateListAnimator">@animator/button_elevation</item>
+    </style>
+
+    <style name="RoundedEndsButton" parent="RoundedEndsButton19">
+        <item name="android:stateListAnimator">@animator/button_elevation</item>
+    </style>
+
+    <style name="JoinButton" parent="JoinButton19">
+        <item name="android:stateListAnimator">@animator/flat_button_elevation</item>
+    </style>
+
+    <style name="RoundedEndsButton.Small" parent="RoundedEndsButton19.Small">
+        <item name="android:stateListAnimator">@animator/flat_button_elevation</item>
+    </style>
+
+
+</resources>
+

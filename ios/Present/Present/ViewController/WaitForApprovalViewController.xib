@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina3_5" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="WaitForApprovalViewController" customModule="Present" customModuleProvider="target">
+            <connections>
+                <outlet property="contentView" destination="CbH-BJ-ry3" id="X8A-og-cvp"/>
+                <outlet property="facebookButton" destination="XDJ-7A-bBu" id="b21-gC-Gh3"/>
+                <outlet property="gradientView" destination="rni-ex-wXF" id="9uP-MX-VAT"/>
+                <outlet property="instagramButton" destination="GtJ-Pg-jFO" id="UpD-5n-apM"/>
+                <outlet property="inviteButton" destination="Tja-Ye-xdS" id="vXO-OC-FOA"/>
+                <outlet property="textView" destination="368-L1-wti" id="drE-qU-GP0"/>
+                <outlet property="twitterButton" destination="U5W-xC-gNd" id="IxE-i9-zkp"/>
+                <outlet property="view" destination="iN0-l3-epB" id="z55-Gd-wfm"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CbH-BJ-ry3" userLabel="content">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rni-ex-wXF" userLabel="gradient view" customClass="GradientView" customModule="Present" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        </view>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="present-logo" translatesAutoresizingMaskIntoConstraints="NO" id="y9q-L1-3iY">
+                            <rect key="frame" x="144.5" y="34" width="32" height="32"/>
+                            <constraints>
+                                <constraint firstAttribute="width" priority="750" constant="128" id="HcP-mr-hfo"/>
+                                <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="32" id="RFZ-Cu-kky"/>
+                                <constraint firstAttribute="width" secondItem="y9q-L1-3iY" secondAttribute="height" multiplier="1:1" id="kIA-4x-eGs"/>
+                            </constraints>
+                        </imageView>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="present-name" translatesAutoresizingMaskIntoConstraints="NO" id="J6S-eP-5YV">
+                            <rect key="frame" x="120" y="69" width="80" height="20.5"/>
+                            <constraints>
+                                <constraint firstAttribute="width" priority="750" constant="183" id="5yh-H2-4jI"/>
+                                <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="80" id="JQR-s3-IGR"/>
+                                <constraint firstAttribute="width" secondItem="J6S-eP-5YV" secondAttribute="height" multiplier="183:47" id="MB0-Ib-nJN"/>
+                            </constraints>
+                        </imageView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="752" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="6" translatesAutoresizingMaskIntoConstraints="NO" id="368-L1-wti">
+                            <rect key="frame" x="41" y="114.5" width="238" height="167.5"/>
+                            <constraints>
+                                <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="144" id="ouM-Rb-qXO"/>
+                            </constraints>
+                            <string key="text">Thanks for requesting to join Present. Present is currently not available in your city. Invite more extraordinary people to join Present so we can expand to your city sooner!</string>
+                            <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dn2-oE-s7A" userLabel="button holder view">
+                            <rect key="frame" x="37" y="365" width="246" height="50"/>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U5W-xC-gNd" userLabel="twitter button">
+                                    <rect key="frame" x="185" y="0.0" width="50" height="50"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="50" id="baE-iJ-zNn"/>
+                                        <constraint firstAttribute="width" constant="50" id="lId-Yy-Fgu"/>
+                                    </constraints>
+                                    <state key="normal" image="twitter" backgroundImage="circle-background"/>
+                                </button>
+                                <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XDJ-7A-bBu" userLabel="fb button">
+                                    <rect key="frame" x="19" y="0.0" width="50" height="50"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="50" id="3mh-Aa-nQY"/>
+                                        <constraint firstAttribute="height" constant="50" id="vLh-oK-QwX"/>
+                                    </constraints>
+                                    <state key="normal" image="facebook" backgroundImage="circle-background"/>
+                                </button>
+                                <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GtJ-Pg-jFO" userLabel="instagram button">
+                                    <rect key="frame" x="104" y="0.0" width="50" height="50"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="50" id="R81-hH-pcP"/>
+                                        <constraint firstAttribute="height" constant="50" id="W9v-Mj-9Jj"/>
+                                    </constraints>
+                                    <state key="normal" image="instagram" backgroundImage="circle-background"/>
+                                </button>
+                            </subviews>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstItem="XDJ-7A-bBu" firstAttribute="centerY" secondItem="dn2-oE-s7A" secondAttribute="centerY" id="40o-a4-Crx"/>
+                                <constraint firstAttribute="width" constant="246" id="F97-pK-GX9"/>
+                                <constraint firstItem="XDJ-7A-bBu" firstAttribute="leading" secondItem="dn2-oE-s7A" secondAttribute="leading" constant="19" id="PTG-Nx-QYw"/>
+                                <constraint firstItem="GtJ-Pg-jFO" firstAttribute="leading" secondItem="XDJ-7A-bBu" secondAttribute="trailing" constant="35" id="UVv-Sc-LKi"/>
+                                <constraint firstItem="U5W-xC-gNd" firstAttribute="leading" secondItem="GtJ-Pg-jFO" secondAttribute="trailing" constant="31" id="Xx6-5g-uY3"/>
+                                <constraint firstItem="GtJ-Pg-jFO" firstAttribute="centerY" secondItem="dn2-oE-s7A" secondAttribute="centerY" id="gVV-ze-kTZ"/>
+                                <constraint firstItem="U5W-xC-gNd" firstAttribute="centerY" secondItem="dn2-oE-s7A" secondAttribute="centerY" id="p1l-Jz-HSw"/>
+                                <constraint firstAttribute="height" constant="50" id="rI7-g3-UAs"/>
+                            </constraints>
+                        </view>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tja-Ye-xdS" userLabel="invite button" customClass="ThemeableButton" customModule="Present" customModuleProvider="target">
+                            <rect key="frame" x="37" y="292" width="246" height="45"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="45" id="g5H-Wo-hTF"/>
+                                <constraint firstAttribute="width" constant="246" id="uYx-kz-uwg"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                            <state key="normal" title="Invite Friends">
+                                <color key="titleColor" red="0.45490196078431372" green="0.23529411764705882" blue="0.80784313725490198" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="titleShadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" red="0.3730497472" green="0.13725490200000001" blue="0.63921568630000003" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstItem="dn2-oE-s7A" firstAttribute="top" secondItem="Tja-Ye-xdS" secondAttribute="bottom" priority="751" constant="28" id="4NY-QU-hE3"/>
+                        <constraint firstAttribute="trailing" secondItem="rni-ex-wXF" secondAttribute="trailing" id="4wD-kQ-CkX"/>
+                        <constraint firstItem="368-L1-wti" firstAttribute="top" relation="greaterThanOrEqual" secondItem="J6S-eP-5YV" secondAttribute="bottom" constant="5" id="7Bm-ky-LeZ"/>
+                        <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="dn2-oE-s7A" secondAttribute="bottom" constant="5" id="9Yd-jA-1do"/>
+                        <constraint firstItem="y9q-L1-3iY" firstAttribute="centerX" secondItem="CbH-BJ-ry3" secondAttribute="centerX" id="EKf-KK-xa9"/>
+                        <constraint firstItem="J6S-eP-5YV" firstAttribute="top" secondItem="y9q-L1-3iY" secondAttribute="bottom" constant="3.3300000000000001" id="HmZ-Re-pXo"/>
+                        <constraint firstItem="rni-ex-wXF" firstAttribute="leading" secondItem="CbH-BJ-ry3" secondAttribute="leading" id="Ieg-SK-lwV"/>
+                        <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="368-L1-wti" secondAttribute="trailing" constant="5" id="LTl-TE-znA"/>
+                        <constraint firstItem="Tja-Ye-xdS" firstAttribute="top" relation="greaterThanOrEqual" secondItem="368-L1-wti" secondAttribute="bottom" constant="10" id="Na0-c9-U5Q"/>
+                        <constraint firstItem="dn2-oE-s7A" firstAttribute="centerX" secondItem="Tja-Ye-xdS" secondAttribute="centerX" id="QJa-6R-skt"/>
+                        <constraint firstAttribute="trailing" secondItem="368-L1-wti" secondAttribute="trailing" priority="751" constant="41" id="ZtF-vc-1rp"/>
+                        <constraint firstAttribute="bottom" secondItem="dn2-oE-s7A" secondAttribute="bottom" priority="751" constant="65" id="bSZ-8d-8qf"/>
+                        <constraint firstItem="368-L1-wti" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="CbH-BJ-ry3" secondAttribute="leading" constant="5" id="bd5-Ie-0OT"/>
+                        <constraint firstItem="rni-ex-wXF" firstAttribute="top" secondItem="CbH-BJ-ry3" secondAttribute="top" id="cZ0-ez-7H0"/>
+                        <constraint firstItem="368-L1-wti" firstAttribute="centerX" secondItem="CbH-BJ-ry3" secondAttribute="centerX" id="dES-ey-hJZ"/>
+                        <constraint firstAttribute="bottom" secondItem="rni-ex-wXF" secondAttribute="bottom" id="gmm-cE-eA8"/>
+                        <constraint firstItem="J6S-eP-5YV" firstAttribute="centerX" secondItem="CbH-BJ-ry3" secondAttribute="centerX" id="hH8-Pa-DBO"/>
+                        <constraint firstItem="368-L1-wti" firstAttribute="leading" secondItem="CbH-BJ-ry3" secondAttribute="leading" priority="751" constant="41" id="hZy-W8-MvQ"/>
+                        <constraint firstItem="y9q-L1-3iY" firstAttribute="top" secondItem="CbH-BJ-ry3" secondAttribute="top" priority="750" constant="10" id="jQK-9W-sI6"/>
+                        <constraint firstItem="dn2-oE-s7A" firstAttribute="top" relation="greaterThanOrEqual" secondItem="Tja-Ye-xdS" secondAttribute="bottom" constant="5" id="p2f-hP-n4O"/>
+                        <constraint firstItem="y9q-L1-3iY" firstAttribute="top" relation="greaterThanOrEqual" secondItem="CbH-BJ-ry3" secondAttribute="top" constant="5" id="u54-FS-O4N"/>
+                        <constraint firstItem="Tja-Ye-xdS" firstAttribute="centerX" secondItem="CbH-BJ-ry3" secondAttribute="centerX" id="uSJ-6q-fda"/>
+                        <constraint firstItem="Tja-Ye-xdS" firstAttribute="top" secondItem="368-L1-wti" secondAttribute="bottom" priority="750" constant="110.33" id="vQO-fi-OzN"/>
+                        <constraint firstItem="y9q-L1-3iY" firstAttribute="top" secondItem="CbH-BJ-ry3" secondAttribute="top" priority="751" constant="91" id="yhy-dl-dRo"/>
+                        <constraint firstItem="368-L1-wti" firstAttribute="top" secondItem="J6S-eP-5YV" secondAttribute="bottom" priority="751" constant="25" id="zYo-Eq-Ecy"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="CbH-BJ-ry3" secondAttribute="bottom" id="2lS-N9-A13"/>
+                <constraint firstAttribute="trailing" secondItem="CbH-BJ-ry3" secondAttribute="trailing" id="663-UA-L6U"/>
+                <constraint firstItem="CbH-BJ-ry3" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="69H-jz-ywn"/>
+                <constraint firstItem="CbH-BJ-ry3" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="yWJ-51-Ep1"/>
+            </constraints>
+        </view>
+    </objects>
+    <resources>
+        <image name="circle-background" width="50" height="50"/>
+        <image name="facebook" width="14" height="25"/>
+        <image name="instagram" width="25" height="25"/>
+        <image name="present-logo" width="129" height="129"/>
+        <image name="present-name" width="183" height="47"/>
+        <image name="twitter" width="29" height="24"/>
+    </resources>
+</document>

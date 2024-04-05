@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Whitelist Console</title>
+
+    <style>
+      body {
+        font-family: Helvetica, sans-serif;
+      }
+    </style>
+
+    <link href="https://kendo.cdn.telerik.com/2017.2.504/styles/kendo.common.min.css" rel="stylesheet" />
+    <link href="https://kendo.cdn.telerik.com/2017.2.504/styles/kendo.default.min.css" rel="stylesheet" />
+    <link href="https://kendo.cdn.telerik.com/2017.2.504/styles/kendo.default.mobile.min.css" rel="stylesheet" />
+    <script src="https://code.jquery.com/jquery-1.12.3.min.js"></script>
+    <script src="https://kendo.cdn.telerik.com/2017.2.504/js/kendo.all.min.js"></script>
+  </head>
+  <body>
+    <p></p>
+    <div style="font-size: 200%">Present Email Whitelist</div>
+    <p></p>
+    <div id="grid"></div>
+    <script>
+      function getURLParameter(name) {
+          return decodeURIComponent((new RegExp('[?|&]' + name + '=' + '([^&;]+?)(&|#|;|$)').exec(location.search) || [null, ''])[1].replace(/\+/g, '%20')) || null;
+      }
+      var auth = getURLParameter('auth');
+      var apiUrl = "/rest/whitelist";
+      $("#grid").kendoGrid({
+        toolbar: ["create"],
+        sortable: true,
+        resizable: true,
+        filterable: true, //{ mode: "row" },
+        height: $(window).height()-100,
+        dataSource: {
+            error: function (e) {
+                console.log('error status: ',e.status);
+                //$('#grid').data("kendoGrid").cancelChanges();
+            },
+            transport: {
+                read: { url: apiUrl+"?auth="+auth, dataType: "json" },
+                create: { url: apiUrl+"/create?auth="+auth, type: "POST" },
+                update: { url: apiUrl+"/update?auth="+auth, type: "POST" },
+                destroy: { url: apiUrl+"/delete?auth="+auth, type: "POST" }
+            },
+            schema: {
+              data: "users",
+              model: {
+                  id: "email",
+                  fields: {
+                      firstName: { type: "string", editable: true},
+                      lastName: { type: "string", editable: true},
+                      email: { type: "string", editable: true},
+                  }
+              }
+            }
+        },
+        columns: [
+            {
+              field: "firstName",
+              title: "First Name"
+            },
+            {
+              field: "lastName",
+              title: "Last Name"
+            },
+            {
+              field: "created",
+              title: "Created",
+              template: "#=kendo.toString(new Date(data.created), 'MM/dd/yyyy')#"
+            },
+            {
+              field: "email",
+              title: "Email",
+              width: 200
+            },
+            { command: "destroy", title: "&nbsp;", width: 150 }
+        ],
+          editable: "popup",
+        edit: function(e) {
+            e.container.find("[for=created]").remove();
+            e.container.find("[data-container-for=created]").remove();
+        }
+      });
+
+      // Grid Search
+      $(document).ready(function () {
+          $('.k-grid-add').after('<input type="search" id="searchbox" class="" placeholder="Search...">');
+          $("#searchbox").keyup(function () {
+              var val = $('#searchbox').val();
+              var grid = $("#grid").data("kendoGrid");
+              if (val) {
+                  var filters = [];
+                  $.each(grid.options.dataSource.fields, function (index, value) {
+                      if (value.field
+                          && grid.options.dataSource.schema.model.fields[value.field]
+                          && grid.options.dataSource.schema.model.fields[value.field].type == "string") {
+                          var filter = {
+                              field: value.field,
+                              operator: "contains",
+                              value: val
+                          };
+                          filters.push(filter);
+                      }
+                  });
+                  grid.dataSource.filter({
+                      logic: "or",
+                      filters: filters
+                  });
+              } else {
+                  grid.dataSource.filter({
+                      logic: "or",
+                      filters: []
+                  });
+              }
+          });
+      });
+
+    </script>
+
+  <style type="text/css">
+
+      #searchbox {
+        font-size: medium;
+        width: 400px;
+        margin-top: 6px;
+        margin-bottom: 5px;
+        margin-right:15px;
+        margin-left:10px;
+        padding-left:5px;
+      }
+
+  </style>
+
+  </body>
+</html>

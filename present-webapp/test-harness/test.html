@@ -1,0 +1,117 @@
+<html>
+<head>
+  <link href="https://present.co//styles/stylesheet.css?${buildNumber}5" rel="stylesheet">
+  <link href="https://present.co//styles/foundation.min.css" rel="stylesheet">
+  <link href="https://present.co//styles/normalize.css" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.20.1/moment.min.js"></script>
+  <script>
+      function format(arg) {
+        console.log(arg);
+        return moment(arg).fromNow();
+      }
+  </script>
+<style media="screen">
+body{
+  padding: 10px;
+   overflow-y: scroll;
+   background-color: rgb(249,249,249);
+  -webkit-overflow-scrolling: touch;
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+ }
+
+ .padding-bottom-2{
+     padding-bottom: 2rem;
+ }
+
+ .body-section {
+     padding: 18px 12px 0px;
+ }
+
+ .user-photo {
+     border-radius: 100%;
+     width: 100px;
+     margin-top: -8%;
+ }
+
+ .name-section {
+     display: inline-block;
+     margin-left: 20px;
+
+ }
+
+ .name-section p {
+   font-size: 38px;
+    margin:0;
+ }
+
+ .description-text {
+       font-size: 38px;
+   }
+
+   .name-div{
+     color:rgb(164,170,179);
+   }
+   .make-b{
+     color:#000;
+     font-weight: 500;
+   }
+
+   .loc-time{
+      color:rgb(164,170,179);
+      font-size: 33px !important;
+   }
+
+   .dot-div{
+     background-color:rgb(164,170,179);
+     border-radius: 100px;
+     font-size: 10px;
+     margin:12px;
+   }
+
+   .last-div {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .second-sec{
+     margin-left: 13%;
+  }
+
+.reply-btn,
+.reply-btn:hover,
+.reply-btn:focus
+ {
+    background: transparent;
+    color: rgb(116,60,206);
+    font-size: 33px;
+    font-weight: 500;
+}
+
+</style>
+</head>
+<body>
+<script>
+
+{{#groups}}
+
+
+    document.querySelector('body').insertAdjacentHTML('beforeend','<div class="row"><div class="small-12 medium-12 large-12 padding-bottom-2 columns"><div class="first-sec"><img src="{{owner.photo}}" class="user-photo"/><div class="name-section"><p class="name-div"><span class="make-b">{{owner.firstName}}</span> in <span class="make-b">{{title}}<span></p><p class="loc-time"><span id="{{uuid}}">'+format("{{lastCommentTime}}")+'</span><span class="dot-div"> . </span> {{locationName}}</p></div><div class="second-sec"><p class="description-text">{{locationName}}</p><div class="last-div"><p class="loc-time">See ? other recent comments</p><button id="{{owner.id}}" class="reply-btn">Reply</button></div></div></div></div></div>');
+
+    document.getElementById("{{owner.id}}").addEventListener('click', function(){
+      console.log("{{owner.id}}");
+      // var win = window.open("https://present.co/u/{{owner.id}}", '_blank');
+      //    win.focus();
+  });
+{{/groups}}
+
+
+
+</script>
+
+</html>

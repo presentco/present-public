@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--Branding-->
+    <color name="presentPurple">#8136ec</color>
+    <color name="colorPrimary">@android:color/white</color>
+
+    <color name="transparent">#00000000</color>
+    <color name="white30">#c7FFFFFF</color>
+
+
+    <!--Button-->
+    <color name="lightText">#c086f2</color>
+    <color name="white">@android:color/white</color>
+    <color name="gradient_purple_end">#5132C5</color>
+    <color name="gradient_purple_start">#9956D8</color>
+
+    <!--Tabs-->
+    <color name="tabInactive">#a4aab3</color>
+    <color name="tabActive">@color/black</color>
+
+    <!--Text-->
+    <color name="singleLayerRipple">#29000000
+    </color> <!-- 16% opacity, same as one layer of a ripple-->
+    <color name="black">#000</color>
+    <color name="off_black">#030303</color>
+    <color name="veryDarkGray">#333</color>
+    <color name="charcoalGrey">#4a4a4a</color>
+    <color name="darkGrey">#646364</color>
+    <color name="mediumGray">#828282</color>
+    <color name="blueGray">#a4aab3</color>
+    <color name="midGray">#BDBDBD</color>
+    <color name="lightGray">#c7c7cd</color>
+    <color name="paleGray">#efeff4</color>
+    <color name="lightGray1">#e0e0e0</color>
+    <color name="searchOutlineGray">#e1e1e9</color>
+    <color name="lighterGray">#f2f2f2</color>
+    <color name="lightestGray">#FBFBFB</color>
+
+    <!--Coins for Joins -->
+    <color name="yellow">#fdd61c</color>
+    <color name="turquoise">#25D8F1</color>
+    <color name="pink">#FF0AA6</color>
+    <color name="blue">#0069E3</color>
+
+    <color name="black_overlay">#66000000</color>
+</resources>

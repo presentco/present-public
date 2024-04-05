@@ -1,0 +1,14 @@
+syntax = "proto2";
+package present;
+option java_package = "present.proto";
+
+import "present/core.proto";
+
+service PhoneService {
+  rpc sms(SmsRequest) returns (Empty);
+}
+
+message SmsRequest {
+  required string phoneNumber = 1;
+  required string text = 2;
+}

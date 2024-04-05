@@ -1,0 +1,17 @@
+{
+  "applinks": {
+    "apps": [],
+    "details": {
+      "V48WJRB536.co.present.Present": {
+        "paths": [
+            "/app",
+            "/g/*",
+            "/u/*",
+            "/t/*",
+            "/v/*",
+            "/app/*"
+        ]
+      }
+    }
+  }
+}

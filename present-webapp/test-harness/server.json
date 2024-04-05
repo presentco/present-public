@@ -1,0 +1,416 @@
+{
+  "groups": [
+    {
+      "uuid": "0023eda0-8b70-4733-9b62-e458c3c2807a",
+      "type": "CIRCLE",
+      "creationTime": 1498737930699,
+      "memberCount": 1,
+      "commentCount": 0,
+      "lastCommentTime": 1498737930699,
+      "url": "https://staging.present.co/g/4jRVDDlb",
+      "title": "yum",
+      "owner": {
+        "id": "05857f67-4f99-4f93-92ca-34f678aecc21",
+        "name": "shirls g",
+        "firstName": "shirls",
+        "photo": "https://lh3.googleusercontent.com/FZddrbvTEDm9_sZujyqhrwVgRRx6TAHuyVNrm007t4BsuSOxAD6OBYbEe6ojlStbxLhIcu67Za-2nzeBLreOOwQ1H6wQ6Q",
+        "interests": [],
+        "friends": []
+      },
+      "location": {
+        "latitude": 48.88566529999999,
+        "longitude": 2.3377974,
+        "accuracy": 0
+      },
+      "locationName": "Pastry Gilles Marchal",
+      "radius": 0,
+      "categories": [],
+      "description": "Founders Lindsay Jean Thomson and Kim Hunter are magnetic community weavers who hold space for possibility to take root.Their events and online community are the place to get motivation, resources, and encouragement to make your dreams a reality. Because you can do it, and you don't have to do it alone. \n\nLearn about upcoming events by this incredible community in the chat. \n\nhttp://www.womencatalysts.com/\n"
+    },
+    {
+      "uuid": "0039986c-958d-52d0-f4e2-7be668be0f5c",
+      "type": "CIRCLE",
+      "creationTime": 1512833747549,
+      "memberCount": 1,
+      "commentCount": 0,
+      "lastCommentTime": 1513021431385,
+      "url": "https://staging.present.co/g/7w302xMy",
+      "title": "Women Catalysts",
+      "owner": {
+        "id": "4b7e8518-a0cb-4a25-ac0b-aab5f7e916b8",
+        "name": "Bob Lee",
+        "firstName": "Bob",
+        "photo": "https://lh3.googleusercontent.com/WVW-jsjaq4snA2kJXTklbo92RYIRIprsUY5AdEB7rvRJi9ouuQY49FdYuHP0QvADHFZsrQM-by-Si1jbuuvTRYi2mOSJ",
+        "bio": "Test",
+        "interests": [],
+        "friends": []
+      },
+      "location": {
+        "latitude": 40.8447819,
+        "longitude": -73.8648268,
+        "accuracy": 0
+      },
+      "locationName": "Bronx",
+      "radius": 0,
+      "categories": [
+        "Communities"
+      ],
+      "description": "Founders Lindsay Jean Thomson and Kim Hunter are magnetic community weavers who hold space for possibility to take root.Their events and online community are the place to get motivation, resources, and encouragement to make your dreams a reality. Because you can do it, and you don't have to do it alone. \n\nLearn about upcoming events by this incredible community in the chat. \n\nhttp://www.womencatalysts.com/\n"
+    },
+    {
+      "uuid": "00d67288-4c78-ea8b-d3b0-6b58355dccb2",
+      "type": "CIRCLE",
+      "creationTime": 1507260199480,
+      "memberCount": 5,
+      "commentCount": 0,
+      "lastCommentTime": 1507756343014,
+      "url": "https://staging.present.co/g/vXM8APlQ",
+      "title": "googooliiiiiiii",
+      "owner": {
+        "id": "74c89bc5-419b-4004-89ce-6ee1eaa87044",
+        "name": "Pegooooli Keshi",
+        "firstName": "Pegooooli",
+        "photo": "https://lh3.googleusercontent.com/VcdygPepC2rIfNbitSpHnZd1AqPk8BEkumBbA9WfGLmWaTuSge1bOFTyJhXZJ2h4ojgGVL2GdYvs6YsApqg2x_tSU9Bg",
+        "bio": "Nerdioooooosjdnfvjsdnv See? NSJSONSerialization.JSONObjectWithData does not have a third argument anymore. It used to be error, but it has been omitted in favor of the new kjbkjbjkbjbjbkjbkjbkjbkjbkjbkjbkjbkjbkjbjbj bkjbkjbkjbkjbkjbkjbkbjkbkjbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb www.google.com\n",
+        "interests": [],
+        "friends": []
+      },
+      "location": {
+        "latitude": 37.7844257,
+        "longitude": -122.40645389999997,
+        "accuracy": 0
+      },
+      "locationName": "South of Market",
+      "radius": 0,
+      "cover": {
+        "uuid": "3b5a822e-90c4-e0dd-b5e3-c67bcfd7e33e",
+        "contentType": "JPEG",
+        "content": "https://lh3.googleusercontent.com/wNIQpsfAxd2jooChkJ0-hzoqWEhp2YZfPyr8age4L4WEwzvT5FaPsPSraUXAf9HN1XKDE4A4WG0Ktq5fLjYV_QgoecVH",
+        "contentThumbnail": "https://storage-download.googleapis.com/present-staging/content/3b5a822e-90c4-e0dd-b5e3-c67bcfd7e33e-thumb.jpeg"
+      },
+      "categories": [
+        "Entertainment"
+      ],
+      "description": "googooli magooli"
+    },
+    {
+      "uuid": "01141ac7-47a8-4645-b850-5ca30a6d82a0",
+      "type": "CIRCLE",
+      "creationTime": 1507844648585,
+      "memberCount": 1,
+      "commentCount": 0,
+      "lastCommentTime": 1512598888747,
+      "url": "https://staging.present.co/g/LR7BQY32",
+      "title": "GUILD - 1:1 Networking Community",
+      "owner": {
+        "id": "4b7e8518-a0cb-4a25-ac0b-aab5f7e916b8",
+        "name": "Bob Lee",
+        "firstName": "Bob",
+        "photo": "https://lh3.googleusercontent.com/WVW-jsjaq4snA2kJXTklbo92RYIRIprsUY5AdEB7rvRJi9ouuQY49FdYuHP0QvADHFZsrQM-by-Si1jbuuvTRYi2mOSJ",
+        "bio": "Test",
+        "interests": [],
+        "friends": []
+      },
+      "location": {
+        "latitude": 37.7793722,
+        "longitude": -122.418421,
+        "accuracy": 0
+      },
+      "locationName": "San Francisco Bay Area",
+      "radius": 0,
+      "cover": {
+        "uuid": "daadaa0d-0530-41f8-a0dd-70fa13fbdc66",
+        "contentType": "JPEG",
+        "content": "https://lh3.googleusercontent.com/uol8fdJ-Nu0nsAzhuPfKw-cwd3HL6bKVwhDFNvlYazkE9hpyk4DY2LZt7_b3nJ915duQ-moGmc1G9v7IOoAUIATagP6vc6c",
+        "contentThumbnail": "https://storage-download.googleapis.com/present-staging/content/daadaa0d-0530-41f8-a0dd-70fa13fbdc66-thumb.jpeg"
+      },
+      "categories": [
+        "Career"
+      ],
+      "description": "Upcoming events:\n\nMimosas in Berkeley\nGUILD ambassador Ellen is doing a pop-up here\nSat, December 2, 2017 11:00 AM\n\nGUILD Happy Hour at Runway\nMon, December 11, 2017 6:00 PM\n\nMore events and special perks including a free membership for you and your friends for Thanksgiving here (November 23): http://mailchi.mp/theguilded/member-update-october-1490745\n\nThe GUILD is on a mission to take the inconvenience and awkwardness out of networking, and help women build stronger, more meaningful connections. With the world’s first fully-automated recommendation engine, the GUILD matches like-minded professional women, and suggests a time and place to meet one-on-one. By merging modern-day technology with the medieval concept of the guild, they provide a marketplace for women to find the tools for smart, effective networking at all career stages, and across industries.\n\nhttps://www.theguilded.org/"
+    },
+    {
+      "uuid": "0157D4DB-EA0F-419B-92F6-92D46BC89E67",
+      "type": "CIRCLE",
+      "creationTime": 1501006084231,
+      "memberCount": 1,
+      "commentCount": 0,
+      "lastCommentTime": 1512431764355,
+      "url": "https://staging.present.co/g/jRa1PoRn",
+      "title": "New To San Francisco",
+      "owner": {
+        "id": "4b7e8518-a0cb-4a25-ac0b-aab5f7e916b8",
+        "name": "Bob Lee",
+        "firstName": "Bob",
+        "photo": "https://lh3.googleusercontent.com/WVW-jsjaq4snA2kJXTklbo92RYIRIprsUY5AdEB7rvRJi9ouuQY49FdYuHP0QvADHFZsrQM-by-Si1jbuuvTRYi2mOSJ",
+        "bio": "Test",
+        "interests": [],
+        "friends": []
+      },
+      "location": {
+        "latitude": 37.7984875,
+        "longitude": -122.4356017,
+        "accuracy": 0
+      },
+      "locationName": "Cow Hollow",
+      "radius": 0,
+      "cover": {
+        "uuid": "80EEDBB0-7290-42D2-8FE3-4325C44261AE",
+        "contentType": "JPEG",
+        "content": "https://lh3.googleusercontent.com/DZiizrkNSeGmTfU2l3O2iWywoRb9FpxEjN2R7U1ssZRnXG60jYuHpyx76f7WS3iVIbq9kcKYi7QG4z-R9czKilDBwFU6iQ-N",
+        "contentThumbnail": "https://storage-download.googleapis.com/present-staging/content/80EEDBB0-7290-42D2-8FE3-4325C44261AE-thumb.jpeg"
+      },
+      "categories": [
+        "Career",
+        "Communities"
+      ],
+      "description": "New to San Francisco? Introduce yourself and let the locals know how we can make you feel at home in one of the greatest cities in the world!"
+    },
+    {
+      "uuid": "01AC1727-106B-40A0-B6BE-6B546D8DB6F3",
+      "type": "CIRCLE",
+      "creationTime": 1499970581600,
+      "memberCount": 1,
+      "commentCount": 1,
+      "lastCommentTime": 1515021084946,
+      "url": "https://staging.present.co/g/PY3X7olk",
+      "title": "Testx",
+      "owner": {
+        "id": "f3fde0f3-ccd1-4736-8e97-1fa42391b971",
+        "name": "Patrick Niemeyer",
+        "firstName": "Patrick",
+        "photo": "https://lh3.googleusercontent.com/iCdBrRgne-avWLuqYq4RjkmD6a8HDLU7bUC33qxPqjtdXBISCiCNoCwz_R8yNffMHXL7S9PrXBG71OxmS-9rR3X_rUc",
+        "bio": "Join me in the “Test” circle on Present, the network for extraordinary women! http://pat.net\n",
+        "interests": [],
+        "friends": []
+      },
+      "location": {
+        "latitude": 38,
+        "longitude": -90,
+        "accuracy": 0
+      },
+      "locationName": "Modoc",
+      "radius": 0,
+      "cover": {
+        "uuid": "48E4A7D6-7BDD-40CA-99B0-DB3F6D16623B",
+        "contentType": "JPEG",
+        "content": "https://lh3.googleusercontent.com/jtvXCkgSeOPQsmZStzfx2ANlLmXMm24ovsp0HPPdBb1Bjb0zXbcv0naPgoqNymujH_mTKvNgcmmXMSDyT3kjZk9ty31F",
+        "contentThumbnail": "https://storage-download.googleapis.com/present-staging/content/48E4A7D6-7BDD-40CA-99B0-DB3F6D16623B-thumb.jpeg"
+      },
+      "categories": [
+        "Family",
+        "Health",
+        "Style"
+      ],
+      "description": "Founders Lindsay Jean Thomson and Kim Hunter are magnetic community weavers who hold space for possibility to take root.Their events and online community are the place to get motivation, resources, and encouragement to make your dreams a reality. Because you can do it, and you don't have to do it alone. \n\nLearn about upcoming events by this incredible community in the chat. \n\nhttp://www.womencatalysts.com/\n"
+    },
+    {
+      "uuid": "01c06559-f96e-4619-b127-b2bf65ef4c59",
+      "type": "CIRCLE",
+      "creationTime": 1504814068213,
+      "memberCount": 1,
+      "commentCount": 0,
+      "lastCommentTime": 1504814068213,
+      "url": "https://staging.present.co/g/PY3X1KRk",
+      "title": "Nightbird",
+      "owner": {
+        "id": "4b7e8518-a0cb-4a25-ac0b-aab5f7e916b8",
+        "name": "Bob Lee",
+        "firstName": "Bob",
+        "photo": "https://lh3.googleusercontent.com/WVW-jsjaq4snA2kJXTklbo92RYIRIprsUY5AdEB7rvRJi9ouuQY49FdYuHP0QvADHFZsrQM-by-Si1jbuuvTRYi2mOSJ",
+        "bio": "Test",
+        "interests": [],
+        "friends": []
+      },
+      "location": {
+        "latitude": 37.7766594,
+        "longitude": -122.4226694,
+        "accuracy": 0
+      },
+      "locationName": "Nightbird",
+      "radius": 0,
+      "cover": {
+        "uuid": "a1e6941b-7f29-4612-a655-b71b2b7ed90b",
+        "contentType": "JPEG",
+        "content": "https://lh3.googleusercontent.com/7q8s8bn3nwZwiXzfpr2chfW_dpBxhl48mICk1HrK_86oSg57Hmb6wk3xrlax9GP0j5EUKtP-VyPiKOU3SLVuL7U7Ya4ItmyhHA",
+        "contentThumbnail": "https://storage-download.googleapis.com/present-staging/content/a1e6941b-7f29-4612-a655-b71b2b7ed90b-thumb.jpeg"
+      },
+      "categories": [
+        "Food & Drink",
+        "Woman Owned"
+      ],
+      "description": "TUE - SAT 5pm - 10pm\n\nNightbird is an elegant boutique restaurant in the heart of San Francisco which embraces community, diversity, and delivers a hospitable and whimsical experience.\n\nKim Alter is the chef/owner of Nightbird and adjoining Linden Room, which marks her first solo project in San Francisco's Hayes Valley. Alter formerly worked with the Daniel Patterson Group for three years at the helm of kitchens such as Haven and Plum in Oakland, California. Prior to that, she has worked in some of the Bay Area's most notable restaurant kitchens including Manresa, Ubuntu, Aqua, and Acquerello. \n\nAlter’s menus showcase a commitment to technique, whole animal cookery, and support of local farms. Her food often takes familiar dishes to new places with creatives pins on classics. Alter earned a Food & Wine Magazine nomination for People’s Best Chef in 2012 and 2013 with her talent for bringing “down-to- earth boldness to cerebral dishes.” She won the title of “Best New Chef” from Oakland Magazine while at Haven, which was also named “Best New Restaurant” under her direction and awarded three stars from San Francisco Magazine. She grew up in Laguna Beach, California and is a graduate of the California Culinary Academy.\n\nNightbirdRestaurant.com"
+    },
+    {
+      "uuid": "0288bb0c-99f4-4383-b7c2-5a2bd26dbd94",
+      "type": "CIRCLE",
+      "creationTime": 1503442612061,
+      "memberCount": 1,
+      "commentCount": 1,
+      "lastCommentTime": 1511288675281,
+      "url": "https://staging.present.co/g/jz3ADzlb",
+      "title": "Test2",
+      "owner": {
+        "id": "f3fde0f3-ccd1-4736-8e97-1fa42391b971",
+        "name": "Patrick Niemeyer",
+        "firstName": "Patrick",
+        "photo": "https://lh3.googleusercontent.com/iCdBrRgne-avWLuqYq4RjkmD6a8HDLU7bUC33qxPqjtdXBISCiCNoCwz_R8yNffMHXL7S9PrXBG71OxmS-9rR3X_rUc",
+        "bio": "Join me in the “Test” circle on Present, the network for extraordinary women! http://pat.net\n",
+        "interests": [],
+        "friends": []
+      },
+      "location": {
+        "latitude": 38.669612,
+        "longitude": -90.384293,
+        "accuracy": 0
+      },
+      "locationName": "Olivette",
+      "radius": 0,
+      "cover": {
+        "uuid": "9c6ceb2a-d0be-4ed2-9570-aaa89273b4f1",
+        "contentType": "JPEG",
+        "content": "https://lh3.googleusercontent.com/wQ63gxpco3fBDuVUP4pOrI_YqXsZdysvRKo43Mlg3tXTs0W2WxafGPrNU2XsrEKtt-t8IT4dypDc-J2ryyJ8Eu7Eemc",
+        "contentThumbnail": "https://storage-download.googleapis.com/present-staging/content/9c6ceb2a-d0be-4ed2-9570-aaa89273b4f1-thumb.jpeg"
+      },
+      "categories": [],
+      "description": "Two"
+    },
+    {
+      "uuid": "02E9E738-3165-4214-8E5C-056F39945A98",
+      "type": "CIRCLE",
+      "creationTime": 1496869003429,
+      "memberCount": 2,
+      "commentCount": 0,
+      "lastCommentTime": 1512418463570,
+      "url": "https://staging.present.co/g/rvMdZP3e",
+      "title": "Ladies Night",
+      "owner": {
+        "id": "4b7e8518-a0cb-4a25-ac0b-aab5f7e916b8",
+        "name": "Bob Lee",
+        "firstName": "Bob",
+        "photo": "https://lh3.googleusercontent.com/WVW-jsjaq4snA2kJXTklbo92RYIRIprsUY5AdEB7rvRJi9ouuQY49FdYuHP0QvADHFZsrQM-by-Si1jbuuvTRYi2mOSJ",
+        "bio": "Test",
+        "interests": [],
+        "friends": []
+      },
+      "location": {
+        "latitude": 37.7758112,
+        "longitude": -122.4259357,
+        "accuracy": 0
+      },
+      "locationName": "The Riddler",
+      "radius": 0,
+      "cover": {
+        "uuid": "4ddafc20-cecd-4b20-9078-e9583aa69447",
+        "contentType": "JPEG",
+        "content": "https://lh3.googleusercontent.com/-32nWZ41zaox0-asB2IH-pWly5kZ_aW2VmgmAhmDaCPLcSMUzGPf-Gk8tHW4XYsZhMsnzm3mz3UN5Dng6H7yuM22xTKHlfQ",
+        "contentThumbnail": "https://storage-download.googleapis.com/present-staging/content/4ddafc20-cecd-4b20-9078-e9583aa69447-thumb.jpeg"
+      },
+      "categories": [
+        "Events",
+        "Food & Drink"
+      ],
+      "description": "New to town and looking for ladies to in the city to meet over wine and cheese! 🥂👯"
+    },
+    {
+      "uuid": "02F75802-A525-434A-9B28-31500EA3E609",
+      "type": "CIRCLE",
+      "creationTime": 1500522681448,
+      "memberCount": 1,
+      "commentCount": 0,
+      "lastCommentTime": 1500522681448,
+      "url": "https://staging.present.co/g/qplwW1l8",
+      "title": "Test Zzz",
+      "owner": {
+        "id": "f3fde0f3-ccd1-4736-8e97-1fa42391b971",
+        "name": "Patrick Niemeyer",
+        "firstName": "Patrick",
+        "photo": "https://lh3.googleusercontent.com/iCdBrRgne-avWLuqYq4RjkmD6a8HDLU7bUC33qxPqjtdXBISCiCNoCwz_R8yNffMHXL7S9PrXBG71OxmS-9rR3X_rUc",
+        "bio": "Join me in the “Test” circle on Present, the network for extraordinary women! http://pat.net\n",
+        "interests": [],
+        "friends": []
+      },
+      "location": {
+        "latitude": 37.8776542,
+        "longitude": -89.7881723,
+        "accuracy": 0
+      },
+      "locationName": "Sauget",
+      "radius": 0,
+      "cover": {
+        "uuid": "450586E7-A5AF-4584-836F-32A943661736",
+        "contentType": "JPEG",
+        "content": "https://lh3.googleusercontent.com/Ob7Nm8ZkED5Ih2TrLLIx_RAORN3aZjqeV_OpgGlHQIGoLSmHO-MoCb335rGZnxIJnOOnm_khEhl1345eTMJtDYycmiY",
+        "contentThumbnail": "https://storage-download.googleapis.com/present-staging/content/450586E7-A5AF-4584-836F-32A943661736-thumb.jpeg"
+      },
+      "categories": [],
+      "description": "Founders Lindsay Jean Thomson and Kim Hunter are magnetic community weavers who hold space for possibility to take root.Their events and online community are the place to get motivation, resources, and encouragement to make your dreams a reality. Because you can do it, and you don't have to do it alone. \n\nLearn about upcoming events by this incredible community in the chat. \n\nhttp://www.womencatalysts.com/\n"
+    },
+    {
+      "uuid": "02a4ad6e-928b-a481-e84c-6c6ac31dcf85",
+      "type": "CIRCLE",
+      "creationTime": 1511398338258,
+      "memberCount": 1,
+      "commentCount": 0,
+      "lastCommentTime": 1511398338258,
+      "url": "https://staging.present.co/g/b3ZP9QMK",
+      "title": "Fresh to Def Collective",
+      "owner": {
+        "id": "4b7e8518-a0cb-4a25-ac0b-aab5f7e916b8",
+        "name": "Bob Lee",
+        "firstName": "Bob",
+        "photo": "https://lh3.googleusercontent.com/WVW-jsjaq4snA2kJXTklbo92RYIRIprsUY5AdEB7rvRJi9ouuQY49FdYuHP0QvADHFZsrQM-by-Si1jbuuvTRYi2mOSJ",
+        "bio": "Test",
+        "interests": [],
+        "friends": []
+      },
+      "location": {
+        "latitude": 37.8043637,
+        "longitude": -122.2711137,
+        "accuracy": 0
+      },
+      "locationName": "Oakland",
+      "radius": 0,
+      "categories": [
+        "Woman Owned"
+      ],
+      "description": "We are a social justice enterprise that empowers women of color to be their bold, powerful, and free selves through wearable political art. We produce fashion accessories, house wares, and organizational swag that inspire community to take a stand for what they believe. \n\nHope Lehman\n\nI am a biracial hip hop feminist dedicated to community empowerment and ending all forms of oppression through action, dialogue, technology and art. I was born in Sacramento, California and graduated from University of California, Santa Cruz in 2009 with a degree in Feminist Studies and Sociology. I have lived in Oakland since the fall of 2010 and am honored to be a part of the vibrant local art, entrepreneurship, and tech community. You can find me haunting the downtown streets of Oakland taking over the dance floor or tinkering away in my art studio next to a good sci-fi flick. \n\nhttp://freshtodefcollective.com/"
+    },
+    {
+      "uuid": "02b7d424-5d3e-4b9b-83a6-27f3c222037d",
+      "type": "CIRCLE",
+      "creationTime": 1507337383283,
+      "memberCount": 1,
+      "commentCount": 0,
+      "lastCommentTime": 1507338080291,
+      "url": "https://staging.present.co/g/7w30m9Ry",
+      "title": "Woke Women",
+      "owner": {
+        "id": "4b7e8518-a0cb-4a25-ac0b-aab5f7e916b8",
+        "name": "Bob Lee",
+        "firstName": "Bob",
+        "photo": "https://lh3.googleusercontent.com/WVW-jsjaq4snA2kJXTklbo92RYIRIprsUY5AdEB7rvRJi9ouuQY49FdYuHP0QvADHFZsrQM-by-Si1jbuuvTRYi2mOSJ",
+        "bio": "Test",
+        "interests": [],
+        "friends": []
+      },
+      "location": {
+        "latitude": 37.79036033870931,
+        "longitude": -122.40388498503978,
+        "accuracy": 0
+      },
+      "locationName": "Union Square",
+      "radius": 0,
+      "cover": {
+        "uuid": "f546c7af-3413-4c1d-85cd-ff59cb257b39",
+        "contentType": "JPEG",
+        "content": "https://lh3.googleusercontent.com/n5lCK5gcO9IWXo3tXJpiy2xvZbR87PU1L3U8_lQkdJCX-sbJbyIJIdu8gFH-R6GwEWHDZgHvwOxUigfzWMQnMoJQmqdbR6wU",
+        "contentThumbnail": "https://storage-download.googleapis.com/present-staging/content/f546c7af-3413-4c1d-85cd-ff59cb257b39-thumb.jpeg"
+      },
+      "categories": [
+        "Career"
+      ],
+      "description": "Woke"
+    }
+  ]
+}

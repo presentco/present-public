@@ -1,0 +1,104 @@
+// User API Messages
+
+syntax = "proto2";
+package present;
+option java_package = "present.proto";
+
+import "present/user.proto";
+import "present/group.proto";
+
+service ActivityService {
+  // Get past activity for the current user.
+  rpc getPastActivity(PastActivityRequest) returns (PastActivityResponse);
+}
+
+// Get past activity for the current user.
+message PastActivityRequest {
+  // Optional starting time. If not provided all activity will be returned.
+  optional uint64 startTime = 1;
+  // Optional end time. If not provided all activity will be returned.
+  optional uint64 endTime = 2;
+}
+
+// Past activity for the current user.
+message PastActivityResponse {
+  // The sequence of events, ordered by time ascending
+  repeated EventResponse events = 1;
+}
+
+// Describes a system activity or user action of interest to a given user.
+// e.g. events in the activity feed.
+//
+// Examples:
+// - "Bob joined 5 circles."
+// - "Bob and 5 others joined 'Your Circle.'"
+// - "Bob and 5 others commented on 'Your Circle.'"
+message EventResponse {
+
+  // The unique id for this event, which can be used for disambiguation.
+  required string uuid = 1;
+
+  // Type of event.
+  optional ActivityType type = 2;
+
+  // Time when the event occurred.
+  required uint64 when = 3;
+
+  // URL for icon displayed with the event.
+  optional string icon = 4;
+
+  // User-visible event description.
+  required string summary = 5;
+
+  // Where should the app take you when you tap the event?
+  required ReferenceResponse defaultTarget = 6;
+}
+
+// The event type.  This follows the user settings naming convention:
+// "When a(n)... actor action target", but in the past tense.
+enum ActivityType {
+  // Protocol Buffers will assign this value for an unrecognized enum on an older client.
+  UNKNOWN = 0;
+
+  // TODO: The iOS Client build process requires enum names to be unique.
+  // TODO: We temporarily change the name for the iOS build.  The wire format is unaffected.
+//  UNKNOWN_ACTIVITY_TYPE = 0;
+
+  FRIEND_JOINED_PRESENT = 1;
+
+  // Direct Messaging
+  USER_SENT_MESSAGE = 100;
+
+  // Group
+  USER_COMMENTED_ON_GROUP = 200;
+  USER_JOINED_GROUP = 201;
+  USER_INVITED_TO_GROUP = 202;
+
+  GROUP_MEMBERSHIP_REQUEST = 203;
+  GROUP_MEMBERSHIP_APPROVAL = 204;
+
+  USER_STARTED_GROUP = 205;
+
+  // Friendship
+  FRIEND_REQUEST = 300;
+  FRIEND_ACCEPT = 301;
+}
+
+// An entity response that can refer to one of many types of entities.
+// The entity may be referenced by uuid or provide the full response.
+message ReferenceResponse {
+
+  oneof response {
+    string userId = 1;
+    UserResponse user = 2;
+
+    string groupId = 3;
+    GroupResponse group = 4;
+
+    string commentId = 5;
+    CommentResponse comment = 6;
+
+    // Fields 7 and 8 were removed and should not be reused.
+  }
+}
+

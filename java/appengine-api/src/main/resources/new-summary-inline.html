@@ -1,0 +1,332 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Present</title>
+    <style>
+      a:link{text-decoration:none;}
+      a:hover{color:inherit;}
+    </style>
+    <style type="text/css">
+      @media only screen and (min-width : 314px) and (max-width : 636px) {
+      .mobile-view{
+        width:70%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <center>
+      <div class="mobile-view" style="width:40%;padding:0px;background-color:#ffffff;height:100%;margin:0 auto;border:0px;width:100%;max-width:620px;width:620px;">
+        <table style="table-layout:fixed;width:100%;border-spacing:0px;border-collapse:collapse;font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;font-size:21px;color:#000000;font-weight:normal;text-overflow:ellipsis;overflow:hidden;width:620px;">
+          <tbody>
+            <tr>
+              <!--Vertical Spacer-->
+              <td height="16px" style="vertical-align:top;font-size:16px;line-height:16px;">&#xA0;</td>
+            </tr>
+            <tr>
+              <!--Profile photo-->
+              <td style="vertical-align:top;">
+                <img src="{{user.profilePhotoUrl}}" alt="Profile Photo" style="height:130px;width:130px;margin:0px 250px;border-radius:50%;"/></td>
+            </tr>
+            <tr>
+              <!--Greeting with name-->
+              <td style="vertical-align:top;">
+                <p style="font-size:36px;font-weight:bolder;margin:0px 18px 0px 18px;text-align:center;">Hey {{user.firstName}}!</p>
+              </td>
+            </tr>
+            <tr>
+              <!--Quote-->
+              <td style="vertical-align:top;">
+                <p style="font-size:21px;text-align:center;color:#9b9b9b;margin:9px 34px 25.5px 34px;"><i>“{{quote.text}}”</i> <span style="white-space:nowrap;">&mdash;{{quote.author}}</span></p>
+              </td>
+            </tr>
+            <tr>
+              <!-- Multicolored divider-->
+              <td style="vertical-align:top;">
+                <img src="https://{{staging}}present.co/email/img/divider@2x.png" align="center" style="height:6px;width:620px;margin:15px 0px;"/></td>
+            </tr>
+            {{#hasGroupSummaries}}
+            <tr>
+              <!--Vertical Spacer-->
+              <td height="27px" style="vertical-align:top;font-size:27px;line-height:27px;">&#xA0;</td>
+            </tr>
+            <tr>
+              <td style="vertical-align:top;">
+                <!--Your Circles Header-->
+                <p style="font-weight:normal;margin:0px 18px 0px 18px;">YOUR CIRCLES</p>
+                <p style="font-size:36px;font-weight:bolder;margin:0px 18px 0px 18px;">While you were away...</p>
+              </td>
+            </tr>
+            <tr>
+              <!--Vertical Spacer-->
+              <td height="18px" style="vertical-align:top;font-size:18px;line-height:16px;">&#xA0;</td>
+            </tr>
+            {{/hasGroupSummaries}}
+            {{#groupSummaries}}
+            <tr>
+              <td style="vertical-align:top;">
+                <table style="table-layout:fixed;width:100%;border-spacing:0px;border-collapse:collapse;table-layout:fixed;width:100%;">
+                  <tbody>
+                    <tr>
+                      <td style="vertical-align:top;width:114px;">
+                        <a href="{{group.shortLink}}" target="_blank" style="width:100%;height:100%;display:inline-block;text-decoration:none;">
+                          <!--Group Icon-->
+                          <img src="{{icon}}" align="center" alt="Circle Icon" style="height:75px;width:75px;margin:0px 18px 25.5px 18px;">
+                        </a>
+                      </td>
+                      <td style="vertical-align:top;width:341px;">
+                        <a href="{{group.shortLink}}" target="_blank" style="width:100%;height:100%;display:inline-block;text-decoration:none;">
+                          <!--Activity Summary-->
+                          <p style="font-size:21px;font-weight:normal;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;margin:10px 0px 0px 0px;color:#000000">{{group.title}}</p>
+                          <p style="font-size:19.5px;text-overflow:ellipsis;overflow:hidden;white-space:nowrap;margin:0px 0px 0px 0px;color:#743cce;">{{summary}}</p>
+                        </a>
+                      </td>
+                      <td style="vertical-align:top;width:165px;">
+                        <!--View Group Button-->
+                        <a href="{{group.shortLink}}" target="_blank" style="width:135px;height:45px;padding:0px;margin:15px;border-radius:22.5px;background:#743cce;font-size:19.5px;line-height:42px;text-align:center;color:#ffffff;display:inline-block;text-decoration:none;">View</a>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </td>
+            </tr>
+            {{/groupSummaries}}
+            {{#hasMoreGroupSummaries}}
+            <tr>
+              <td style="vertical-align:top;"><a href="https://present.co/app" target="_blank" style="font-size:21px;font-weight:bolder;margin:0px 0px 21px 0px;text-align:center;color:#000000;display:block;text-decoration:none;border:0">SEE MORE</a></td>
+            </tr>
+            {{/hasMoreGroupSummaries}}
+            {{#hasGroupSummaries}}              
+            <tr>
+              <td style="vertical-align:top;"><hr style="color:#e1e1e9;background-color:#e1e1e9;width:586.5px;height:1px;border-width:0;"></td>
+            </tr>
+            {{/hasGroupSummaries}}
+            {{#hasJoinSummaries}}
+            <tr>
+              <!--Vertical Spacer-->
+              <td height="27px" style="vertical-align:top;font-size:27px;line-height:27px;">&#xA0;</td>
+            </tr>
+            <tr>
+              <td style="vertical-align:top;">
+                <!--New Joins Header-->
+                <p style="font-weight:normal;margin:0px 18px 0px 18px;">NEW JOINS</p>
+                <p style="font-size:36px;font-weight:bolder;margin:0px 18px 0px 18px;">{{totalJoins}} Joins</p>
+              </td>
+            </tr>
+            <tr>
+              <!--Vertical Spacer-->
+              <td height="18px" style="vertical-align:top;font-size:18px;line-height:18px;">&#xA0;</td>
+            </tr>
+            {{/hasJoinSummaries}}
+            {{#joinSummaries}}
+            <tr>
+              <td style="vertical-align:top;">
+                <table style="table-layout:fixed;width:100%;border-spacing:0px;border-collapse:collapse;table-layout:fixed;width:100%;">
+                  <tbody>
+                    <tr>
+                      <a href="{{group.shortLink}}" target="_blank" style="width:100%;height:100%;display:inline-block;text-decoration:none;">
+                        <td style="vertical-align:top;width:114px;">
+                          <!--Group Icon-->
+                          <img src="{{icon}}" align="center" alt="Circle Icon" style="height:75px;width:75px;margin:0px 18px 25.5px 18px;">
+                        </td>
+                      </a>
+                      <td style="vertical-align:top;width:341px;">
+                        <a href="{{group.shortLink}}" target="_blank" style="width:100%;height:100%;display:inline-block;text-decoration:none;">
+                          <!--Activity Summary-->
+                          <p style="font-size:21px;text-overflow:ellipsis;overflow:hidden;white-space:nowrap;font-weight:normal;margin:10px 0px 0px 0px;color:#000000">{{group.title}}</p>
+                          <p style="font-size:19.5px;text-overflow:ellipsis;overflow:hidden;white-space:nowrap;margin:0px 0px 0px 0px;color:#000000">{{summary}}</p>
+                        </a>
+                      </td>
+                      <td style="vertical-align:top;width:165px;">
+                        <!--View Group Button-->
+                        <a href="{{group.shortLink}}" target="_blank" style="width:135px;height:45px;padding:0px;margin:15px;border-radius:22.5px;background:#fdd61c;font-size:19.5px;line-height:42px;text-align:center;color:#ffffff;display:inline-block;text-decoration:none;">View</a>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </td>
+            </tr>
+            {{/joinSummaries}}
+            {{#hasMoreJoinSummaries}}
+            <tr>
+              <td style="vertical-align:top;"><a href="https://present.co/app" target="_blank" style="font-size:21px;font-weight:bolder;margin:0px 0px 21px 0px;text-align:center;color:#000000;display:block;text-decoration:none;border:0">SEE MORE</a></td>
+            </tr>
+            {{/hasMoreJoinSummaries}}
+            {{#hasJoinSummaries}}
+            <tr>
+              <td style="vertical-align:top;"><hr style="color:#e1e1e9;background-color:#e1e1e9;width:586.5px;height:1px;border-width:0;"></td>
+            </tr>
+            {{/hasJoinSummaries}}
+            {{#hasInviteSummaries}}
+            <tr>
+              <!--Vertical Spacer-->
+              <td height="27px" style="vertical-align:top;font-size:27px;line-height:27px;">&#xA0;</td>
+            </tr>
+            <tr>
+              <td style="vertical-align:top;">
+                <!--New Invites Header-->
+                <p style="font-weight:normal;margin:0px 18px 0px 18px;">NEW INVITES</p>
+                <p style="font-size:36px;font-weight:bolder;margin:0px 18px 0px 18px;">Join the conversation</p>
+              </td>
+            </tr>
+            <tr>
+              <!--Vertical Spacer-->
+              <td height="18px" style="vertical-align:top;font-size:18px;line-height:18px;">&#xA0;</td>
+            </tr>
+            {{/hasInviteSummaries}}
+            {{#inviteSummaries}}
+            <tr>
+              <td style="vertical-align:top;">
+                <table style="table-layout:fixed;width:100%;border-spacing:0px;border-collapse:collapse;table-layout:fixed;width:100%;">
+                  <tbody>
+                    <tr>
+                      <td style="vertical-align:top;width:114px;">
+                        <a href="{{group.shortLink}}" target="_blank" style="width:100%;height:100%;display:inline-block;text-decoration:none;">
+                          <!--Group Icon-->
+                          <img src="{{icon}}" align="center" alt="Circle Icon" style="height:75px;width:75px;margin:0px 18px 25.5px 18px;">
+                        </a>
+                      </td>
+                      <td style="vertical-align:top;width:341px;">
+                        <a href="{{group.shortLink}}" target="_blank" style="width:100%;height:100%;display:inline-block;text-decoration:none;">
+                          <!--Activity Summary-->
+                          <p style="font-size:21px;text-overflow:ellipsis;overflow:hidden;white-space:nowrap;font-weight:normal;margin:10px 0px 0px 0px;color:#000000">{{group.title}}</p>
+                          <p style="font-size:19.5px;text-overflow:ellipsis;overflow:hidden;white-space:nowrap;margin:0px 0px 0px 0px;color:#000000">{{summary}}</p>
+                        </a>
+                      </td>
+                      <td style="vertical-align:top;width:165px;">
+                        <!--View Group Button-->
+                        <a href="{{group.shortLink}}" target="_blank" style="width:135px;height:45px;padding:0px;margin:15px;border-radius:22.5px;background:#25d8f1;font-size:19.5px;line-height:42px;text-align:center;color:#ffffff;display:inline-block;text-decoration:none;">View</a>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </td>
+            </tr>
+            {{/inviteSummaries}}
+            {{#hasMoreInviteSummaries}}
+            <tr>
+              <td style="vertical-align:top;"><a href="https://present.co/app" target="_blank" style="font-size:21px;font-weight:bolder;margin:0px 0px 21px 0px;text-align:center;color:#000000;display:block;text-decoration:none;border:0">SEE MORE</a></td>
+            </tr>
+            {{/hasMoreInviteSummaries}}
+            {{#hasInviteSummaries}}
+            <tr>
+              <td style="vertical-align:top;"><hr style="color:#e1e1e9;background-color:#e1e1e9;width:586.5px;height:1px;border-width:0;"></td>
+            </tr>
+            {{/hasInviteSummaries}}
+            {{#hasFriendSummaries}}
+            <tr>
+              <!--Vertical Spacer-->
+              <td height="27px" style="vertical-align:top;font-size:27px;line-height:27px;">&#xA0;</td>
+            </tr>
+            <tr>
+              <td style="vertical-align:top;">
+                <!--New Invites Header-->
+                <p style="font-weight:normal;margin:0px 18px 0px 18px;">SAY HELLO</p>
+                <p style="font-size:36px;font-weight:bolder;margin:0px 18px 0px 18px;">New friends on Present</p>
+              </td>
+            </tr>
+            <tr>
+              <!--Vertical Spacer-->
+              <td height="18px" style="vertical-align:top;font-size:18px;line-height:18px;">&#xA0;</td>
+            </tr>
+            {{/hasFriendSummaries}}
+            {{#friendSummaries}} 
+            <tr>
+              <td style="vertical-align:top;">
+                <table style="table-layout:fixed;width:100%;border-spacing:0px;border-collapse:collapse;table-layout:fixed;width:100%;">
+                  <tbody>
+                    <tr>
+                      <td style="vertical-align:top;width:114px;">
+                        <a href="{{user.shortLink}}" target="_blank" style="width:100%;height:100%;display:inline-block;text-decoration:none;">
+                          <!--User Icon-->
+                          <img src="{{icon}}" align="center" alt="User Profile Photo" style="height:75px;width:75px;margin:0px 18px 25.5px 18px;">
+                        </a>
+                      </td>
+                      <td style="vertical-align:top;width:341px;">
+                        <a href="{{user.shortLink}}" target="_blank" style="width:100%;height:100%;display:inline-block;text-decoration:none;">
+                          <!--Activity Summary-->
+                          <p style="font-size:21px;text-overflow:ellipsis;overflow:hidden;white-space:nowrap;font-weight:normal;margin:10px 0px 0px 0px;color:#000000">{{user.fullName}}</p>
+                          <p style="font-size:19.5px;text-overflow:ellipsis;overflow:hidden;white-space:nowrap;margin:0px 0px 0px 0px;color:#000000">{{summary}}</p>
+                        </a>
+                      </td>
+                      <td style="vertical-align:top;width:165px;">
+                        <!--View Profile Button-->
+                        <a href="{{user.shortLink}}" target="_blank" style="width:135px;height:45px;padding:0px;margin:15px;border-radius:22.5px;background:#ff0aa6;font-size:19.5px;line-height:42px;text-align:center;color:#ffffff;display:inline-block;text-decoration:none;">View</a>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </td>
+            </tr>
+            {{/friendSummaries}}
+            {{#hasMoreFriendSummaries}}
+            <tr>
+              <td style="vertical-align:top;"><a href="https://present.co/app" target="_blank" style="font-size:21px;font-weight:bolder;margin:0px 0px 21px 0px;text-align:center;color:#000000;display:block;text-decoration:none;border:0">SEE MORE</a></td>
+            </tr>
+            {{/hasMoreFriendSummaries}}
+            {{#hasFriendSummaries}}
+            <tr>
+              <td style="vertical-align:top;"><hr style="color:#e1e1e9;background-color:#e1e1e9;width:586.5px;height:1px;border-width:0;"></td>
+            </tr>
+            {{/hasFriendSummaries}}
+            <!--Footer-->
+            <tr>
+              <td style="vertical-align:top;">
+                <a href="https://{{staging}}present.co/app" title="Present App" style="font-family:'Helvetica Neue','Helvetica',Helvetica,Arial,sans-serif;color:#ff5a5f;margin:0;padding:0;text-decoration:none" target="_blank">
+                  <img src="https://{{staging}}present.co/email/img/search.png" alt="Find your good vibe tribe" style="margin:18px 19px;width:586.5px;">
+                </a>
+              </td>
+            </tr>
+            <tr>
+              <td style="vertical-align:top;">
+                <table style="table-layout:fixed;width:100%;border-spacing:0px;border-collapse:collapse;table-layout:fixed;width:100%;width:620px;">
+                  <tbody>
+                    <tr>
+                      <td style="vertical-align:top;width:315px;">
+                        <a href="https://{{staging}}present.co" title="Present" style="font-family:'Helvetica Neue','Helvetica',Helvetica,Arial,sans-serif;color:#ff5a5f;margin:0;padding:0;text-decoration:none" target="_blank">
+                          <img src="https://{{staging}}present.co/email/img/logo.png" alt="Present Logo" style="margin:0px 46px 25px 19px;height:52.5px;">
+                        </a>
+                      </td>
+                      <td style="vertical-align:top;">
+                        <a href="https://www.instagram.com/letsbepresent/" title="Instagram" style="font-family:'Helvetica Neue','Helvetica',Helvetica,Arial,sans-serif;color:#ff5a5f;margin:0;padding:0;text-decoration:none" target="_blank">
+                          <img src="https://{{staging}}present.co/email/img/instagram.png" alt="Present on Instagram" style="height:49px;width:49px;margin:0px 9px 25px 9px;">
+                        </a>
+                      </td>
+                      <td style="vertical-align:top;">
+                        <a href="https://blog.present.co/" title="Medium" style="font-family:'Helvetica Neue','Helvetica',Helvetica,Arial,sans-serif;color:#ff5a5f;margin:0;padding:0;text-decoration:none" target="_blank">
+                          <img src="https://{{staging}}present.co/email/img/medium.png" alt="Present on Medium" style="height:49px;width:49px;margin:0px 9px 25px 9px;">
+                        </a>
+                      </td>
+                      <td style="vertical-align:top;">
+                        <a href="https://twitter.com/letsbepresent" title="Twitter" style="font-family:'Helvetica Neue','Helvetica',Helvetica,Arial,sans-serif;color:#ff5a5f;margin:0;padding:0;text-decoration:none" target="_blank">
+                          <img src="https://{{staging}}present.co/email/img/twitter.png" alt="Present on Twitter" style="height:49px;width:49px;margin:0px 9px 25px 9px;">
+                        </a>
+                      </td>
+                      <td style="vertical-align:top;">
+                        <a href="https://www.facebook.com/letsbepresent/" title="Facebook" style="font-family:'Helvetica Neue','Helvetica',Helvetica,Arial,sans-serif;color:#ff5a5f;margin:0;padding:0;text-decoration:none" target="_blank">
+                          <img src="https://{{staging}}present.co/email/img/facebook.png" alt="Present on Facebook" style="height:49px;width:49px;margin:0px 9px 25px 9px;">
+                        </a>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </td>
+            </tr>
+            <tr>
+              <!-- Multicolored divider-->
+              <td style="vertical-align:top;">
+                <img src="https://{{staging}}present.co/email/img/divider@2x.png" align="center" style="height:6px;width:620px;margin:15px 0px;"/></td>
+            </tr>
+            <tr>
+              <td style="vertical-align:top;">
+                <p style="font-size:18px;text-align:center;color:#9b9b9b;margin:27px 33px 126px 34px;">Wanna crush our dreams? <a style="text-decoration:underline;font-size:18px;text-align:center;color:#9b9b9b;" href="<%asm_group_unsubscribe_raw_url%>">Unsubscribe</a></p>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </center>
+  </body>
+</html>

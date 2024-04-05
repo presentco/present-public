@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="NavBar" customModule="Present" customModuleProvider="target">
+            <connections>
+                <outlet property="backButton" destination="QDc-pS-ZJY" id="Lcl-4w-RTm"/>
+                <outlet property="cancelButton" destination="pka-KY-ffE" id="2R9-1m-6rd"/>
+                <outlet property="hamburgerButton" destination="ek1-hl-eLL" id="Gs3-fA-HSz"/>
+                <outlet property="saveButton" destination="K7Q-6W-HPZ" id="wTY-Tz-hb8"/>
+                <outlet property="subtitle" destination="e6Y-if-ZCp" id="cKs-J0-ibI"/>
+                <outlet property="title" destination="Ctj-Oy-G5S" id="wS8-2B-YX7"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="gc0-AX-Djb" userLabel="title stack">
+                    <rect key="frame" x="153" y="4.5" width="69" height="41.5"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" text="My Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.77000000000000002" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ctj-Oy-G5S" userLabel="title">
+                            <rect key="frame" x="0.0" y="0.0" width="69" height="21.5"/>
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" text="My Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e6Y-if-ZCp" userLabel="subtitle">
+                            <rect key="frame" x="0.0" y="24.5" width="69" height="17"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                </stackView>
+                <button hidden="YES" opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K7Q-6W-HPZ" userLabel="save button" customClass="ThemeableButton" customModule="Present" customModuleProvider="target">
+                    <rect key="frame" x="327" y="10.5" width="33" height="29"/>
+                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
+                    <state key="normal" title="Save">
+                        <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                </button>
+                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QDc-pS-ZJY" userLabel="back button" customClass="ThemeableButton" customModule="Present" customModuleProvider="target">
+                    <rect key="frame" x="10" y="14" width="10" height="22"/>
+                    <state key="normal" image="LeftChevronGlyph"/>
+                </button>
+                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ek1-hl-eLL" userLabel="hamburger button" customClass="ThemeableButton" customModule="Present" customModuleProvider="target">
+                    <rect key="frame" x="359" y="14" width="5" height="22"/>
+                    <state key="normal" image="hamburger2"/>
+                </button>
+                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pka-KY-ffE" userLabel="cancel button" customClass="ThemeableButton" customModule="Present" customModuleProvider="target">
+                    <rect key="frame" x="10" y="10.5" width="45" height="29"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <state key="normal" title="Cancel">
+                        <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="gc0-AX-Djb" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="5oZ-3C-n34"/>
+                <constraint firstAttribute="trailing" secondItem="K7Q-6W-HPZ" secondAttribute="trailing" constant="15" id="ErN-Zb-D16"/>
+                <constraint firstItem="QDc-pS-ZJY" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="10" id="IEV-IB-cOK"/>
+                <constraint firstItem="K7Q-6W-HPZ" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="QAv-aG-fqr"/>
+                <constraint firstItem="gc0-AX-Djb" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="pka-KY-ffE" secondAttribute="trailing" constant="5" id="YzM-bK-yuh"/>
+                <constraint firstItem="gc0-AX-Djb" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="bqZ-j4-OuG"/>
+                <constraint firstItem="pka-KY-ffE" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="e3R-oG-BfW"/>
+                <constraint firstItem="pka-KY-ffE" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="10" id="eSr-5O-6cW"/>
+                <constraint firstAttribute="trailing" secondItem="ek1-hl-eLL" secondAttribute="trailing" constant="11" id="mJF-NV-LOV"/>
+                <constraint firstItem="QDc-pS-ZJY" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="nir-sU-e1y"/>
+                <constraint firstItem="K7Q-6W-HPZ" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="gc0-AX-Djb" secondAttribute="trailing" constant="5" id="sPc-ND-WUd"/>
+                <constraint firstItem="ek1-hl-eLL" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="toF-VZ-mOA"/>
+            </constraints>
+            <nil key="simulatedTopBarMetrics"/>
+            <nil key="simulatedBottomBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <point key="canvasLocation" x="33.5" y="-258.5"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="LeftChevronGlyph" width="10" height="16"/>
+        <image name="hamburger2" width="5" height="20"/>
+    </resources>
+</document>

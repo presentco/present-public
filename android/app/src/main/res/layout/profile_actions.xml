@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingBottom="@dimen/spacing_small"
+    tools:parentTag="androidx.constraintlayout.widget.ConstraintLayout">
+
+
+    <ImageButton
+        android:id="@+id/shareIcon"
+        style="@style/UserProfileButton"
+        app:srcCompat="@drawable/ic_share_profile"
+        app:layout_constraintStart_toStartOf="@+id/share"
+        app:layout_constraintEnd_toEndOf="@+id/share"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        />
+
+    <TextView
+        android:id="@+id/share"
+        android:layout_marginTop="@dimen/spacing_tiny"
+        app:layout_constraintTop_toBottomOf="@id/shareIcon"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/add"
+        style="@style/ProfileButtonCaption"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/share_profile"
+         />
+
+    <ImageButton
+        android:id="@+id/addIcon"
+        style="@style/UserProfileButton"
+        app:srcCompat="@drawable/ic_invite_friends"
+        app:layout_constraintStart_toStartOf="@+id/add"
+        app:layout_constraintEnd_toEndOf="@+id/add"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/add_friends" />
+
+    <TextView
+        android:id="@+id/add"
+        android:layout_marginTop="@dimen/spacing_tiny"
+        style="@style/ProfileButtonCaption"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/addIcon"
+        app:layout_constraintStart_toEndOf="@id/share"
+        app:layout_constraintEnd_toStartOf="@id/join"
+        android:text="@string/add_friends" />
+
+    <ImageButton
+        android:id="@+id/joinIcon"
+        style="@style/UserProfileButton"
+        app:srcCompat="@drawable/ic_edit_profile"
+        app:layout_constraintStart_toStartOf="@+id/join"
+        app:layout_constraintEnd_toEndOf="@+id/join"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        />
+
+    <TextView
+        android:id="@+id/join"
+        style="@style/ProfileButtonCaption"
+        android:layout_marginTop="@dimen/spacing_tiny"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="@string/add_friend"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/add"
+        app:layout_constraintTop_toBottomOf="@id/joinIcon" />
+</merge>

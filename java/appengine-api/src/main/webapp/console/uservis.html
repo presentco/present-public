@@ -1,0 +1,91 @@
+<!doctype html>
+<html>
+<head>
+    <title>Network | Groups</title>
+
+    <style>
+        body {
+            color: #d3d3d3;
+            font: 12pt arial;
+            background-color: #222222;
+        }
+
+        #mynetwork {
+            width: 100%;
+            height:100vh; /*vh stands for view-port height, 1vh is 1% of screen height*/
+            border: 1px solid #444444;
+            background-color: #222222;
+        }
+    </style>
+
+  <script src="https://code.jquery.com/jquery-1.12.3.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/vis/4.20.1/vis.js"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/vis/4.20.1/vis-network.min.css" rel="stylesheet" type="text/css" />
+    
+</head>
+
+<body>
+
+
+<script type="text/javascript">
+</script>
+<div id="mynetwork"></div>
+<script type="text/javascript">
+
+    function getURLParameter(name) {
+        return decodeURIComponent((new RegExp('[?|&]' + name + '=' + '([^&;]+?)(&|#|;|$)').exec(location.search) || [null, ''])[1].replace(/\+/g, '%20')) || null;
+    }
+
+    // create a network
+    var container = document.getElementById('mynetwork');
+
+    var options = {
+      "edges": {
+        "smooth": false
+      },
+      "physics": {
+        "barnesHut": {
+          "gravitationalConstant": -10000,
+          "centralGravity": 0.5,
+          "springLength": 290,
+          "springConstant": 0.01,
+          "damping": 0.5,
+          "avoidOverlap": 1.0
+        },
+        "minVelocity": 1.0,
+        "timestep": 0.15
+      }
+    };
+
+    options.edges.width=2;
+
+    options.nodes = {
+        shape: 'dot',
+        size: 30,
+        font: {
+            size: 32,
+            color: '#ffffff'
+        },
+        borderWidth: 2
+    };
+
+    var auth = getURLParameter('auth');
+    var url = "/rest/users/visdata?auth="+auth;
+    $.ajax({
+        url: url,
+        type: 'GET',
+        dataType: "json",
+        cache: false,
+        success : function(visdata){
+            var data = {
+                nodes: visdata.nodes,
+                edges: visdata.edges
+            };
+            network = new vis.Network(container, data, options);
+        }
+    });
+
+</script>
+</body>
+</html>
+

@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<datastore-indexes autoGenerate="false">
+
+  <datastore-index kind="Comment" ancestor="true" source="manual">
+    <property name="sequence" direction="desc"/>
+  </datastore-index>
+
+  <datastore-index kind="Chat" ancestor="false" source="manual">
+    <property name="participants" direction="asc"/>
+    <property name="lastCommentTime" direction="desc"/>
+  </datastore-index>
+
+  <!-- Deprecated: Query discoverable only. -->
+  <datastore-index kind="Group" ancestor="false" source="auto">
+    <property name="deleted" direction="asc"/>
+    <property name="spaceId" direction="asc"/>
+    <property name="s2CellId" direction="asc"/>
+  </datastore-index>
+  <datastore-index kind="Group" ancestor="false" source="manual">
+    <property name="deleted" direction="asc"/>
+    <property name="spaceId" direction="asc"/>
+    <property name="lastUpdateMonth" direction="desc"/>
+    <property name="s2CellId" direction="asc"/>
+  </datastore-index>
+
+  <datastore-index kind="Group" ancestor="false" source="auto">
+    <property name="discoverable" direction="asc"/>
+    <property name="deleted" direction="asc"/>
+    <property name="spaceId" direction="asc"/>
+    <property name="s2CellId" direction="asc"/>
+  </datastore-index>
+  <datastore-index kind="Group" ancestor="false" source="manual">
+    <property name="discoverable" direction="asc"/>
+    <property name="deleted" direction="asc"/>
+    <property name="spaceId" direction="asc"/>
+    <property name="lastUpdateMonth" direction="desc"/>
+    <property name="s2CellId" direction="asc"/>
+  </datastore-index>
+
+  <datastore-index kind="Event" ancestor="false" source="manual">
+    <property name="user" direction="asc"/>
+    <property name="createdTimeIndex" direction="desc"/>
+  </datastore-index>
+
+  <datastore-index kind="DatastoreOperation" ancestor="false" source="manual">
+    <property name="key" direction="asc"/>
+    <property name="timestamp" direction="desc"/>
+  </datastore-index>
+
+  <datastore-index kind="DatastoreOperation" ancestor="false" source="manual">
+    <property name="user" direction="asc"/>
+    <property name="timestamp" direction="desc"/>
+  </datastore-index>
+
+  <datastore-index kind="GroupReferral" ancestor="false" source="manual">
+    <property name="referrers" direction="asc"/>
+    <property name="saveTimestamp" direction="asc"/>
+  </datastore-index>
+
+  <datastore-index kind="GroupReferral" ancestor="false" source="manual">
+    <property name="saveTimestamp" direction="asc"/>
+    <property name="referrers" direction="asc"/>
+    <property name="to" direction="asc"/>
+  </datastore-index>
+
+  <!-- Used to query clients for notifications. See EventDispatcher. -->
+  <datastore-index kind="Client" ancestor="false" source="manual">
+    <property name="user" direction="asc"/>
+    <!-- We only index deviceToken if it's != null. -->
+    <property name="deviceToken" direction="asc"/>
+  </datastore-index>
+
+  <!-- Group members -->
+  <datastore-index kind="GroupMembership" ancestor="false" source="manual">
+    <property name="group" direction="asc"/>
+    <property name="state" direction="asc"/>
+  </datastore-index>
+  <!-- Joined groups -->
+  <datastore-index kind="GroupMembership" ancestor="false" source="manual">
+    <property name="member" direction="asc"/>
+    <property name="state" direction="asc"/>
+  </datastore-index>
+
+  <datastore-index kind="Friendship" ancestor="false" source="manual">
+    <property name="state" direction="asc"/>
+    <property name="userIds" direction="asc"/>
+  </datastore-index>
+  <datastore-index kind="Friendship" ancestor="false" source="manual">
+    <property name="state" direction="asc"/>
+    <property name="requestee" direction="asc"/>
+  </datastore-index>
+  <datastore-index kind="Friendship" ancestor="false" source="manual">
+    <property name="state" direction="asc"/>
+    <property name="requestor" direction="asc"/>
+  </datastore-index>
+
+</datastore-indexes>

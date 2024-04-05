@@ -1,0 +1,441 @@
+.user-container{
+    margin-top:26px;
+    color:#000;
+}
+
+.fb-linker {
+    text-align: center;
+    width: 100%;
+    margin-bottom: 0px;
+}
+
+.user-photo-contrainer{
+    border-radius: 5px;
+    background: #fff;
+    padding: 1.5rem 0;
+    margin:0 0 10px;
+}
+
+
+
+.friend-request-container{
+  position: relative;
+}
+
+.add-border-bottom {
+  border-bottom: 1px solid #f2f2f2;
+}
+
+.gray-title-divider {
+    font-size: 18px;
+    font-weight: bold;
+    background-color: rgb(251,251,251);
+    padding: 7px 12px;
+}
+
+.search-friends-container {
+    display: flex;
+    border: 1px solid #f2f2f2;
+    border-radius: 25px;
+    height: 36px;
+    margin-top: 10px;
+}
+
+.search-friends-container img{
+  width: 18.7px;
+  height: 19.7px;
+  margin:8px;
+}
+
+.serach-friend-input,.serach-friend-input:focus  {
+    margin: 0;
+    padding: 0;
+    padding-top: 2px;
+}
+
+.cancle-search-friend-btn {
+    font-size: 14px;
+    font-weight: 500;
+    margin: 5px 9px;
+    cursor: pointer;
+}
+
+.verify-text {
+    margin: 0;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.community-name{
+    margin-left: 12px;
+    font-size: 14px;
+    font-weight: bold;
+    margin-top: 10px;
+    width: 64%;
+    margin-bottom: 2.5rem;
+}
+
+.UserCommunity-container{
+    padding: 0.6rem 0.6rem  !important;
+}
+
+.join-community-btn,
+.join-community-btn:hover,
+.join-community-btn:focus{
+    background-color: #ff0aa6;
+    font-size: 13px;
+    color: #fff;
+    border-radius: 15px;
+    width: 87px;
+    padding: 5px 24px;
+    font-weight: bold;
+    margin-top: 8px;
+}
+
+.unjoin-community-btn,
+.unjoin-community-btn:hover,
+.unjoin-community-btn:focus{
+    background-color: transparent;
+    border: 2px solid #ff0aa6;
+    font-size: 13px;
+    color: #ff0aa6;
+    border-radius: 15px;
+    width: 87px;
+    padding: 3px 24px;
+    font-weight: bold;
+    margin-top: 8px;
+}
+
+.border-bottom-com{
+    border-bottom: 2px solid #000;
+}
+
+.display-flex{
+    display: -webkit-box;
+}
+
+.main-community-container{
+    padding: 33px 36px;
+}
+
+.community-title{
+    margin:0;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.box-shadow-bottom{
+    border-bottom: 1px solid rgb(225,225,233);
+    box-shadow: 0px 2px 4px 0px rgba(0,0,0,0.13);
+}
+
+.join-title {
+    padding: 20px 20px 10px;
+    font-size: 16px;
+    font-weight: 500;
+    margin: 0 27px;
+
+}
+
+.cursor-pointer{
+    cursor: pointer;
+}
+
+.small-title{
+    font-size: 10px !important;
+}
+
+.back-btn-black.cursor-poiner {
+    position: absolute;
+    right: 12px;
+    width: 12px;
+    top: -6px;
+}
+
+.profile-option-modals {
+    position: absolute;
+    z-index: 2000;
+    background: #fff;
+    color: #000;
+    right: 49px;
+    top: 48px;
+    border-radius: 5px;
+    width: 161px;
+    text-align: right;
+    box-shadow: 2px -2px 6px 0 rgba(0, 0, 0, 0.13);
+}
+
+.profile-options-text {
+    font-weight: 400;
+    margin: 0;
+    padding: 10px 5px;
+    cursor: pointer;
+}
+
+.profile-options-text:hover{
+    background: #f2f2f2;
+    font-weight: 500;
+    border-radius:5px;
+}
+
+.saved-length {
+    font-size: 18px;
+    color: #a4aab3;
+    font-weight: normal;
+    margin-left: 7px;
+}
+
+.circle-titles{
+    font-size: 18px;
+    font-weight: 600;
+    padding: 14px 0;
+    margin-bottom: 0;
+}
+
+.border-radius-5{
+    border-radius: 5px;
+}
+
+.user-bio-container{
+  position: relative;
+  padding:0.6rem;
+}
+
+.row.white-bg.no-padding.border-radius-5{
+    max-width: 100% !important;
+}
+
+.user-header{
+    margin-bottom: 10px;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.bio-user-text{
+    font-size: 14px;
+    margin-bottom: 1rem;
+}
+
+.pin-profile {
+    margin-bottom: 4px;
+    margin-right: 5px;
+}
+
+.pin-text {
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.view-all-members {
+    position: absolute;
+    top: 15px;
+    right: -14px;
+    font-size: 14px;
+    color: #828282;
+    text-transform: uppercase;
+    font-weight: 500;
+    line-height: 16px;
+    cursor: pointer;
+}
+
+.member-request-number {
+    font-size: 10px;
+    width: 20px;
+    height: 15px;
+    background: #EB5757;
+    color: #fff;
+    border-radius: 100px;
+    margin: 0 auto;
+    position: absolute;
+    right: 0;
+    z-index: 1;
+    top: -3px;
+}
+
+.deleted-text {
+    right: 43px;
+    color: #fff;
+    position: absolute;
+    z-index: 100;
+    top: 35px;
+    background: red;
+    border-radius: 15px;
+    padding: 3px 10px;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.user-profile-name {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 0;
+}
+
+.user-profile-photo {
+    border-radius: 100%;
+    width: 100px;
+    height: 100px;
+    margin-bottom: 1.2rem;
+    object-fit: cover;
+}
+
+.user-pic {
+    border-radius: 100%;
+    width: 150px;
+    height: 150px;
+    margin-bottom: 30px;
+}
+
+.user-name {
+    color:#000;
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.burger-btn-i.add-burger {
+    top: -7px;
+    right: 8px;
+}
+
+.showMenu {
+    position: absolute;
+    right: 25px;
+    top: 41px;
+    border: 1px solid #000;
+}
+
+.change-top{
+    top:35px !important;
+}
+
+.msg-sus-container{
+    padding: 40px 40px 20px;
+    border-radius: 5px;
+    position: relative;
+}
+
+
+.x-btn-sus,
+.x-btn-sus:hover,
+.x-btn-sus:focus
+{
+    background: transparent;
+    position: absolute;
+    top: -6px;
+    right: -14px;
+    font-size: 20px;
+    color: #4a4a4a;
+}
+
+.showMenu button,
+.showMenu button:hover,
+.showMenu button:focus{
+    background-color: transparent;
+    color : #000;
+    padding:0px 25px;
+}
+
+.phone-number{
+  font-size: 36px;
+  font-weight: bold;
+  line-height: 42px;
+  color: #333;
+  padding:14px;
+}
+
+.phone-number-transparent{
+  color:transparent;
+  padding:14px;
+}
+
+.clear-btn {
+  width: 24px;
+  padding-top: 27px;
+}
+
+.main-phone-container{
+  margin-top: 42px;
+}
+
+.next-btn{
+  margin-top: 10%;
+}
+
+.phone-input {
+  outline: none;
+  width: 100%;
+  height: 50px;
+  border: none;
+  border-bottom: 1px solid #e0e0e0;
+  font-size: 35px;
+  letter-spacing: 2px;
+  font-weight: 400;
+  line-height: 42px;
+  margin-bottom: 80px;
+}
+
+.welcome-title {
+    font-weight: bold;
+    line-height: 28px;
+    font-size: 18px;
+    margin-bottom: 8px;
+}
+
+.welcome-second-title{
+    margin-bottom: 21px;
+    color: #333;
+    line-height: 21px;
+}
+
+.take-tour-btn,
+.take-tour-btn:hover,
+.take-tour-btn:focus{
+    background-color: #743cce;
+    color:#fff;
+    border-radius: 100px;
+    width: 265px;
+    font-size: 18px;
+    padding:12px;
+    outline: none;
+}
+
+.right-phone {
+    color: #9b51e0;
+}
+
+.close-btn-verify {
+    position: absolute;
+    right: 13px;
+    width: 13px;
+    top: 11px;
+    cursor: pointer;
+}
+
+.main-phone-container {
+    padding-bottom: 34px;
+}
+
+.verify-text-confirm {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.error-verify {
+    color: #EB5757;
+    font-size: 18px;
+    margin: 0;
+}
+
+.resent-text {
+    margin-top: 9px;
+}
+
+@media screen and (max-width:1059px ){
+  .option-title {
+    display: block;
+    font-size: 13px;
+  }
+  .general-icon{
+    margin-right: 0 !important;
+  }
+}

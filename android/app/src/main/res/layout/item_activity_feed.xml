@@ -1,0 +1,45 @@
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/user_profile_user_name_and_photo"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="@dimen/spacing_medium"
+    android:minHeight="?listPreferredItemHeightSmall"
+    android:background="?selectableItemBackground"
+    android:paddingEnd="@dimen/spacing_small"
+    android:paddingStart="@dimen/spacing_small">
+
+    <ImageView
+        android:id="@+id/photo"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_width="@dimen/profile_image_sm"
+        android:layout_height="@dimen/profile_image_sm"
+        android:src="@drawable/circle_light_gray" />
+
+    <TextView
+        android:textSize="@dimen/chat_message_text_size"
+        android:id="@+id/text"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:ellipsize="end"
+        android:gravity="start"
+        android:maxLines="2"
+        android:layout_marginStart="@dimen/spacing_medium"
+        android:layout_marginEnd="@dimen/spacing_medium"
+        app:layout_constraintBottom_toBottomOf="@id/photo"
+        app:layout_constraintEnd_toStartOf="@+id/date"
+        app:layout_constraintStart_toEndOf="@id/photo"
+        app:layout_constraintTop_toTopOf="@id/photo"
+        tools:text="Chauntie joined Vegan Foodies Long Title Long Title Long Title" />
+
+    <TextView
+        android:id="@+id/date"
+        app:layout_constraintBottom_toBottomOf="@id/photo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/photo"
+        tools:text="8:05 AM"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="@dimen/spacing_enormous"
+        android:clipChildren="false"
+        android:fitsSystemWindows="true"
+        tools:context=".feature.onboarding.step.FacebookLinkActivity">
+
+
+        <ImageView
+            android:id="@+id/wordmark"
+            android:transitionName="@string/transition_name_wordmark"
+            android:layout_width="0dp"
+            android:tint="@color/black"
+            android:adjustViewBounds="true"
+            app:layout_constraintWidth_percent=".85"
+            app:srcCompat="@drawable/logo_and_wordmark"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            />
+
+        <TextView
+            android:id="@+id/description"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-medium"
+            android:gravity="center_horizontal"
+            android:layout_marginTop="@dimen/spacing_medium"
+            android:text="@string/onboarding_subtitle"
+            android:textColor="@color/black"
+            android:textSize="@dimen/splash_subtitle_size"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/wordmark"
+             />
+
+        <ProgressBar
+            android:id="@+id/spinner"
+            android:indeterminateTint="@color/white"
+            android:layout_width="wrap_content"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/description"
+            app:layout_constraintBottom_toTopOf="@+id/termsOfService"
+            android:layout_height="wrap_content" />
+
+        <androidx.constraintlayout.widget.Group
+            android:id="@+id/errorView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:constraint_referenced_ids="retryButton, facebookButton"/>
+
+        <Button
+            android:id="@+id/retryButton"
+            style="@style/RoundedEndsButton.Purple"
+            android:text="@string/retry"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintVertical_chainStyle="packed"
+            app:layout_constraintTop_toBottomOf="@+id/description"
+            app:layout_constraintBottom_toTopOf="@+id/facebookButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <Button
+            android:id="@+id/facebookButton"
+            android:layout_margin="@dimen/spacing_small"
+            style="@style/RoundedEndsButton.Purple"
+            android:text="@string/use_phone_number"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/retryButton"
+            app:layout_constraintBottom_toTopOf="@+id/termsOfService"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <co.present.present.feature.onboarding.LegaleseTextView
+            android:id="@+id/termsOfService"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            style="@style/Body"
+            android:textColor="@color/mediumGray"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</FrameLayout>

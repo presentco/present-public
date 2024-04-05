@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- https://cloud.google.com/appengine/docs/java/config/cronref -->
+<cronentries>
+  <cron>
+    <url>/rest/sendSummaries</url>
+    <description>Sends activity summary emails</description>
+    <schedule>every mon,wed,fri 09:00</schedule>
+    <timezone>US/Pacific</timezone>
+    <target>api</target>
+  </cron>
+  <cron>
+    <url>/hourly</url>
+    <description>hourly jobs</description>
+    <schedule>every 1 hours</schedule>
+    <target>api</target>
+  </cron>
+  <cron>
+    <url>/nightly</url>
+    <description>nightly jobs</description>
+    <schedule>every day 00:00</schedule>
+    <timezone>US/Pacific</timezone>
+    <target>api</target>
+  </cron>
+  <cron>
+    <url>/warmdb</url>
+    <description>Warm the DB</description>
+    <schedule>every 1 minutes</schedule>
+    <target>api</target>
+  </cron>
+  <cron>
+    <url>/rest/createBackup</url>
+    <description>Nightly Backup</description>
+    <schedule>every day 03:00</schedule>
+    <timezone>US/Pacific</timezone>
+    <target>api</target>
+  </cron>
+</cronentries>
+
+
+

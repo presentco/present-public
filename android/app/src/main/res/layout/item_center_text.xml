@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/H2.NonBold"
+    android:gravity="center_horizontal"
+    android:id="@+id/text"
+    android:layout_width="match_parent"
+    android:paddingTop="@dimen/spacing_small"
+    android:paddingStart="@dimen/spacing_small"
+    android:paddingEnd="@dimen/spacing_small"
+    android:autoLink="all"
+    android:lineSpacingMultiplier="1.1"
+    android:textColorLink="@color/presentPurple"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:text="@string/lorem_long"
+    android:paddingBottom="12dp"
+    android:layout_height="wrap_content" />

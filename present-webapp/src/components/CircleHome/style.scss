@@ -1,0 +1,207 @@
+
+.ur-circle{
+    margin:1px 21px 15px;
+    font-size: 18px;
+  	font-weight: 500;
+  	letter-spacing: -0px;
+}
+
+.gray-bg{
+  background-color: #f2f2f2 !important;
+}
+
+.circle-name{
+  font-size: 16px;
+	letter-spacing: -0px;
+	color: #4a4a4a;
+  margin: 10px 27px 14px;
+}
+
+.more-down {
+    margin-top: 24px;
+}
+
+.pointer{
+  cursor: pointer;
+}
+
+.cards-container{
+  padding: 0 8px 0 0;
+}
+
+.cir-names{
+    margin:{
+        top: 9px;
+        left:12px;
+    }
+    padding-bottom: 30px;
+}
+
+img.cur-user-photo {
+    width: 42.6px;
+    height: 42.7px;
+    border-radius: 100px;
+}
+
+.username{
+    margin:{
+        top:7px;
+    }
+    font-weight: 500;
+    font-size: 15px;
+	letter-spacing: -0.4px;
+}
+
+.no-padding-left{
+  padding-left:0 !important;
+}
+
+.time-stamp{
+  font-weight: 400;
+  color: rgba(0, 0, 0, 0.2);
+  margin-left:7px;
+  font-size: 15px;
+}
+
+button.group-btn,
+.group-btn:hover,
+.group-btn:focus{
+    background: transparent;
+    padding: 0;
+    margin: 0 1px;
+    display: block;
+    color:#000;
+}
+
+.active-background{
+  margin-left: -12px;
+  background: #DECDF9;
+  margin-right: 0;
+  padding-left: 13px;
+}
+
+.white-bg{
+  background-color: #fff;
+}
+
+.no-padding{
+    padding:0 !important;
+}
+
+.title-gen{
+    font-weight: 600;
+	color: #000000;
+  margin-bottom:7px;
+}
+
+@media screen and (min-width:643px) and (max-width:820px){
+  .middle-container {
+     width: 300 !important;
+  }
+
+  .group-name.text-center{
+      font-size: 18px !important;
+    }
+    .chat-image {
+      height: 100px !important;
+    }
+}
+
+
+@media screen and (min-width:640px) and (max-width:1023px){
+
+  .circle-container{
+    // width:67% !important;
+    margin-left: 7px !important;
+  }
+
+}
+
+@media screen and (max-width:558px){
+  .send-container{
+    bottom: 102px !important;
+
+  }
+  .chat-container {
+    padding-bottom: 33px;
+  }
+
+  .top-bar-container{
+    margin:11px 0 !important;
+  }
+
+}
+
+@media screen and (max-width:1024px){
+  .no-padding-left{
+    padding-right: 0 !important;
+  }
+}
+
+@media screen and (max-width:640px){
+
+  .group-name{
+    font-size: 17px;
+  }
+
+  .circle-container{
+    width: 100% !important;
+  }
+
+  .ur-circle.on-circle{
+    display: none;
+  }
+
+  .cir-names.on-circle{
+    display: none;
+  }
+
+  .small-12.medium-2.large-2.scrollable.gray-bg.on-circle.columns{
+    height:10px;
+  }
+
+  .burger-btn{
+    top:-39px;
+  }
+
+  .city-icon{
+    height:10px;
+  }
+
+  .info-icon {
+    width: 28px;
+    position: absolute;
+    top: 29px;
+    right: 65px;
+    display: inherit;
+}
+
+  .map-container-full {
+      height: 301px;
+  }
+
+  .map-element-full {
+    height: 302px;
+  }
+
+  .categories-container {
+    padding-bottom: 108px;
+  }
+
+  img.info-icon.cursor-poiner.show-for-small-only {
+    position: absolute;
+    right: 38px;
+    top: 38%;
+}
+
+.send-container {
+    bottom:102px;
+  }
+
+  .general-container {
+    margin: 17px auto !important;
+  
+  }
+
+
+}

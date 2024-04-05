@@ -1,0 +1,1037 @@
+<html>
+<head>
+  <base href="https://present.co/"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+  <link href="/styles/foundation.min.css" rel="stylesheet">
+  <link href="/styles/normalize.css" rel="stylesheet">
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-99030339-1"></script>
+  <script src="js/jquery.min.js"></script>
+  <script  src="js/moment.min.js"></script>
+  <script src="//d2wy8f7a9ursnm.cloudfront.net/v4/bugsnag.min.js"></script>
+  <script>window.bugsnagClient = bugsnag('40a21d79fb1f15f68b7095e1391f34c0')</script>
+  <script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'UA-99030339-1');
+
+  $(document).ready(function(){
+    disableSelectionScriptString = "document.documentElement.style.webkitUserSelect='none';",
+    disableCalloutScriptString = "document.documentElement.style.webkitTouchCallout='none';";
+  });
+
+  moment.updateLocale('en', {
+    relativeTime : {
+      future: "in %s",
+      past:   "%s ",
+      s:  "1s",
+      s:  "%ds",
+      m:  "1m",
+      mm: "%dm",
+      h:  "1h",
+      hh: "%dh",
+      d:  "1d",
+      dd: "%dd",
+      w:  "1w",
+      ww: "%dw",
+      M:  "1mo",
+      MM: "%dmo",
+      y:  "1y",
+      yy: "%dy"
+    }
+  });
+
+  window.format = function(arg) {
+    return moment.unix(arg / 1000).subtract(2, 'minutes').fromNow();
+  }
+
+  function prettify(url) {
+    var display = url.substring(url.indexOf('//') + 2);
+    var slash = display.indexOf('/');
+    if (slash > -1) {
+      var domain = display.substring(0, slash);
+      var path = display.substring(slash + 1, display.length);
+      var maxPathLength = 8;
+      if (path.length > maxPathLength) {
+        path = path.substring(0, maxPathLength) + "…";
+      }
+      display = path.length == 0 ? domain : domain + "/" + path;
+    }
+    return '<a class="tappable-link" href="' + url + '">' + display + '</a>';
+  }
+
+  window.urlify = function(text) {
+    // Match URLs starting with http:// or https://
+    var urlPattern = /(\b(https?):\/\/[-A-Z0-9+&@#\/%?=~_|!:,.;]*[-A-Z0-9+&@#\/%=~_|])/gim;
+    var replaced = text.replace(urlPattern, prettify);
+    return replaced;
+  }
+
+  window.formatAddComment = function(number){
+
+    let heyn = number-1,
+    newNumber = '<span></span>';
+
+    if(heyn > 0){
+      newNumber = '<span class="add-comment">View ' + heyn + ' more comments</span>';
+    }
+
+    return newNumber;
+  }
+
+  window.getJoinText = function(uuid,text, membershipState){
+    var containerClassName = '.'+uuid+'-image-container',
+    item = '.'+uuid+'-join-text',
+    device = getMobileOperatingSystem();
+
+    if(text === "true" || membershipState === 'REQUESTED' || membershipState === 'REJECTED'){
+
+      $(containerClassName).addClass('true-image');
+      if(device === 'Android'){
+        $(containerClassName).addClass('true-image-android');
+      }
+
+      if(device === 'iOS'){
+        $(containerClassName).addClass('true-image-ios');
+      }
+    } else {
+      $(containerClassName).addClass('false-image');
+      if(device === 'Android'){
+        $(containerClassName).addClass('false-image-android');
+      }
+      if(device === 'iOS'){
+        $(containerClassName).addClass('false-image-ios');
+      }
+    }
+
+    var className = '.'+uuid+'-join-text';
+    var newText = '';
+    if(membershipState === "ACTIVE"){
+      newText = "Joined";
+    } else {
+      if(membershipState === 'REQUESTED' || membershipState === 'INVITED' || membershipState === 'REJECTED'){
+        newText = "Requested";
+      } else {
+        newText = "Join";
+      }
+    }
+
+    $(item).text(newText);
+  }
+
+  window.getUrl = function(uuid,url){
+    var baseUrl = url.indexOf('staging') > -1 ? "https://api.staging.present.co/api" : "https://api.present.co/api",
+    newurl,
+    item = '.'+uuid+'-join-text';
+
+    if($(item).text().indexOf('Joined') > -1){
+      newurl = baseUrl+"/GroupService/unsaveGroup";
+    } else {
+      newurl = baseUrl+"/GroupService/saveGroup";
+    }
+    return newurl;
+  }
+
+  window.randomUUID = function(){
+    return Math.floor((1 + Math.random()) * 0x10000)
+    .toString(16)
+    .substring(1);
+  }
+
+  window.guid = function(){
+    return randomUUID() + randomUUID() + '-' + randomUUID() + '-' + randomUUID() + '-' +
+    randomUUID() + '-' + randomUUID() + randomUUID() + randomUUID();
+  }
+
+  window.getRequest = function(uuid){
+    var request = {
+      header: {
+        clientUuid: '{{clientUuid}}',
+        requestUuid: guid(),
+        authorizationKey: "not implemented",
+        platform: "WEB",
+        apiVersion: "0"
+      },
+      argument: {
+        groupId: uuid
+      }
+    }
+
+    return request;
+  }
+
+  window.showMembersNumber = function(uuid,commentCount, memberCount){
+
+    var className = '.'+uuid+'-members';
+    if(commentCount > 0){
+      $(className).append('<img src="/images/Members@3x.png" alt="members" class="members-icon" />'+memberCount);
+    }
+
+  }
+
+  window.getMobileOperatingSystem = function() {
+    var userAgent = navigator.userAgent || navigator.vendor || window.opera;
+
+    // Windows Phone must come first because its UA also contains "Android"
+    if (/windows phone/i.test(userAgent)) {
+      return "Windows Phone";
+    }
+
+    if (/android/i.test(userAgent)) {
+      return "Android";
+    }
+
+    // iOS detection from: http://stackoverflow.com/a/9039885/177710
+    if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
+      return "iOS";
+    }
+
+    return "unknown";
+  }
+
+  window.onclickjoin = function(uuid, state, url,preapprove){
+
+    var className = '.'+uuid+'-image',
+    containerClassName = '.'+uuid+'-image-container',
+    item = '.'+uuid+'-join-text',
+    device = getMobileOperatingSystem();
+
+    if($(item).text().indexOf("Joined") > -1){
+    } else {
+      if($(item).text().indexOf("Joined") > -1){
+        $(containerClassName).removeClass('true-image');
+        $(containerClassName).addClass('false-image');
+        if(device === 'Android'){
+          $(containerClassName).removeClass('true-image-android');
+          $(containerClassName).addClass('false-image-android');
+        }
+
+        if(device === 'iOS'){
+          $(containerClassName).removeClass('true-image-ios');
+          $(containerClassName).addClass('false-image-ios');
+        }
+
+      } else {
+        $(containerClassName).removeClass('false-image');
+        $(containerClassName).addClass('true-image');
+        if(device === 'Android'){
+          $(containerClassName).removeClass('false-image-android');
+          $(containerClassName).addClass('true-image-android');
+        }
+
+        if(device === 'iOS'){
+          $(containerClassName).removeClass('false-image-ios');
+          $(containerClassName).addClass('true-image-ios');
+        }
+      }
+
+      $.ajax({
+        type: "POST",
+        url: getUrl(uuid, url),
+        data: JSON.stringify(getRequest(uuid)),
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        success: function (data) {
+          console.log("success", data);
+        },
+        error: function(data){
+          console.log("error", data)
+        }
+      });
+
+      if($(item).text().indexOf('Joined') > -1 ) {
+        $(item).text('Join');
+      } else {
+        if(preapprove === 'ANYONE'){
+          $(item).text('Joined');
+        } else {
+          $(item).text('Requested');
+        }
+
+      }
+    }
+
+
+  }
+
+
+  </script>
+
+  <style media="screen">
+
+  html,body{
+    max-width: 100%;
+  }
+
+  body{
+    background-color: #fbfbfb;
+    -webkit-overflow-scrolling: touch;
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+    padding: 0px 0 0;
+  }
+
+  .true-image {
+    position: absolute;
+    right: 0px;
+    top: 8px;
+    border: 1px solid #e0e0e0;
+    border-radius: 15px;
+    color:#333;
+  }
+
+  .true-image button{
+    margin:0;
+    color: #333;
+    font-size: 13px;
+    font-weight: bold;
+    padding: 6px 8px;
+  }
+
+  .true-image-android button{
+    padding: 5px 8px 4px;
+  }
+
+  .true-image-ios button{
+    padding:5px 8px 7px;
+  }
+
+  .false-image button {
+    margin:0;
+    color:#fff;
+    font-size: 13px;
+    font-weight: bold;
+    padding: 6px 15px;
+  }
+
+  .false-image-android button{
+    padding: 5px 15px 4px;
+  }
+
+  .false-image-ios button{
+    padding:5px 15px 7px;
+  }
+
+  .false-image{
+    position: absolute;
+    right: 0px;
+    top: 8px;
+    background-color:#743CCE;
+    border-radius: 15px;
+  }
+
+  .members-icon{
+    width: 7.32px;
+    height: 12px;
+    margin-bottom: 5px;
+    margin-right: 3px;
+  }
+
+
+  .body-section{
+    overflow-y: scroll;
+    padding:10px 0;
+  }
+
+  .position-absolute{
+    position: absolute;
+  }
+
+  .first-sec{
+    position: relative;
+  }
+
+  button{
+    outline: none;
+  }
+
+  .tappable-link{
+    color: rgb(116,60,206) !important;
+  }
+
+  .small-2.medium-2.large-2.columns {
+    padding-right: 0;
+    padding-left: 8px;
+    width: 13.8%;
+  }
+
+  .user-photo {
+    margin-top:3px;
+    width: 40px;
+    height: 40px;
+    border:1px solid #fbfbfb;
+  }
+
+  .map{
+    border-radius: 100px;
+  }
+
+  .name-section {
+    display: inline-block;
+  }
+
+  .name-section p {
+    font-size: 16px;
+    margin:0;
+    font-weight: 300;
+  }
+
+  .name-div{
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    width: 95%;
+  }
+
+  .get-this{
+    width: 100%;
+  }
+
+  .description-text {
+    font-size: 14px;
+    margin-left: 0;
+    margin-bottom: 6px;
+    margin-right: 12px;
+    font-weight: 300;
+  }
+
+  .name-div{
+    padding-right: 50px;
+    color:rgb(164,170,179);
+  }
+
+  .make-b{
+    color:#000;
+    font-weight: 500;
+  }
+
+  .loc-time{
+    margin-top: -4px;
+    display: flex;
+    justify-content: flex-start;
+  }
+
+  .small-10.medium-10.large-10.columns {
+    padding-right: 9px;
+  }
+
+  .loc-time p{
+    padding-top: 1px;
+    color:rgb(164,170,179);
+    font-size: 14px !important;
+    font-weight: 300;
+  }
+
+  .second-sec {
+    margin-top: -3px;
+  }
+
+  .dot-div{
+    color:rgb(164,170,179);
+  }
+
+  .last-div {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 6px;
+    margin-left: 0px;
+  }
+
+  .last-div p{
+    color:rgb(164,170,179);
+    font-size: 14px !important;
+    font-weight: 300;
+    font-style: italic;
+  }
+
+  .content-photo {
+    width: 93%;
+    margin-bottom: 10px;
+    border-radius: 3px;
+    margin-left: 0px;
+  }
+
+  .cover-photo{
+    width:93%;
+    margin-bottom: 14px;
+    border-radius: 3px;
+    margin-left: 0px;
+  }
+
+  .location-text{
+    word-wrap: break-word;
+    width: 80%;
+    text-align: left;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .location-text.REQUESTED{
+    width: 73%;
+  }
+
+  .time-text{
+    color: rgb(164,170,179);
+    font-size: 14px !important;
+    font-weight: 300;
+    margin-top: -4px;
+  }
+
+  .reply-btn,
+  .reply-btn:hover,
+  .reply-btn:focus{
+    background: transparent;
+    color: #000;
+    font-size: 14px;
+    font-weight: 500;
+    padding-top: 0;
+    padding: 0;
+    bottom: 4px;
+    font-weight: bold;
+  }
+
+  a,
+  a:hover,
+  a:focus{
+    color: #000;
+  }
+
+  .small-10{
+    padding-left: 0px;
+    width: 85.33333%;
+  }
+
+  .description-container {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 4;
+    line-height: 1.2em;
+    max-height: 6em;
+    margin-bottom: 8px;
+    font-size: 14px;
+    font-weight: 400;
+  }
+
+  .description-container-title {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+    line-height: 2em;
+    max-height: 4em;
+  }
+
+  .create-title{
+    margin-right: 6px !important;
+    font-weight: 400;
+    font-size: 15px;
+    margin:0;
+  }
+
+  .flex-start{
+    display: flex;
+    position: relative;
+    padding: 11px 0;
+  }
+
+  .dont-shy{
+    width: 75%;
+    margin-bottom: 8px;
+    font-weight: 300;
+    font-size: 14px;
+    color: #000;
+    margin-left: 10px;
+    padding-bottom: 13px;
+    outline: none;
+    border: none;
+    box-shadow:none;
+  }
+
+  .row-test{
+    width: 100%;
+  }
+
+  .create-class{
+    margin-right: 5px;
+    width: 14pt;
+    height: 14pt;
+    margin-top: 2px;
+  }
+
+  .border-right{
+    right: 4px;
+    position: absolute;
+    height: 29px;
+    width :1px;
+    background-color: rgb(225,225,225);
+  }
+
+  .dis-right{
+    right :-3px !important;
+  }
+
+  .dont-be-container{
+    border-top: 1px solid rgb(225,225,225);
+    border-bottom: 1px solid rgb(225,225,225);
+  }
+
+  .no-padding{
+    padding: 0 !important;
+  }
+
+  .gray-divider{
+    width: 100%;
+    height: 10px;
+    background-color: rgb(248,248,248);
+    margin-bottom: 20px;
+  }
+
+  .position-fix{
+    position: fixed;
+    top: 0;
+    left:0;
+    right:0;
+    z-index: 1000;
+    background-color: #fff;
+  }
+
+  .flex-start-first{
+    display: flex;
+    justify-content: flex-start;
+    padding: 17px 8px 0px;
+  }
+
+  .profile-placeholder{
+    width: 30px;
+    height: 30px;
+    margin-top: -5px;
+    border-radius: 100px;
+  }
+
+  .new-icon {
+    width: 7.5px;
+    height: 7.5px;
+    text-align: center;
+    margin:3.5px
+  }
+
+  .star-container{
+    height: 15px;
+    width: 15px;
+    position: absolute;
+    left: 35px;
+    top: 3px;
+    background-color: #743CCE;
+    border-radius: 100%;
+  }
+
+  #feed-section{
+    padding-top: 100px;
+  }
+
+  .location-icon {
+    width: 9px;
+    height: 10.57px;
+    margin-bottom: 4px;
+  }
+  .owner-photo {
+    width: 30px;
+    border-radius: 100px;
+    height: 30px;
+  }
+
+  .owner-first-name {
+    font-size: 14px;
+    font-weight: bold;
+  }
+
+  .creationTime {
+    font-weight: 300;
+    font-size: 14px;
+    color: #bdbdbd;
+  }
+
+  .user-info-container {
+    padding: 6px 0;
+  }
+
+  .add-comment {
+    color: #999;
+    font-size: 14px;
+    line-height: 20px;
+  }
+
+  .white-bg{
+    padding: 6px 0;
+    background-color: #fff;
+    margin-top: 4px;
+    margin-bottom: 4px;
+    border-bottom: 1px solid #F2F2F2;
+  }
+
+  .white-white-bg{
+    background-color: #fff;
+  }
+
+  .cover-photo-main {
+    margin: 7px 0;
+    border-radius: 4px;
+
+  }
+
+  .group-description{
+    -webkit-line-clamp: 3;
+  }
+
+  .location-container {
+    display: flex;
+    padding: 13px 0 12px 11px;
+  }
+
+  .location-pin {
+    width: 12px;
+    height: 13.97px;
+    margin-top: 3px;
+    margin-right: 6px;
+  }
+
+  .location-name{
+    color: #333;
+    font-size: 18px;
+    line-height: 21px;
+    font-weight: bold;
+    margin: 0;
+  }
+
+  .cover-container {
+    padding-right: 42px;
+  }
+
+  .start-btn,
+  .start-btn:focus,
+  .start-btn:hover
+  {
+    position: relative;
+    top: -9px;
+    margin: 0;
+    background-color: transparent !important;
+    font-size: 14px;
+    padding: 0px 10px !important;
+    font-weight: bold;
+  }
+
+  .start-btn-color{
+    color: #743CCE !important;
+  }
+
+  .disabled{
+    color: #999 !important;
+    font-weight: 400;
+  }
+
+  .display-none{
+    display: none;
+  }
+
+  .name-div.REQUESTED{
+    width: 88%;
+  }
+
+  .join-btn,
+  .join-btn:hover,
+  .join-btn:focus{
+    background: transparent;
+  }
+
+  .justify-content-center{
+    justify-content: center
+  }
+
+  .discussion-contaier {
+    padding-left: 10px;
+  }
+
+  .recommend-container{
+    justify-content: flex-end;
+    padding-right: 5px;
+  }
+
+  </style>
+</head>
+<body>
+  {{#location}}
+  <div class="row location-container">
+    <img src="/images/pin-location-icon@3x.png" class="location-pin" alt="location" />
+    {{#canChangeLocation}}
+    <a href="/app/changeLocation">
+      <p class="location-name">
+        {{city}}
+      </p>
+    </a>
+    {{/canChangeLocation}}
+    {{^canChangeLocation}}
+    <p class="location-name">
+      {{city}}
+    </p>
+    {{/canChangeLocation}}
+  </div>
+  {{/location}}
+
+
+  <!-- <div class="row white-white-bg">
+    <div class="flex-start-first">
+      {{#profilePhoto}}
+      <img src="{{profilePhoto}}" class="profile-placeholder"/>
+      {{/profilePhoto}}
+      {{^profilePhoto}}
+      <img src="https://present.co/images/profileSelected@2x.png" class="profile-placeholder"/>
+      {{/profilePhoto}}
+      <input placeholder="Start a chat with people nearby..." class="dont-shy" id="circle-title"/>
+      <button class="start-btn disabled display-none">Start</button>
+    </div>
+  </div> -->
+
+    <!-- <div class="row dont-be-container white-white-bg">
+      <a href="https://present.co/app/createCircle">
+          <div class="small-4 medium-4 large-4 columns no-padding">
+            <div class="flex-start discussion-contaier">
+              <img src="https://present.co/images/discussion@2x.png" alt="discusstion" class="create-class"/>
+              <p class="create-title">Discussion</p>
+              <div class="border-right dis-right"></div>
+            </div>
+          </div>
+          <div class="small-4 medium-4 large-4 columns no-padding">
+            <div class="flex-start justify-content-center">
+              <img src="https://present.co/images/event@2x.png" alt="discusstion" class="create-class"/>
+              <p class="create-title">Event</p>
+              <div class="border-right"></div>
+            </div>
+          </div>
+          <div class="small-4 medium-4 large-4 columns no-padding">
+            <div class="flex-start recommend-container">
+              <img src="https://present.co/images/recommend@2x.png" alt="discusstion" class="create-class star-class"/>
+              <p class="create-title">Recommend</p>
+            </div>
+          </div>
+        </a>
+    </div> -->
+
+
+  {{#entries}}
+  <!-- row div -->
+  <div class="row white-bg">
+    <div class='small-2 medium-2 large-2 columns userWidth'>
+
+      <a href="{{group.url}}" target="_blank">
+        {{#group.newlyCreated}}
+        <div class="star-container">
+          <img src="https://present.co/images/only-star@3x.png" alt="new" class="new-icon"/>
+        </div>
+        {{/group.newlyCreated}}
+        {{#group.cover}}
+        <img src='{{group.cover.content}}=w80-h80-cc' class='user-photo map'/>
+        {{/group.cover}}
+        {{^group.cover}}
+        <img src='https://maps.googleapis.com/maps/api/staticmap?size=1600x360&zoom=18&scale=2&maptype=roadmap&markers=color:red%7C{{group.location.latitude}},{{group.location.longitude}}&key=AIzaSyDAkC7ZPpRvdt2Nh1NS7fKxKJis6ZTf6N4' class='user-photo map'/>
+        {{/group.cover}}
+      </a>
+
+    </div>
+    <div class="small-10 medium-10 large-10 columns">
+      <div class='first-sec'>
+        <a href="{{group.url}}" target="_blank">
+          <div class='name-section description-container-title'>
+            <p class='name-div {{group.membershipState}}'>
+              <a class="title-anchor" href="{{group.url}}" target="_blank">
+                <span class='make-b'>
+                  {{group.title}}
+                </span>
+              </a>
+            </p>
+            <a href="{{group.url}}">
+              <div class='loc-time'>
+                <p class="location-text {{group.membershipState}}">
+                  <span class="{{group.uuid}}-members">
+                    <script type="text/javascript">
+                    showMembersNumber('{{group.uuid}}',{{group.commentCount}}, {{group.memberCount}})
+                    </script>
+                  </span>
+
+                  <img src="https://present.co/images/location-icone@3x.png" alt="location" class="location-icon" />
+                  {{group.locationName}}</p>
+                </div>
+              </a>
+            </div>
+            {{#canJoin}}
+            <div class="{{group.uuid}}-image {{group.uuid}}-image-container" onclick="onclickjoin('{{group.uuid}}', '{{group.joined}}', '{{group.url}}', '{{group.preapprove}}')">
+              <button class='{{group.uuid}}-join-text join-btn'/>
+              <script>
+              getJoinText('{{group.uuid}}','{{group.joined}}','{{group.membershipState}}');
+              </script>
+            </button>
+          </div>
+          {{/canJoin}}
+        </a>
+      </div>
+      <!-- if there is a comment and group is not new  -->
+      {{#lastComment}}
+      <!-- show ownername and photo -->
+      <div class="user-info-container">
+        <a href="{{group.url}}" target="_blank">
+          <img src={{group.owner.photo}} alt={{group.owner.firstName}} class="owner-photo"/>
+          <span class="owner-first-name">{{group.owner.firstName}}</span>
+          <span class="creationTime">
+            <script>
+            document.write(format({{group.creationTime}}));
+            </script>
+          </span>
+        </a>
+      </div>
+
+      <!-- show description -->
+      {{#group.description}}
+      <a href="{{group.url}}" target="_blank">
+        <div class="description-container group-description">{{group.description}}</div>
+      </a>
+      {{/group.description}}
+
+      <script>
+      document.write(formatAddComment({{group.commentCount}}));
+      </script>
+
+      <!-- show comment authore -->
+      <div class="user-info-container">
+        <a href="{{group.url}}" target="_blank">
+          <img src={{author.photo}} alt={{author.firstName}} class="owner-photo"/>
+          <span class="owner-first-name">{{author.firstName}}</span>
+          <span class="creationTime">
+            <script>
+            document.write(format({{group.lastCommentTime}}));
+            </script>
+          </span>
+        </a>
+      </div>
+
+      <!-- show comment -->
+      {{#comment}}
+      <div class='second-sec'>
+        <a class="get-this" href="{{group.url}}" target="_blank">
+          <div class="description-container">{{.}}</div>
+        </a>
+        {{#content}}
+
+        <a href="{{group.url}}" target="_blank">
+          <img src='{{content}}' class='content-photo'/>
+        </a>
+
+        {{/content}}
+      </div>
+      {{/comment}}
+
+      <div class='last-div'>
+        <a href="{{group.url}}" target="_blank">
+          <span class="add-comment">Add a comment...</span>
+        </a>
+      </div>
+      {{/lastComment}}
+
+      <!-- if there is no comment -->
+      {{^lastComment}}
+      <div>
+
+        {{#group.cover}}
+        <a href="{{group.url}}" target="_blank">
+          <div class="cover-container">
+            <img src='{{group.cover.content}}=w587-h330-n-rj' class='cover-photo-main'/>
+          </div>
+        </a>
+        {{/group.cover}}
+
+        <div class="user-info-container">
+          <a href="{{group.url}}" target="_blank">
+            <img src={{group.owner.photo}} alt={{group.owner.firstName}} class="owner-photo"/>
+            <span class="owner-first-name">{{group.owner.firstName}}</span>
+            {{#group.newlyCreated}}
+            <span class="creationTime"> created </span>
+            {{/group.newlyCreated}}
+            <span class="creationTime">
+              <script>
+              document.write(format({{group.lastCommentTime}}));
+              </script>
+            </span>
+            {{#group.newlyCreated}}
+            <span class="creationTime">ago</span>
+            {{/group.newlyCreated}}
+          </a>
+        </div>
+        {{#group.description}}
+        <a href="{{group.url}}" target="_blank">
+          <div class="description-container group-description">{{group.description}}</div>
+        </a>
+        {{/group.description}}
+
+      </div>
+      <div class='last-div'>
+        <a href="{{group.url}}" target="_blank">
+          <span class="add-comment">Add a comment...</span>
+        </a>
+      </div>
+      {{/lastComment}}
+
+    </div>
+  </div>
+  {{/entries}}
+
+  <script>
+
+  $(".description-container").html(function () {
+    return urlify($(this).text());
+  });
+
+  $(document).ready(function(){
+    $('#circle-title').keypress(function() {
+      if($(this).val() !== ''){
+        $('.start-btn').removeClass('display-none');
+        $('.start-btn').removeClass('disabled');
+        $('.start-btn').addClass('start-btn-color');
+      }
+    });
+
+    $('#circle-title').keyup(function(e){
+      if(e.keyCode == 8 && $('#circle-title').val() === ''){
+        $('.start-btn').addClass('disabled');
+        $('.start-btn').addClass('display-none');
+        $('.start-btn').removeClass('start-btn-color');
+      }
+    });
+
+    $('#circle-title').focus(function(){
+      $('.start-btn').removeClass('display-none');
+    });
+
+    $('.flex-start-first').blur(function(){
+      $('.start-btn').addClass('display-none');
+    });
+
+    $('.start-btn').click(function(){
+
+      if($('#circle-title').val() !== ''){
+        window.location.href = 'app/createCircle?title='+$('#circle-title').val();
+      }
+    });
+  });
+
+  </script>
+</body>
+</html>

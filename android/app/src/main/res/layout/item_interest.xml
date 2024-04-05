@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:gravity="center_vertical"
+    android:paddingBottom="@dimen/spacing_small"
+    android:clickable="true"
+    android:focusable="true"
+    android:paddingStart="@dimen/spacing_medium"
+    android:paddingEnd="@dimen/spacing_medium"
+    android:layout_height="wrap_content">
+
+    <ImageButton
+        android:id="@+id/button"
+        android:clickable="false"
+        android:focusable="false"
+        android:stateListAnimator="@animator/flat_button_elevation"
+        android:duplicateParentState="true"
+        android:layout_width="@dimen/interest_button_diameter"
+        android:layout_marginEnd="@dimen/spacing_medium"
+        android:layout_height="@dimen/interest_button_diameter"
+        tools:targetApi="lollipop" />
+
+    <TextView
+        android:id="@+id/title"
+        android:textSize="@dimen/interest_text_size"
+        android:fontFamily="sans-serif-medium"
+        tools:text="Hobbies"
+        android:textColor="@drawable/interest_text_color_selector"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+</LinearLayout>

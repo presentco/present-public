@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="UserScrollerCell" customModule="Present" customModuleProvider="target">
+            <connections>
+                <outlet property="creatorLabel" destination="qX1-qT-5XL" id="k9r-Ix-pVt"/>
+                <outlet property="imageButton" destination="Z85-P8-tT6" id="ar5-Bj-jK7"/>
+                <outlet property="imageButtonHeight" destination="o37-bz-JjU" id="xi7-yv-XAP"/>
+                <outlet property="label" destination="Yld-rY-ovd" id="W29-bE-oAU"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="84" height="87"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="9" translatesAutoresizingMaskIntoConstraints="NO" id="KMf-OY-ZHg">
+                    <rect key="frame" x="0.0" y="0.0" width="84" height="87"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JXR-0c-RBh">
+                            <rect key="frame" x="0.0" y="0.0" width="84" height="39"/>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z85-P8-tT6" customClass="MIBadgeButton" customModule="MIBadgeButton_Swift">
+                                    <rect key="frame" x="23" y="0.0" width="39" height="39"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" secondItem="Z85-P8-tT6" secondAttribute="height" multiplier="1:1" id="DVf-mH-sU6"/>
+                                        <constraint firstAttribute="height" constant="39" id="o37-bz-JjU"/>
+                                    </constraints>
+                                    <state key="normal" backgroundImage="user-woman-512"/>
+                                </button>
+                            </subviews>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstItem="Z85-P8-tT6" firstAttribute="top" secondItem="JXR-0c-RBh" secondAttribute="top" id="9Je-4R-xeH"/>
+                                <constraint firstAttribute="bottom" secondItem="Z85-P8-tT6" secondAttribute="bottom" id="I5i-cg-9eq"/>
+                                <constraint firstAttribute="width" relation="greaterThanOrEqual" secondItem="Z85-P8-tT6" secondAttribute="width" id="omo-gp-9ko"/>
+                                <constraint firstItem="Z85-P8-tT6" firstAttribute="centerX" secondItem="JXR-0c-RBh" secondAttribute="centerX" id="yMe-KR-QwK"/>
+                            </constraints>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cUM-EG-CxZ">
+                            <rect key="frame" x="0.0" y="48" width="84" height="39"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="User" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yld-rY-ovd">
+                                    <rect key="frame" x="0.0" y="0.0" width="84" height="12"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="10"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Creator" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qX1-qT-5XL">
+                                    <rect key="frame" x="23" y="14" width="38" height="12"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="10"/>
+                                    <color key="textColor" red="0.7803921568627451" green="0.7803921568627451" blue="0.80392156862745101" alpha="1" colorSpace="calibratedRGB"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstAttribute="trailing" secondItem="Yld-rY-ovd" secondAttribute="trailing" id="78a-Ow-mo0"/>
+                                <constraint firstItem="Yld-rY-ovd" firstAttribute="top" secondItem="cUM-EG-CxZ" secondAttribute="top" id="Jkh-hF-Xv9"/>
+                                <constraint firstItem="qX1-qT-5XL" firstAttribute="top" secondItem="Yld-rY-ovd" secondAttribute="bottom" constant="2" id="OQd-qc-lmS"/>
+                                <constraint firstItem="Yld-rY-ovd" firstAttribute="leading" secondItem="cUM-EG-CxZ" secondAttribute="leading" id="Ope-Ud-DLO"/>
+                                <constraint firstItem="qX1-qT-5XL" firstAttribute="centerX" secondItem="cUM-EG-CxZ" secondAttribute="centerX" id="fRA-UH-h7s"/>
+                            </constraints>
+                        </view>
+                    </subviews>
+                </stackView>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="KMf-OY-ZHg" secondAttribute="trailing" id="BnW-0y-TE8"/>
+                <constraint firstItem="KMf-OY-ZHg" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="Ujm-83-iIA"/>
+                <constraint firstAttribute="bottom" secondItem="KMf-OY-ZHg" secondAttribute="bottom" id="X9K-cl-ZHv"/>
+                <constraint firstItem="KMf-OY-ZHg" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="wL6-sN-XAM"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="-109" y="-253.5"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="user-woman-512" width="410" height="418"/>
+    </resources>
+</document>

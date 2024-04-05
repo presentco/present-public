@@ -1,0 +1,605 @@
+syntax = "proto2";
+package present;
+option java_package = "present.proto";
+
+import "present/core.proto";
+import "present/user.proto";
+import "present/content.proto";
+
+// A service for interfacing with groups of members. Present supports two types of groups: circles
+// and direct groups.
+//
+// A "circle" is a standalone group which is explicitly created by a user. A circle has a location,
+// title, etc., and can be discovered by other members.
+//
+// A "direct" group is created implicitly when one member sends a message directly to another.
+// Direct groups currently support just two members but may support more in the future.
+//
+// Both types of group have a real time chat component which can be accessed via this API. This
+// API provides chat history, enables clients to synchronize read status for a given member, and
+// more.
+service GroupService {
+
+  // Returns a list of nearby circles.
+  rpc getNearbyGroups(NearbyGroupsRequest) returns (NearbyGroupsResponse);
+
+  // Loads details for a single group.
+  rpc getGroup(GroupRequest) returns (GroupResponse);
+
+  // Gets past comments posted to a group.
+  rpc getPastComments(PastCommentsRequest) returns (PastCommentsResponse);
+
+  // Finds the live server associated with the given group.
+  rpc findLiveServer(FindLiveServerRequest) returns (FindLiveServerResponse);
+
+  // Gets a direct group for the given recipients.
+  rpc getDirectGroup(DirectGroupRequest) returns (GroupResponse);
+
+  // Returns a user's direct groups.
+  rpc getDirectGroups(Empty) returns (DirectGroupsResponse);
+
+  // Returns a user's saved (joined) circles.
+  rpc getJoinedGroups(JoinedGroupsRequest) returns (JoinedGroupsResponse);
+
+  // Requests to join a group.
+  rpc joinGroup(JoinGroupRequest) returns (JoinGroupResponse);
+
+  // Leaves a group or revokes a request to join.
+  rpc leaveGroup(LeaveGroupRequest) returns (Empty);
+
+  // Updates a circle, creating it if necessary.
+  rpc putGroup(PutGroupRequest) returns (PutGroupResponse);
+
+  // Gets a comment by id.
+  rpc getComment(CommentRequest) returns (CommentResponse);
+
+  // Posts a comment to a group.
+  rpc putComment(PutCommentRequest) returns (Empty);
+
+  // Reports a group.
+  rpc flagGroup(FlagGroupRequest) returns (Empty);
+
+  // Reports a comment.
+  rpc flagComment(FlagCommentRequest) returns (Empty);
+
+  // Deletes a circle for everyone, or just the current member's view of a direct group.
+  rpc deleteGroup(DeleteGroupRequest) returns (Empty);
+
+  // Deletes a comment authored by the current member.
+  rpc deleteComment(DeleteCommentRequest) returns (Empty);
+
+  // Stops notifications related to activity in the specified group.
+  rpc muteGroup(MuteGroupRequest) returns (Empty);
+
+  // Resumes notifications related to activity in the specified group.
+  rpc unMuteGroup(UnmuteGroupRequest) returns (Empty);
+
+  // Adds members to the group.
+  rpc addMembers(MembersRequest) returns (Empty);
+
+  // Removes members from the group and/or rejects membership requests.
+  rpc removeMembers(MembersRequest) returns (Empty);
+
+  // Gets requests for membership into the given group.
+  rpc getMembershipRequests(MembershipRequestsRequest) returns (MembershipRequestsResponse);
+
+  // Returns up to 100 members of the given group.
+  rpc getGroupMembers(GroupMembersRequest) returns (GroupMembersResponse);
+
+  // Invites friends to a circle.
+  rpc inviteFriends(InviteFriendsRequest) returns (Empty);
+
+  // Marks a group as read. Note: A group with no comments is considered "unread" until you
+  // pass -1 in MarkReadRequest.lastRead.
+  rpc markRead(MarkReadRequest) returns (Empty);
+
+  // Gets the number of referrals a user has made to groups
+  rpc countGroupReferrals(Empty) returns (CountGroupReferralsResponse);
+
+  // Gets the list of referrals a user has made.
+  rpc getGroupReferrals(Empty) returns (GroupReferralsResponse);
+
+  // Returns the locations of cities where Present is available.
+  rpc getCities(Empty) returns (CitiesResponse);
+
+  // Changes the owner of a group.
+  rpc reassignGroup(ReassignGroupRequest) returns (GroupResponse);
+
+  // Get the server generated home page 
+  rpc getExploreHtml(ExploreHtmlRequest) returns (HtmlResponse);
+
+  // Get the server generated nearby feed
+  rpc getFeedHtml(FeedHtmlRequest) returns (HtmlResponse);
+
+  // Gets the feed for the specified space.
+  rpc getFeed(FeedRequest) returns (FeedResponse);
+}
+
+// A comment in a group.
+message CommentResponse {
+  // The unique id of this comment.
+  required string uuid = 1;
+
+  // The id of the container for this comment.
+  required string groupId = 8;
+
+  // The user who wrote the comment.
+  required UserResponse author = 2;
+
+  // The epoch time of the comment.
+  required uint64 creationTime = 3;
+
+  // The text of the comment. Can be null if content is set or if the comment is deleted.
+  optional string comment = 5;
+
+  // The number of likes for the comment.
+  required uint32 likes = 6;
+
+  // Optional content such as an image of video.
+  optional ContentResponse content = 7;
+
+  // Whether or not this comment was deleted.
+  required bool deleted = 9 [default = false];
+
+  // The 0-based index of this comment within its group. Used to track how much of a group is read.
+  // Note: The indexes of subsequent comments may not appear contiguous if comments are deleted
+  // or blocked.
+  required uint32 index = 10;
+}
+
+// A group.
+message GroupResponse {
+  // The uuid of this group
+  required string uuid = 1;
+
+  enum Type {
+    CIRCLE = 1;
+    DIRECT = 2;
+  }
+
+  // The type of this group (circle or direct).
+  required Type type = 15;
+
+  // Space this circle belongs to. Null for direct groups.
+  optional SpaceResponse space = 21;
+
+  // Epoch time when this group was created.
+  required uint64 creationTime = 5;
+
+  // Number of members in this group.
+  required uint32 memberCount = 7;
+
+  // Deprecated: Total number of comments (including blocked and deleted) in this group.
+  required uint32 totalComments = 8;
+
+  // Number of active (non-deleted) comments in this group.
+  required uint32 commentCount = 29;
+
+  // Epoch time of last comment. -1 if this group contains no comments.
+  required uint64 lastCommentTime = 9;
+
+  // For sharing. May contain referral information for the current user.
+  required string url = 14;
+
+  /*
+   * Circle-specific fields. Present when type = CIRCLE. Null when type = DIRECT.
+   */
+
+  // Title of this circle. Required.
+  optional string title = 6;
+
+  // Owner of this circle. Required.
+  optional UserResponse owner = 4;
+
+  // The coordinates and name of this circle's location. Required.
+  optional Coordinates location = 2;
+  optional string locationName = 10;
+  required double radius = 3;
+
+  // Cover photo with 16:9 aspect ratio.
+  optional ContentResponse cover = 11;
+
+  // Categories that can be used in search. Optional.
+  repeated string categories = 12;
+
+  // Describes this circle. Optional.
+  optional string description = 13;
+
+  // Stores an optional time and duration for a scheduled event in this circle.
+  optional Schedule schedule = 20;
+
+  // Number of open join requests.
+  required uint32 joinRequests = 28;
+
+  /*
+   * User-specific fields. These fields are null in notifications and the activity feed.
+   */
+
+  // True if this group is joined and a) it contains unread comments, or b) it has never been
+  // opened (in which case unreadCount could be 0).
+  optional bool unread = 16;
+
+  // Number of unread comments.
+  optional uint32 unreadCount = 30;
+
+  // Index of the last comment read, from CommentResponse.index. To scroll to the member's furthest
+  // known position in the chat, find the last comment where CommentResponse.index <= lastRead.
+  // A value of -1 is returned if no messages have been read.
+  optional int32 lastRead = 17;
+
+  // True if the user muted this group. When a group is muted, we mark the group as unread
+  // but we don't send notifications.
+  optional bool muted = 18;
+
+  // True if the user saved this group.
+  optional bool joined = 19;
+
+  // The user's current membership status.
+  optional GroupMembershipState membershipState = 24;
+
+  // Was the group created since the user's last session?
+  optional bool newlyCreated = 22;
+
+  // Who is pre-approved for membership?
+  required GroupMemberPreapproval preapprove = 25;
+
+  // Whether or not this circle is discoverable by friends and people nearby
+  required bool discoverable = 26;
+
+  // True if this group was deleted.
+  required bool deleted = 27;
+}
+
+message GroupRequest {
+  required string groupId = 1;
+}
+
+message NearbyGroupsRequest {
+  // Deprecated
+  optional Coordinates location = 1;
+
+  optional string spaceId = 2;
+}
+
+message NearbyGroupsResponse {
+  repeated GroupResponse nearbyGroups = 1;
+
+  // Deprecated. Use GroupResponse.muted instead.
+  optional MutedGroupsResponse mutedGroups = 2;
+}
+
+message DirectGroupRequest {
+  // Recipient user IDs.
+  repeated string recipients = 1;
+}
+
+message DirectGroupsResponse {
+  repeated GroupResponse groups = 1;
+}
+
+message JoinedGroupsRequest {
+  // userId has ID number 2 to avoid conflict with old clients who still pass a location.
+  optional string userId = 2;
+}
+
+message JoinedGroupsResponse {
+  repeated GroupResponse groups = 1;
+
+  // Deprecated. Use GroupResponse.muted instead.
+  optional MutedGroupsResponse mutedGroups = 2;
+}
+
+message SuggestedLocation {
+  enum Source {
+    APPLE_GEOCODER = 1;
+    APPLE_LOCAL_SEARCH = 2;
+    GOOGLE_CURRENT_PLACE = 3;
+  }
+
+  // Center of the location.
+  required Coordinates location = 1;
+
+  // Radius of the location.
+  optional double radius = 2;
+
+  // How we found the location.
+  required Source source = 3;
+}
+
+message Schedule {
+  // UTC timestamp of event start
+  required uint64 startTime = 1;
+
+  // Optional end time of the event.
+  optional uint64 endTime = 2;
+}
+
+message PutGroupRequest {
+  // The client-supplied uuid to be associated with the circle.
+  required string uuid = 1;
+
+  // Space to put this group in. Can be null coming from old clients.
+  optional string spaceId = 12;
+
+  // Coordinates and name of the circle's location.
+  required Coordinates location = 2;
+  required string locationName = 6;
+
+  // The circle's title.
+  required string title = 4;
+
+  // The user's location when they created the circle.
+  required Coordinates createdFrom = 5;
+
+  // Location returned via search. Null if the location is custom.
+  optional SuggestedLocation suggestedLocation = 7;
+
+  // 16:9 cover photo for the circle.
+  optional ContentReferenceRequest cover = 8;
+
+  // Description of the circle.
+  optional string description = 9;
+
+  // Optional categories that can be used in search.
+  repeated string categories = 10;
+
+  // Optional duration of event
+  optional Schedule schedule = 11;
+
+  // Pre-approve these members. Defaults to ANYONE (public).
+  optional GroupMemberPreapproval preapprove = 13;
+
+  // Whether or not the circle is discoverable by friends and people nearby.
+  optional bool discoverable = 14;
+}
+
+message PutGroupResponse {
+  // The newly created group.
+  required GroupResponse group = 1;
+}
+
+message PastCommentsRequest {
+  required string groupId = 1;
+}
+
+message PastCommentsResponse {
+  // Past comments, newest first.
+  repeated CommentResponse comments = 1;
+}
+
+message CommentRequest {
+  required string commentId = 1;
+}
+
+message PutCommentRequest {
+  // The client supplied uuid to be associated with the comment.
+  required string uuid = 1;
+
+  // Group to post the comment to.
+  required string groupId = 3;
+
+  // Comment text. Required unless "content" is set.
+  optional string comment = 4;
+
+  // Photo or video attachment.
+  optional ContentReferenceRequest content = 6;
+
+  // Admin only. Always send a notification, even if a user muted the group.
+  optional bool ignoreMuting = 7;
+}
+
+message FindLiveServerRequest {
+  required string groupId = 1;
+}
+
+message FindLiveServerResponse {
+  required string host = 1;
+  required int32 port = 2;
+}
+
+message JoinGroupRequest {
+  required string groupId = 1;
+  optional bool ignoreDeletions = 2 [default=false];
+}
+
+enum GroupMembershipState {
+
+  // User has no association with this group.
+  NONE = 0;
+
+  // User requested membership and is awaiting a decision.
+  REQUESTED = 1;
+
+  // TODO: The iOS Client build process requires enum names to be unique.
+  // TODO: We temporarily change the name for the iOS build.  The wire format is unaffected.
+//  REQUESTED_GROUP_MEMBERSHIP_STATE= 1;
+
+  // User was invited to the group by another member.
+  INVITED = 2;
+
+  // User is a member. Their invitation was approved or they were added directly.
+  ACTIVE = 3;
+
+  // Membership was rejected or the user was removed from the group.
+  REJECTED = 4;
+
+  // Member left the group.
+  UNJOINED = 5;
+}
+
+message JoinGroupResponse {
+
+  // Can be REQUESTED, ACTIVE or REJECTED.
+  required GroupMembershipState result = 1;
+}
+
+message LeaveGroupRequest {
+  required string groupId = 1;
+}
+
+enum FlagReason {
+  CUSTOM = 1;
+  SPAM = 2;
+  INAPPROPRIATE = 3;
+}
+
+message FlagGroupRequest {
+  required string groupId = 1;
+  required FlagReason reason = 2;
+  optional string customReason = 3;
+}
+
+message FlagCommentRequest {
+  required string commentId = 1;
+  required FlagReason reason = 2;
+  optional string customReason = 3;
+}
+
+message DeleteGroupRequest {
+  required string groupId = 1;
+}
+
+message DeleteCommentRequest {
+  required string commentId = 1;
+}
+
+message MuteGroupRequest {
+  required string groupId = 1;
+}
+
+message UnmuteGroupRequest {
+  required string groupId = 1;
+}
+
+message GroupMembersRequest {
+  required string groupId = 1;
+}
+
+message GroupMembersResponse {
+  repeated UserResponse members = 15;
+}
+
+message AddGroupMembersRequest {
+  required string groupId = 1;
+  repeated string userIds = 2;
+}
+
+message MembersRequest {
+  required string groupId = 1;
+  repeated string userIds = 2;
+  repeated string phoneNumbers = 3;
+}
+
+message MembershipRequestsRequest {
+  required string groupId = 1;
+}
+
+message MembershipRequest {
+  required UserResponse user = 1;
+  required uint64 timestamp = 2;
+}
+
+message MembershipRequestsResponse {
+  repeated MembershipRequest requests = 1;
+}
+
+message InviteFriendsRequest {
+  required string groupId = 1;
+  repeated string userIds = 2;
+}
+
+message MarkReadRequest {
+  required string groupId = 1;
+
+  // Index of the last comment read, from CommentResponse.index, or -1 if the group contains no
+  // comments.
+  required int32 lastRead = 3;
+}
+
+// Deprecated. Use GroupResponse.muted instead.
+message MutedGroupsResponse {
+  repeated string groupIds = 1;
+}
+
+// Defines a group and user referred by the current user.
+message GroupReferralResponse {
+  required UserResponse user = 1;
+  required GroupResponse group = 2;
+}
+
+message GroupReferralsResponse {
+  repeated GroupReferralResponse referrals = 1; 
+}
+
+message CountGroupReferralsResponse {
+  required uint32 membersReferred = 1; 
+}
+
+message CitiesResponse {
+  repeated City cities = 1;
+}
+
+message ReassignGroupRequest {
+  required string groupId = 1;
+  required string ownerId = 2;
+}
+
+message HtmlResponse {
+  required string html = 1;
+}
+
+// Feed API
+
+message FeedRequest {
+  // Each space has its own feed. Takes precedence over spaceId in headers.
+  required string spaceId = 1;
+
+  // Note: We'll eventually add a cursor so clients can request more entries.
+}
+
+// One or more comments and their corresponding group.
+message GroupComments {
+  // Group the comments were made in.
+  required GroupResponse group = 1;
+
+  // Comments in chronological order.
+  repeated CommentResponse comments = 2;
+}
+
+message FeedEntry {
+  // Entry contents. Clients should ignore entry types they don't recognize.
+  // Possible future entry types: https://goo.gl/dJHyWR
+  oneof contents {
+    // Comment[s] made in a group.
+    GroupComments groupComments = 1;
+
+    // A group was created.
+    GroupResponse groupCreation = 2;
+  }
+}
+
+message FeedResponse {
+  // Ordered feed entries.
+  repeated FeedEntry entries = 1;
+}
+
+message ExploreHtmlRequest {
+  optional string spaceId = 1;
+}
+
+message FeedHtmlRequest {
+  optional string spaceId = 2;
+}
+
+enum GroupMemberPreapproval {
+  UNKNOWN = 0;
+
+  // TODO: The iOS Client build process requires enum names to be unique.
+  // TODO: We temporarily change the name for the iOS build.  The wire format is unaffected.
+  // UNKNOWN_GROUP_MEMBER_PREAPPROVAL= 0;
+
+  ANYONE = 1;
+  FRIENDS_OF_MEMBERS = 2;
+  FRIENDS = 3;
+  INVITE_ONLY = 4;
+}

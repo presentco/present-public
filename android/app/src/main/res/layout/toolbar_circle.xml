@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/appbar"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:theme="@style/AppTheme.AppBarOverlay"
+    tools:parentTag="androidx.constraintlayout.widget.ConstraintLayout">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?android:actionBarSize" />
+
+    <TextView
+        android:id="@+id/toolbarTitle"
+        style="@style/ToolbarTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/keyline_toolbar_indent"
+        android:layout_marginTop="@dimen/spacing_tiny"
+        android:layout_marginEnd="@dimen/keyline_toolbar_indent"
+        android:breakStrategy="balanced"
+        android:ellipsize="end"
+        android:gravity="center"
+        android:maxLines="2"
+        app:autoSizeMaxTextSize="@dimen/circle_toolbar_title_large_text_size"
+        app:autoSizeMinTextSize="@dimen/circle_toolbar_title_smallest_text_size"
+        app:autoSizeTextType="uniform"
+        app:layout_constrainedWidth="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingPrefix"
+        tools:text="This is a card with a very long title yes it is cer" />
+
+    <LinearLayout
+        android:id="@+id/locationContainer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/keyline_toolbar_indent"
+        android:layout_marginEnd="@dimen/keyline_toolbar_indent"
+        android:paddingBottom="@dimen/spacing_small"
+        app:layout_constrainedWidth="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/toolbarTitle">
+
+        <ImageView
+            android:id="@+id/pinIcon"
+            android:layout_width="14dp"
+            android:layout_height="14dp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginEnd="@dimen/spacing_tiny"
+            android:contentDescription="@string/cd_distance_icon"
+            app:srcCompat="@drawable/ic_pin" />
+
+        <TextView
+            android:id="@+id/neighborhood"
+            style="@style/ChatDescriptionDetailText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/spacing_small"
+            android:layout_weight="1"
+            android:ellipsize="end"
+            android:maxLines="1"
+            app:layout_constrainedWidth="true"
+            app:layout_constraintEnd_toStartOf="@+id/distance"
+            app:layout_constraintStart_toEndOf="@id/pinIcon"
+            tools:text="Neighborhood long title very long" />
+
+        <TextView
+            android:id="@+id/distance"
+            style="@style/LocationDetailText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/spacing_tiny"
+            android:maxLines="1"
+            app:layout_constraintBaseline_toBaselineOf="@id/neighborhood"
+            app:layout_constraintStart_toEndOf="@id/neighborhood"
+            tools:text=".02 mi"
+            tools:visibility="gone" />
+    </LinearLayout>
+
+</merge>

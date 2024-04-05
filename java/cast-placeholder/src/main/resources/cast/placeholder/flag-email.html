@@ -1,0 +1,37 @@
+<html>
+
+<body>
+
+<p><a href="{{{flagger.consoleUrl}}}">{{flagger.internalName}}</a> flagged cast
+  <a href="{{{flagged.consoleUrl}}}">{{flagged.id}}</a> created by
+  <a href="{{{flagged.creator.get.consoleUrl}}}">{{flagged.creator.get.internalName}}</a>.</p>
+
+<p><a href="{{flagged.imageUrl}}"><img width="300" src="{{flagged.imageUrl}}"></a></p>
+
+<p>This cast has been flagged by {{previousCastFlags}} other clients.</p>
+
+<p><a href="{{censorCast}}">Censor Cast</a></p>
+
+<p>This client has been flagged {{previousClientFlags}} time[s] before.</p>
+
+<p><a href="{{censorClient}}">Censor Client</a></p>
+
+<p><b>Location</b></p>
+
+<p><a href="https://www.google.com/maps/preview/@{{flagged.latitude}},{{flagged.longitude}}">
+  <img width="300" height="300" src="{{{mapImage}}}"></a></p>
+
+{{#otherCasts.size}}
+
+<p><b>Other Casts</b></p>
+
+{{#otherCasts}}
+<p><a href="{{imageUrl}}"><img width="300" src="{{imageUrl}}"></a></p>
+{{/otherCasts}}
+
+{{/otherCasts.size}}
+
+</body>
+
+
+</html>

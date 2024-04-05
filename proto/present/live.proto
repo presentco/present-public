@@ -1,0 +1,33 @@
+// Live Server API
+
+syntax = "proto2";
+package present;
+option java_package = "present.proto";
+
+import "present/headers.proto";
+
+message LiveCommentsRequest {
+
+  required RequestHeader header = 1;
+ 
+  required string groupId = 2;
+
+  // The user id associated with this client.
+  //
+  // Note: This should be redundant with the client uuid in the header, but the live server
+  // currently has no way to resolve client ids to user ids. This supports filtering blocked
+  // messages for this user.
+  required string userId = 3;
+
+  // Supported versions: 0 (default) and 1 (sends LiveCommentResponse).
+  optional uint32 version = 4 [default = 0];
+}
+
+message LiveCommentsResponse {
+  enum Status {
+    READY = 1;
+  }
+
+  // Should always be READY.
+  required Status status = 1;
+}

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metadata>
+  <groupId>com.google.common</groupId>
+  <artifactId>s2-geometry</artifactId>
+  <versioning>
+    <versions>
+      <version>BUBBLE-SNAPSHOT</version>
+    </versions>
+    <lastUpdated>20160610195613</lastUpdated>
+  </versioning>
+</metadata>

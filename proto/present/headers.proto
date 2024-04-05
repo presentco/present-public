@@ -1,0 +1,52 @@
+// API Header Messages
+
+syntax = "proto2";
+package present;
+option java_package = "present.proto";
+
+import "present/core.proto";
+
+// Note: Requests and responses are wrapped (see rpc.proto).
+
+// Header sent by clients with all requests.
+message RequestHeader {
+  // Identifies an installation of the app. Generated the first time the app runs.
+  required string clientUuid = 1;
+
+  // Identifies a request. Can be used in handling duplicate requests.
+  required string requestUuid = 2;
+
+  // Required to authorize requests. It's not possible for us to completely block unauthorized
+  // API clients, but much like iTunes DRM, this raises the bar quite a bit. Computed as:
+  // base64(sha256(global key | client UUID | request UUID))
+  required string authorizationKey = 4;
+
+  // Client platform
+  required Platform platform = 5;
+
+  // The client app's desired API version.
+  required uint32 apiVersion = 6;
+
+  // Version of the client app.
+  optional string clientVersion = 7;
+
+  // Version of the client OS.
+  optional string platformVersion = 8;
+
+  // The user's actual location.
+  optional Coordinates location = 9;
+
+  // The user's selected location.
+  optional Coordinates selectedLocation = 11;
+
+  // Used for debugging.
+  optional string deviceName = 10;
+
+  // The user's selected space. Will be null coming from old clients.
+  optional string spaceId = 12;
+}
+
+message InternalHeader {
+  // Private key used to verify this request came from an internal server.
+  required string authorizationKey = 4;
+}

@@ -1,0 +1,159 @@
+// Datastore Messages
+
+syntax = "proto2";
+package present;
+
+option java_package = "present.proto";
+
+import "present/core.proto";
+import "present/group.proto";
+
+// A log of events in a group.
+message GroupLog {
+  message Entry {
+    enum Type {
+      // User opened the group
+      OPEN = 1;
+
+      // User commented in the group
+      COMMENT = 2;
+
+      // User deleted a comment.
+      DELETE_COMMENT = 6;
+
+      // User joined the group.
+      JOIN = 3;
+
+      // User left the group.
+      LEAVE = 4;
+
+      // User invited a friend to the group.
+      INVITE = 5;
+    }
+
+    // User's short ID.
+    required uint64 userId = 1;
+
+    required Type type = 2;
+    required uint64 timestamp = 3;
+
+    // Distance of the user from the group in meters when the event occurred.
+    optional double distance = 4;
+  }
+
+  // List of entries, newest first.
+  repeated Entry entries = 1;
+}
+
+// Cached unread state for a user
+message UnreadState {
+  // Sorted list of unread Group IDs.
+  repeated string groups = 1;
+
+  // Field 2 was used for chats
+}
+
+///
+/// Feed rendering types rendered with Mustache HTML templates
+///
+
+// The home (a.k.a explore, discovery) feed
+message HomeModel {
+  message Section {
+    // The name of the section (e.g. category name)
+    required string name = 2;
+
+    // URL-encoded name of the section.
+    required string encodedName = 3;
+
+    // The groups to display in the section
+    repeated GroupResponse groups = 4;
+
+    required string createUrl = 5;
+
+    required bool hasGroups = 6;
+  }
+
+  message Category {
+
+    required string name = 1;
+    required string encodedName = 2;
+    required string color = 4;
+  }
+
+  required string clientUuid = 1;
+
+  // List of categories.
+  repeated Category categories = 2;
+
+  // Named sections containing groups
+  repeated Section sections = 3;
+
+  // True if we should show circle create buttons.
+  required bool showCreateButtons = 4;
+
+  // User's location
+  required Coordinates location = 6;
+
+  // City name
+  required string city = 7;
+
+  // Deprecated: True if the user is logged in
+  required bool canJoin = 8;
+
+  // True if the app supports /app/changeLocation.
+  required bool canChangeLocation = 9;
+
+  // Map image URL. Add "&size=[width]x[height]" to the end.
+  required string mapImage = 10;
+
+  // True if the app supports /app/login and the user isn't logged in.
+  required bool canLogIn = 11;
+
+  // True if we should show the "we're new" message.
+  required bool showWereNew = 12;
+
+  // True if we should show the "are you a woman?" message.
+  required bool showAreYouAWoman = 13;
+
+  // True if we should show the "updates available" message.
+  required bool showUpdateAvailable = 14;
+
+  // The member's first name. Null if the user is logged out.
+  optional string memberName = 15;
+
+  // True if the user is logged in.
+  required bool loggedIn = 16;
+
+  // True if we should show the "add friends" message.
+  required bool showAddFriends = 17;
+}
+
+// The nearby feed
+message NearbyFeedModel {
+
+  // An element of the nearby feed
+  message Entry {
+    required GroupResponse group = 1;
+
+    // Last comment. If null, this signifies a group creation.
+    required CommentResponse lastComment = 2;
+  }
+
+  required string clientUuid = 1;
+
+  repeated Entry entries = 2;
+
+  required Coordinates location = 3;
+
+  required string city = 4;
+
+  required bool canJoin = 5;
+
+  required bool canChangeLocation = 6;
+
+  // User profile photo.
+  required string profilePhoto = 7;
+}
+
+

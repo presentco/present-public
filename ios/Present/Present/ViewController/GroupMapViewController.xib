@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina5_5" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="GroupMapViewController" customModule="Present" customModuleProvider="target">
+            <connections>
+                <outlet property="mapView" destination="mQ2-T1-4Ib" id="z78-2b-iai"/>
+                <outlet property="view" destination="iN0-l3-epB" id="nsl-qa-uJU"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aVt-EA-v3z" userLabel="map container">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                    <subviews>
+                        <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mQ2-T1-4Ib">
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        </mapView>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="mQ2-T1-4Ib" firstAttribute="top" secondItem="aVt-EA-v3z" secondAttribute="top" id="0Bu-fr-Uw0"/>
+                        <constraint firstItem="mQ2-T1-4Ib" firstAttribute="leading" secondItem="aVt-EA-v3z" secondAttribute="leading" id="Nq5-rJ-7dn"/>
+                        <constraint firstAttribute="bottom" secondItem="mQ2-T1-4Ib" secondAttribute="bottom" id="hpR-JG-XfB"/>
+                        <constraint firstAttribute="trailing" secondItem="mQ2-T1-4Ib" secondAttribute="trailing" id="w8Z-Qr-glL"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="aVt-EA-v3z" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="iM7-KF-5vv"/>
+                <constraint firstAttribute="trailing" secondItem="aVt-EA-v3z" secondAttribute="trailing" id="laJ-Ou-o5g"/>
+                <constraint firstItem="aVt-EA-v3z" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="o3K-FU-9D1"/>
+                <constraint firstAttribute="bottom" secondItem="aVt-EA-v3z" secondAttribute="bottom" id="qHb-0r-ohy"/>
+            </constraints>
+            <point key="canvasLocation" x="102" y="20"/>
+        </view>
+    </objects>
+</document>

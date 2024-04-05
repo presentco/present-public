@@ -1,0 +1,195 @@
+
+button.request-btn,
+button.request-btn:hover,
+button.request-btn:focus,
+ {
+    width: 212px;
+    height: 50px;
+    border-radius: 100px;
+    background-color: #8136ec;
+    color: white;
+    padding: 0;
+    margin-top: 50px;
+    box-shadow: 2px 2px 20px rgba(0,0,0,0.5);
+    outline: 0;
+  }
+
+.ur-photo {
+  width: 120px;
+  height: 120px;
+  border-radius: 100px;
+  margin:{
+    bottom: 27px;
+  }
+}
+
+.thatsme-btn,
+.thatsme-btn:hover,
+.thatsme-btn:focus{
+  width: 243.5px;
+  padding: 0;
+  height: 45px;
+  color: #fff;
+  border-radius: 50px;
+  background-color: #744ad5;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.1);
+  font-size: 17px;
+  font-weight: bold;
+  margin-top:20px;
+}
+
+.thatsme-btn:disabled{
+  opacity: 0.5;
+  background-color: #744ad5 !important;
+}
+
+
+.step-title{
+  font-size: 19px;
+	font-weight: 500;
+	letter-spacing: -0px;
+	text-align: center;
+	color: #000000;
+}
+
+.photo-upload-container{
+  text-align: center;
+  position: relative;
+}
+
+.cam-container{
+  position: absolute;
+  left: 60%;
+  bottom: 23%;
+  background-color: #fff;
+  border: 1px solid #000;
+  width: 35px;
+  padding-top: 2px;
+  height: 35px;
+  border-radius: 85px;
+}
+
+.cam-container.edit-profile{
+  top:140px;
+}
+
+.cam-icon {
+    margin-left: 4px;
+    margin-top: 3px;
+}
+
+.sec-title{
+  font-size: 15px;
+  margin-top: -16px;
+}
+
+.tit-lable {
+    margin-left: 9px;
+    font-weight: bold;
+    color: #000 !important;
+    margin-top: 50px;
+  }
+
+.preapprove-container {
+    position: relative;
+    // margin-bottom: -21px;
+}
+
+.sec-lab{
+    text-align: right;
+    color:#4d4d4d !important;
+  }
+
+.in-title {
+    font-size: 10px;
+    font-weight: 500;
+}
+
+.non-sel {
+    font-weight: 500;
+    color: #a4aab3;
+}
+
+.interests-con{
+  padding: 2.5rem 2rem !important;
+}
+
+.last-icon{
+  margin-left:8px;
+}
+
+.intere-icon{
+  width: 44px;
+}
+
+.selec-icon{
+  width:44px;
+}
+
+.in-later{
+  margin-bottom: -12px;
+}
+
+.field-label{
+  margin-left:16px;
+}
+
+.splash-mobile{
+  width: 279px;
+  height: 485px;
+}
+
+.slick-dots {
+    bottom: -39% !important;
+    left: 2% !important;
+}
+
+.chosen-photo {
+  position: absolute;
+  height: 456px;
+  width: 243px;
+  left: 32%;
+  top: 10%;
+  opacity: 0.01;
+  transition: opacity 900ms ease-out;
+  -o-object-fit: fill;
+  object-fit: fill;
+  z-index: 3000000;
+  border-radius: 7px;
+  }
+
+.slick-dots li {
+    margin: 0 1px !important;
+}
+
+.loaded{
+  opacity: 1;
+  transition: opacity 800ms ease-in;
+}
+
+
+img.dl-app-black {
+    width: 127px;
+    margin: 0.5rem 0rem;
+    cursor: pointer;
+}
+
+.slick-dots li button:before {
+    font-size: 9px !important;
+    opacity: .45 !important;
+    color: #5337c2 !important;
+    top: -47px !important;
+    left: -96px !important;
+}
+
+.slick-dots li.slick-active button:before {
+    opacity: 1 !important;
+    color: #5337c2 !important;
+}
+
+
+@media screen and (max-width:994px){
+  .no-logo-present{
+      height:0;
+  }
+}

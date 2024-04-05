@@ -1,0 +1,108 @@
+<html>
+<head>
+  <title>Present</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+
+  <link href="http://vjs.zencdn.net/5.19.2/video-js.css" rel="stylesheet">
+  <style type="text/css">
+    @import url("http://fast.fonts.net/t/1.css?apiType=css&projectid=69d5b694-8e8b-4b50-a835-b00df53e9124");
+  </style>
+
+  <link href="/styles/normalize.css" rel="stylesheet">
+  <link href="/styles/stylesheet.css?${buildNumber}5" rel="stylesheet">
+
+  <script async src="/vanity.js?${buildNumber}"></script>
+
+  <script async src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.6.0/clipboard.min.js"></script>
+</head>
+<body>
+  <div id="container">
+    <header>
+      <a class="button" href="#" data-modal="open" id="join">Join</a>
+      <div id="logo"></div>
+      <div class="share-sheet">
+        <div class="share-container">
+          <a target="_blank" href="https://www.linkedin.com/shareArticle?mini=true&url=http://present.co/dearmom&title=LinkedIn%20Developer%20Network&summary=My%20favorite%20developer%20program&source=LinkedIn" class="linkedin">LinkedIn</a>
+          <a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fpresent.co%2Fdearmom" class="facebook">Facebook</a>
+          <a target="_blank" href="https://twitter.com/intent/tweet?text=http%3A%2F%2Fpresent.co%2Fdearmom" class="twitter">Twitter</a>
+          <a href="#" class="link">Link</a>
+        </div>
+        <a target="_blank" href="#" class="share">Share</a>
+      </div>
+    </header>
+
+    <div class="video-container">
+      <video id="my-video" class="video-js" autoplay controls preload="auto" poster="MY_VIDEO_POSTER.jpg" data-setup="{}">
+        <source src="https://storage.googleapis.com/present-production/dearmom.mp4" type='video/mp4'>
+        <p class="vjs-no-js">
+          To view this video please enable JavaScript, and consider upgrading to a web browser that
+          <a href="http://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>
+        </p>
+      </video>
+    </div>
+
+    <div class="content">
+      <h2>
+        Network with inspiring women
+      </h2>
+      <a class="button" href="#" data-modal="open" id="request">Join Present</a>
+      <a class="contact-us" href="mailto:hello@present.co" target="_blank">Contact Us</a>
+      <footer>&copy; 2017 Present Company</footer>
+    </div>
+  </div>
+  <div class="modal hidden">
+    <div class="modal-bg"></div>
+    <div class="form">
+      <div class="title">
+        Request an Invitation
+      </div>
+      <form id="beta">
+        <input name="firstName" id="fName" required autocomplete="given-name">
+        <label for="fName">first name</label>
+
+        <input name="lastName" id="lName" required autocomplete="family-name">
+        <label for="lName">last name</label>
+
+        <input type="email" name="email" id="frmEmailA" required autocomplete="email">
+        <label for="frmEmailA">email</label>
+
+        <input type="number" name="zip" id="frmZipS" required autocomplete="shipping postal-code">
+        <label for="frmZipS">zip</label>
+
+        <div class="button-container">
+          <button type="submit" class="button" >Submit</button>
+        </div>
+        <div class="loading-container button">
+          <div class="loader"></div>
+        </div>
+      </form>
+      <a data-modal="close" href="#">close</a>
+    </div>
+    <div class="thanks">
+      <div class="title">
+        <span class="name">Awesome __NAME__,</span><br />we'll be in touch.
+      </div>
+      <div class="thanks-graphic">
+        <img src="/images/thanks-graphic.png"
+          srcset="/images/thanks-graphic@2x.png 2x,
+                  /images/thanks-graphic@3x.png 3x"
+        >
+      </div>
+      <a data-modal="close" href="#">close</a>
+    </div>
+  </div>
+
+  <script src="http://vjs.zencdn.net/5.19.2/video.js"></script>
+  <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-99030339-1', 'auto');
+  ga('send', 'pageview');
+
+  </script>
+</body>
+</html>

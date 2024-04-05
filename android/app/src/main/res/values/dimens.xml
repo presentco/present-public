@@ -1,0 +1,103 @@
+<resources>
+    <!--TODO: This could use some normalizing-->
+    <!--Padding-->
+    <dimen name="spacing_miniscule">2dp</dimen>
+    <dimen name="spacing_tiny">4dp</dimen>
+    <dimen name="spacing_small">8dp</dimen>
+    <dimen name="spacing_medium">16dp</dimen>
+    <dimen name="spacing_intermezzo">24dp</dimen>
+    <dimen name="spacing_large">32dp</dimen>
+    <dimen name="spacing_larger">40dp</dimen>
+    <dimen name="spacing_enormous">48dp</dimen>
+
+    <dimen name="toolbar_elevation">4dp</dimen>
+
+    <!--Splash-->
+
+    <!--Navigation-->
+
+    <!-- How much to indent a toolbar title from the screen edge to place it past the "up" button with spacing -->
+    <dimen name="keyline_toolbar_indent">56dp</dimen>
+
+    <!--Text-->
+    <dimen name="h1_text_size">25sp</dimen>
+    <dimen name="splash_subtitle_size">20sp</dimen>
+    <dimen name="entry_text_size">20sp</dimen>
+    <dimen name="h2_text_size">18sp</dimen>
+    <dimen name="h3_text_size">16sp</dimen>
+    <dimen name="small_button_text_size">13dp</dimen>
+    <dimen name="waitlist_subtitle_size">18sp</dimen>
+    <item name="waitlist_subtitle_line_mult" format="float" type="dimen">1.5</item>
+    <dimen name="circle_owner_text_size">14sp</dimen>
+    <dimen name="body_text_size">14sp</dimen>
+    <dimen name="interest_text_size">14sp</dimen>
+    <dimen name="social_login_text_size">14sp</dimen>
+    <dimen name="friend_name_text_size">10sp</dimen>
+    <dimen name="friend_name_text_size_large">16sp</dimen>
+    <dimen name="chat_name_text_size">14sp</dimen>
+    <dimen name="chat_message_text_size">15sp</dimen>
+    <dimen name="chat_message_compose_text_size">14sp</dimen>
+    <dimen name="location_title_text_size">16sp</dimen>
+    <dimen name="circle_toolbar_title_large_text_size">20sp</dimen>
+    <dimen name="circle_toolbar_title_smallest_text_size">12sp</dimen>
+    <dimen name="text_size_tiny">10sp</dimen>
+    <dimen name="small_caps_text_size">14sp</dimen>
+    <dimen name="chip_padding">12dp</dimen>
+    <dimen name="number_size">36sp</dimen>
+    <dimen name="icon_size">24dp</dimen>
+
+    <!--Buttons-->
+    <dimen name="onboarding_button_width">265dp</dimen>
+    <dimen name="large_button_width">190dp</dimen>
+    <dimen name="tiny_icon_size">12dp</dimen>
+    <dimen name="social_button_diameter">50dp</dimen>
+    <dimen name="social_login_height">50dp</dimen>
+    <dimen name="interest_button_diameter">44dp</dimen>
+    <dimen name="circle_action_diameter">30dp</dimen>
+    <dimen name="share_button_diameter">56dp</dimen>
+    <dimen name="button_rounded_end_radius">28dp</dimen>
+    <dimen name="button_rounded_end_radius_sm">16dp</dimen>
+    <dimen name="button_rounded_end_height_sm">32dp</dimen>
+    <dimen name="profile_button_diameter">49dp</dimen>
+    <dimen name="profile_button_radius">24.5dp</dimen>
+
+    <!-- Badging -->
+    <dimen name="badge_diameter">6dp</dimen>
+    <dimen name="badge_diameter_large">9dp</dimen>
+    <dimen name="badge_diameter_bottom_nav">12dp</dimen>
+    <dimen name="number_badge_radius">15dp</dimen>
+
+    <!--Card-->
+    <dimen name="card_min_height">144dp</dimen>
+    <dimen name="circle_cover_diameter">60dp</dimen>
+
+    <!--Chat-->
+    <dimen name="image_corner_radius">8dp</dimen>
+
+    <!--Create-->
+
+    <!--User-->
+    <dimen name="circle_image_sm">35dp</dimen>
+    <dimen name="profile_image_sm">40dp</dimen>
+    <dimen name="profile_image_med">65dp</dimen>
+    <dimen name="profile_image_large">85dp</dimen>
+
+    <dimen name="avatar_large_dimen">130dp</dimen>
+
+    <dimen name="flat_button_pressed_z_material">2dp</dimen>
+    <dimen name="button_normal_elevation">2dp</dimen>
+    <dimen name="button_pressed_elevation">8dp</dimen>
+
+    <dimen name="header_height">45dp</dimen>
+
+
+
+    <!-- Transitions -->
+    <integer name="launch_logo_shared_element_duration">400</integer>
+    <integer name="link_facebook_enter_delay">300</integer>
+    <integer name="link_facebook_enter_duration">600</integer>
+
+    <dimen name="chat_image_preview_default_width">60dp</dimen>
+
+
+</resources>

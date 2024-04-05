@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:background="@drawable/rounded_corners_white"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <ImageView
+        android:id="@+id/closeButton"
+        android:padding="@dimen/spacing_small"
+        android:background="@drawable/ripple_circular"
+        app:srcCompat="@drawable/ic_close"
+        android:tint="@color/lightGray"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <ImageView
+        android:id="@+id/image"
+        app:srcCompat="@drawable/joinpresentimage"
+        android:layout_marginTop="@dimen/spacing_medium"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        style="@style/H1"
+        android:layout_marginTop="@dimen/spacing_large"
+        android:gravity="center_horizontal"
+        android:layout_marginEnd="@dimen/spacing_medium"
+        android:layout_marginStart="@dimen/spacing_medium"
+        android:text="@string/join_present"
+        android:layout_width="0dp"
+        app:layout_constraintTop_toBottomOf="@id/image"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:id="@+id/title"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        style="@style/Body"
+        android:text="@string/sign_up_to_add_content_subtitle"
+        android:gravity="center_horizontal"
+        android:breakStrategy="balanced"
+        android:layout_marginTop="@dimen/spacing_medium"
+        android:textSize="18sp"
+        app:layout_constraintTop_toBottomOf="@id/title"
+        android:id="@+id/subtitle"
+        android:layout_width="0dp"
+        app:layout_constraintStart_toStartOf="@id/title"
+        app:layout_constraintEnd_toEndOf="@id/title"
+        android:layout_height="wrap_content" />
+
+    <Button
+        style="@style/RoundedEndsButton.Purple"
+        android:id="@+id/verifyPhoneButton"
+        android:textColor="@color/white"
+        android:layout_marginTop="@dimen/spacing_large"
+        android:text="@string/get_started"
+        android:minWidth="@dimen/large_button_width"
+        app:layout_constraintTop_toBottomOf="@id/subtitle"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_width="@dimen/onboarding_button_width"
+        android:layout_marginStart="@dimen/spacing_medium"
+        android:layout_marginBottom="@dimen/spacing_large"
+        android:layout_marginEnd="@dimen/spacing_medium"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_height="wrap_content" />
+
+    <!--<Button-->
+        <!--android:id="@+id/facebookButton"-->
+        <!--android:text="@string/connect_with_facebook"-->
+        <!--style="@style/RoundedEndsButton.Blue"-->
+        <!--android:textColor="@color/white"-->
+        <!--app:layout_constraintEnd_toEndOf="parent"-->
+        <!--android:layout_marginTop="@dimen/spacing_medium"-->
+        <!--android:layout_marginBottom="@dimen/spacing_medium"-->
+        <!--app:layout_constraintStart_toStartOf="parent"-->
+        <!--app:layout_constraintTop_toBottomOf="@id/verifyPhoneButton"-->
+        <!--android:layout_width="@dimen/onboarding_button_width"-->
+        <!--android:layout_height="wrap_content" />-->
+
+    <!--<TextView-->
+        <!--app:layout_constraintTop_toBottomOf="@id/verifyPhoneButton"-->
+        <!--android:text="@string/we_will_never_share_location_or_data"-->
+        <!--android:layout_width="0dp"-->
+        <!--app:layout_constraintStart_toStartOf="@id/title"-->
+        <!--android:layout_marginBottom="@dimen/spacing_medium"-->
+        <!--app:layout_constraintEnd_toEndOf="@id/title"-->
+        <!--android:layout_marginTop="@dimen/spacing_medium"-->
+        <!--app:layout_constraintBottom_toBottomOf="parent"-->
+        <!--android:layout_height="wrap_content" />-->
+
+</androidx.constraintlayout.widget.ConstraintLayout>

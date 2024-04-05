@@ -1,0 +1,320 @@
+buildscript {
+    repositories {
+        google()
+        maven { url 'https://maven.fabric.io/public' }
+    }
+
+    dependencies {
+        classpath 'io.fabric.tools:gradle:1.25.4'
+    }
+}
+apply plugin: 'com.android.application'
+apply plugin: 'io.fabric'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+
+repositories {
+    google()
+    jcenter()
+    mavenLocal()
+    maven { url 'https://maven.fabric.io/public' }
+}
+
+ext {
+
+    constraintLayoutVersion = "2.0.0-alpha2"
+    playServicesVersion = "15.0.1"
+    supportLibVersion = "1.0.0-alpha3"
+
+    daggerVersion = "2.15"
+    butterknifeVersion = "8.7.0"
+
+    parcelerVersion = "1.1.6"
+
+    junitVersion = "4.12"
+    mockitoVersion = "2.10.0"
+    robolectricVersion = "3.6.1"
+    espressoVersion = "3.1.0-alpha3"
+    testRunnerVersion = "0.5"
+
+    archLifecycleVersion = "2.0.0-alpha1"
+    archRoomVersion = "2.0.0-alpha1"
+}
+
+android {
+    signingConfigs {
+        production {
+            keyAlias 'present-release'
+        }
+    }
+    compileSdkVersion 28
+    buildToolsVersion '27.0.3'
+    defaultConfig {
+        applicationId "co.present.present"
+        minSdkVersion 19
+        targetSdkVersion 28
+        versionCode 165
+        versionName "4.8.0"
+        vectorDrawables.useSupportLibrary = true
+        multiDexEnabled true
+        testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner'
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = ["room.schemaLocation": "$projectDir/schemas".toString()]
+            }
+        }
+        buildConfigField "String", 'SERVER_URL_BASE', '"https://present.co"'
+        buildConfigField "String", 'SERVER_URL_BASE_STAGING', '"https://staging.present.co"'
+        buildConfigField "String", 'SERVER_URL_STAGING', '"https://api.staging.present.co/api"'
+        buildConfigField "String", 'SERVER_URL_RELEASE', '"https://api.present.co/api"'
+        buildConfigField "String", 'AMPLITUDE_API_KEY_STAGING', '""'
+        buildConfigField "String", 'AMPLITUDE_API_KEY_RELEASE', '""'
+    }
+
+    dexOptions {
+        javaMaxHeapSize "4g"
+    }
+
+    lintOptions {
+        lintConfig file("../../lint.xml")
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    testOptions {
+        unitTests {
+            includeAndroidResources = true
+        }
+    }
+
+    // Shared test classes for both Espresso and unit tests
+    sourceSets {
+        String sharedTestDir = 'src/sharedTest/java'
+
+        test {
+            java.srcDir sharedTestDir
+        }
+
+        androidTest {
+            java.srcDir sharedTestDir
+        }
+        androidTest.assets.srcDir files("$projectDir/schemas".toString())
+    }
+
+    flavorDimensions "mode"
+
+    productFlavors {
+        production {
+            dimension "mode"
+            // All other values default
+        }
+
+        internal {
+            dimension "mode"
+            applicationIdSuffix ".internal"
+            versionNameSuffix "-internal"
+        }
+    }
+
+    buildTypes {
+        debug {
+            versionNameSuffix '-DEBUG'
+        }
+        release {
+            signingConfig signingConfigs.production
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    // Meaningful apk names
+    android.applicationVariants.all { variant ->
+        variant.outputs.all { output ->
+            outputFileName = "present-${variant.buildType.name}-${variant.versionName}.apk"
+        }
+    }
+}
+
+// IMPORTANT!  Enables view caching in viewholders.
+// See: https://github.com/Kotlin/KEEP/blob/master/proposals/android-extensions-entity-caching.md
+androidExtensions {
+    experimental = true
+}
+
+configurations.all {
+    resolutionStrategy {
+        // Deal with Facebook 4.27 bringing in older support lib that we don't use otherwise
+        force "com.android.support:customtabs:$supportLibVersion"
+        // For image cropping lib
+        force "com.android.support:exifinterface:$supportLibVersion"
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    implementation 'com.facebook.stetho:stetho:1.5.0'
+
+    implementation 'androidx.multidex:multidex:2.0.0'
+    implementation "androidx.legacy:legacy-support-v4:1.0.0-rc01"
+    implementation "androidx.appcompat:appcompat:$supportLibVersion"
+    implementation "com.google.android.material:material:1.0.0-rc01"
+    implementation "androidx.constraintlayout:constraintlayout:$constraintLayoutVersion"
+    implementation "androidx.cardview:cardview:1.0.0-rc01"
+    implementation "androidx.recyclerview:recyclerview:$supportLibVersion"
+    implementation "androidx.core:core-ktx:1.0.0-rc01"
+
+    // Testing
+    testImplementation "org.mockito:mockito-core:$mockitoVersion"
+    testImplementation "junit:junit:$junitVersion"
+    testImplementation 'com.nhaarman:mockito-kotlin:1.5.0'
+    // Needed to force mockito-kotlin to use the latest
+    testImplementation "org.jetbrains.kotlin:kotlin-reflect:$kotlin_version"
+
+    // Dagger
+    implementation "com.google.dagger:dagger:$daggerVersion"
+    implementation "com.google.dagger:dagger-android:$daggerVersion"
+    kapt "com.google.dagger:dagger-compiler:$daggerVersion"
+
+    // View Injection
+    implementation "com.jakewharton:butterknife:$butterknifeVersion"
+    kapt "com.jakewharton:butterknife-compiler:$butterknifeVersion"
+
+    // Espresso
+    androidTestImplementation("androidx.test.espresso:espresso-core:$espressoVersion") {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    }
+    androidTestImplementation("androidx.test:runner:$supportLibVersion") {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    }
+    androidTestImplementation "androidx.test:rules:$supportLibVersion"
+    androidTestImplementation "androidx.test.espresso:espresso-intents:$espressoVersion"
+    androidTestImplementation "org.mockito:mockito-android:$mockitoVersion"
+
+    // Robolectric
+    testImplementation("org.robolectric:robolectric:$robolectricVersion") {
+        exclude group: 'commons-logging', module: 'commons-logging'
+        exclude group: 'org.apache.httpcomponents', module: 'httpclient'
+    }
+    testImplementation "org.robolectric:shadows-support-v4:3.4-rc2"
+    testImplementation 'org.robolectric:multidex:3.4.2'
+
+    // Indirect dependencies
+    //androidTestImplementation 'com.google.code.findbugs:jsr305:3.0.1'
+    androidTestImplementation "androidx.annotation:annotation:$supportLibVersion"
+    implementation 'org.hamcrest:hamcrest-core:1.3'
+
+    // Phone number validation
+    implementation 'com.googlecode.libphonenumber:libphonenumber:8.4.3'
+
+    // Image library
+    implementation "com.github.bumptech.glide:glide:3.8.0"
+    implementation 'jp.wasabeef:glide-transformations:2.0.2'
+    implementation 'com.theartofdev.edmodo:android-image-cropper:2.5.0'
+
+    // Facebook Integration
+    implementation 'com.facebook.android:facebook-android-sdk:4.27.0'
+
+    // Protobufs
+    implementation 'com.squareup.wire:wire-runtime:2.2.0'
+
+    // Java server maven dependencies
+    implementation 'present:proto:1.0'
+    implementation 'present:wire-rpc-core:SNAPSHOT'
+    implementation 'present:wire-rpc-client:1.0'
+    implementation 'present:live-client:1.0'
+    androidTestImplementation "androidx.test.espresso:espresso-contrib:$espressoVersion", {
+        exclude group: 'com.android.support', module: 'support-annotations'
+        exclude group: 'com.android.support', module: 'support-v4'
+        exclude group: 'com.android.support', module: 'design'
+        exclude group: 'com.android.support', module: 'recyclerview-v7'
+        exclude group: 'com.android.support', module: 'customtabs'
+    }
+
+    // Maps and location integration
+    implementation "com.google.android.gms:play-services-maps:$playServicesVersion"
+    implementation "com.google.android.gms:play-services-location:$playServicesVersion"
+    implementation "com.google.android.gms:play-services-places:$playServicesVersion"
+    implementation "com.google.firebase:firebase-messaging:17.0.0"
+    implementation "com.google.firebase:firebase-core:16.0.0"
+
+    // Parceling
+    implementation "org.parceler:parceler-api:$parcelerVersion"
+    kapt "org.parceler:parceler:$parcelerVersion"
+
+    // Bus
+    implementation 'com.squareup:otto:1.3.8'
+
+    // Analytics
+    implementation 'com.amplitude:android-sdk:2.14.1'
+
+    // Date/ time Java 8 backport
+    implementation 'com.jakewharton.threetenabp:threetenabp:1.0.5'
+
+    // Recyclerview
+    implementation 'com.xwray:groupie:2.2.0-alpha1'
+    implementation 'com.xwray:groupie-kotlin-android-extensions:2.2.0-alpha1'
+
+    // Architecture components
+    implementation "androidx.lifecycle:lifecycle-extensions:2.0.0-rc01"
+    implementation "androidx.lifecycle:lifecycle-reactivestreams:2.0.0-rc01"
+    implementation "androidx.room:room-runtime:2.0.0-rc01"
+    implementation "androidx.room:room-rxjava2:2.0.0-rc01"
+    implementation "androidx.room:room-testing:$archRoomVersion", {
+        exclude group: 'com.google.code.gson', module: 'gson'
+    }
+    androidTestImplementation "androidx.room:room-testing:$archRoomVersion", {
+        exclude group: 'com.google.code.gson', module: 'gson'
+    }
+    kapt "androidx.lifecycle:lifecycle-compiler:$archLifecycleVersion"
+    kapt "androidx.room:room-compiler:$archRoomVersion"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+
+    // Rx
+    implementation 'io.reactivex.rxjava2:rxandroid:2.0.1'
+    implementation 'io.reactivex.rxjava2:rxjava:2.1.3'
+    implementation 'io.reactivex.rxjava2:rxkotlin:2.1.0'
+    implementation 'com.jakewharton.rx2:replaying-share-kotlin:2.0.1'
+    implementation 'com.jakewharton.rxrelay2:rxrelay:2.0.0'
+
+    implementation 'com.squareup.okhttp3:okhttp:3.10.0'
+
+    implementation 'com.jonathanfinerty.once:once:1.2.2'
+    implementation 'com.github.chrisbanes:PhotoView:2.0.0'
+    implementation 'com.romandanylyk:pageindicatorview:1.0.0'
+    implementation 'com.xiaofeng.android:flowlayoutmanager:1.2.3.2'
+    implementation 'ru.egslava:MaskedEditText:1.0.5'
+
+    implementation('com.crashlytics.sdk.android:crashlytics:2.7.0@aar') {
+        transitive = true
+    }
+}
+
+task publishInternal(type: Exec) {
+    group 'Install'
+    description 'Export internal release version of application to cloud storage'
+    dependsOn ':app:buildMavenDependencies',
+            ':app:testProductionReleaseUnitTest',
+            ':app:assembleInternalRelease'
+
+    executable "/bin/sh"
+
+    String buildPath = buildDir.absolutePath
+
+    args "-c", "./publishApk.sh ${buildPath} ${android.defaultConfig.versionName}"
+}
+
+task buildMavenDependencies(type: Exec) {
+    group 'Build'
+    description 'Installs Maven dependencies into a local Maven repository'
+    executable "/bin/sh"
+    args "-c", "./build-mvn-deps.sh"
+}
+
+// Yes, this actually has to be at the end, don't move it!
+apply plugin: 'com.google.gms.google-services'
+

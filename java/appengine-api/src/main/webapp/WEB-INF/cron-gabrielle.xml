@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- https://cloud.google.com/appengine/docs/java/config/cronref -->
+<cronentries>
+  <cron>
+    <url>/rest/sendDailySummaries</url>
+    <description>Sends daily summary emails</description>
+    <schedule>every day 09:00</schedule>
+    <timezone>US/Pacific</timezone>
+    <target>api</target>
+  </cron>
+  <cron>
+    <url>/hourly</url>
+    <description>hourly jobs</description>
+    <schedule>every 1 hours</schedule>
+    <target>api</target>
+  </cron>
+  <cron>
+    <url>/nightly</url>
+    <description>nightly jobs</description>
+    <schedule>every day 00:00</schedule>
+    <timezone>US/Pacific</timezone>
+    <target>api</target>
+  </cron>
+  <cron>
+    <url>/warmdb</url>
+    <description>Warm the DB</description>
+    <schedule>every 1 minutes</schedule>
+    <target>api</target>
+  </cron>
+  <cron>
+    <!-- Note: The backup URL contains the name of each entity type and the per server environment bucket name -->
+    <url>/rest/backup</url>
+    <description>Test Backup</description>
+    <schedule>every day 15:20</schedule>
+    <timezone>US/Pacific</timezone>
+    <target>api</target>
+    <!-- Old backup url -->
+    <!--<url>/_ah/datastore_admin/backup.create?name=CronBackup&amp;kind=Group&amp;kind=Client&amp;kind=Comment&amp;kind=User&amp;kind=VerificationRequest&amp;kind=SavedGroups&amp;kind=Chat&amp;kind=BlockedUsers&amp;kind=Contact&amp;kind=CommentContainerView&amp;kind=Content&amp;kind=WhitelistedUser&amp;kind=WhitelistGeofences&amp;kind=Event&amp;filesystem=gs&amp;gs_bucket_name=present-production-backups</url>-->
+    <!--<schedule>every day 03:00</schedule>-->
+    <!--<timezone>US/Pacific</timezone>-->
+    <!--<target>ah-builtin-python-bundle</target>-->
+  </cron>
+</cronentries>
+
+
+
+

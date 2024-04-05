@@ -1,0 +1,48 @@
+#!/usr/bin/env ./dot.sh
+
+digraph {
+    label="User State After Signup"
+
+    // Start
+    start[shape="box", style="rounded"];
+    signup_complete[label="Signup Complete", shape="rectangle"];
+
+    // Decisions
+    man[label="Man on Facebook?", shape="diamond"];
+    preapproved[label="In pre-approved state?", shape="diamond"];
+    email_whitelisted[label="Email on whitelist?", shape="diamond"];
+    woman[label="Woman on Facebook?", shape="diamond"];
+    friends[label="> 24 friends?", shape="diamond"];
+    zip[label="ZIP code on whitelist?", shape="diamond"];
+    geofence[label="In geofence?", shape="diamond"];
+
+    // Endings
+    member[label="member", shape="box", style="rounded, filled", fillcolor="#eeffee"];
+    review[label="needs review", shape="box", style="rounded, filled", fillcolor="#eeeeee"];
+    reject[label="rejected", shape="box", style="rounded, filled", fillcolor="#ffeeee"];
+
+    // Flow
+    start -> signup_complete;
+    signup_complete -> preapproved;
+
+    preapproved -> member[label="yes"];
+    preapproved -> email_whitelisted[label="no"];
+
+    email_whitelisted -> member[label="yes"];
+    email_whitelisted -> man[label="no"];
+
+    man -> reject[label="yes"];
+    man -> woman[label="no"];
+
+    woman -> review[label="no (gender unknown)"];
+    woman -> friends[label="yes"];
+
+    friends -> zip[label="yes"];
+    friends -> review[label="no"];
+
+    zip -> member[label="yes"];
+    zip -> geofence[label="no"];
+
+    geofence -> member[label="yes"];
+    geofence -> review[label="no"];
+}

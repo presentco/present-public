@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:parentTag="androidx.constraintlayout.widget.ConstraintLayout">
+
+    <TextView
+        android:id="@+id/one"
+        style="@style/Digit"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="?selectableItemBackground"
+        android:gravity="center"
+        android:text="1"
+        app:layout_constraintDimensionRatio="1f"
+        app:layout_constraintEnd_toStartOf="@id/two"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/four"
+        app:layout_constraintVertical_chainStyle="packed"
+        tools:ignore="HardcodedText" />
+
+    <TextView
+        android:id="@+id/two"
+        style="@style/Digit"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="?selectableItemBackground"
+        android:gravity="center"
+        android:text="2"
+        app:layout_constraintDimensionRatio="1f"
+        app:layout_constraintEnd_toStartOf="@id/three"
+        app:layout_constraintStart_toEndOf="@id/one"
+        app:layout_constraintTop_toTopOf="@+id/one"
+        tools:ignore="HardcodedText" />
+
+    <TextView
+        android:id="@+id/three"
+        style="@style/Digit"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="?selectableItemBackground"
+        android:gravity="center"
+        android:text="3"
+        app:layout_constraintDimensionRatio="1f"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/two"
+        app:layout_constraintTop_toTopOf="@+id/one"
+        tools:ignore="HardcodedText" />
+
+    <TextView
+        android:id="@+id/four"
+        style="@style/Digit"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="?selectableItemBackground"
+        android:gravity="center"
+        android:text="4"
+        app:layout_constraintDimensionRatio="1f"
+        app:layout_constraintEnd_toStartOf="@id/five"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/one"
+        app:layout_constraintBottom_toTopOf="@+id/seven"
+        tools:ignore="HardcodedText" />
+
+    <TextView
+        android:id="@+id/five"
+        style="@style/Digit"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="?selectableItemBackground"
+        android:gravity="center"
+        android:text="5"
+        app:layout_constraintDimensionRatio="1f"
+        app:layout_constraintEnd_toStartOf="@+id/six"
+        app:layout_constraintStart_toEndOf="@id/four"
+        app:layout_constraintTop_toTopOf="@+id/four"
+        tools:ignore="HardcodedText" />
+
+    <TextView
+        android:id="@+id/six"
+        style="@style/Digit"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="?selectableItemBackground"
+        android:gravity="center"
+        android:text="6"
+        app:layout_constraintDimensionRatio="1f"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/five"
+        app:layout_constraintTop_toTopOf="@+id/four"
+        tools:ignore="HardcodedText" />
+
+    <TextView
+        android:id="@+id/seven"
+        style="@style/Digit"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="?selectableItemBackground"
+        android:gravity="center"
+        android:text="7"
+        app:layout_constraintDimensionRatio="1f"
+        app:layout_constraintEnd_toStartOf="@id/eight"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/four"
+        app:layout_constraintBottom_toTopOf="@+id/space"
+        tools:ignore="HardcodedText" />
+
+    <TextView
+        android:id="@+id/eight"
+        style="@style/Digit"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="?selectableItemBackground"
+        android:gravity="center"
+        android:text="8"
+        app:layout_constraintDimensionRatio="1f"
+        app:layout_constraintEnd_toStartOf="@id/nine"
+        app:layout_constraintStart_toEndOf="@id/seven"
+        app:layout_constraintTop_toTopOf="@+id/seven"
+        tools:ignore="HardcodedText" />
+
+    <TextView
+        android:id="@+id/nine"
+        style="@style/Digit"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="?selectableItemBackground"
+        android:gravity="center"
+        android:text="9"
+        app:layout_constraintDimensionRatio="1f"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/eight"
+        app:layout_constraintTop_toTopOf="@+id/seven"
+        tools:ignore="HardcodedText" />
+
+    <Space
+        android:id="@+id/space"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/zero"
+        app:layout_constraintTop_toBottomOf="@+id/seven"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintDimensionRatio="1f" />
+
+    <TextView
+        android:id="@+id/zero"
+        app:layout_constraintStart_toEndOf="@id/space"
+        app:layout_constraintEnd_toStartOf="@id/delete"
+        app:layout_constraintTop_toTopOf="@+id/space"
+        style="@style/Digit"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="?selectableItemBackground"
+        android:gravity="center"
+        android:text="0"
+        app:layout_constraintDimensionRatio="1f"
+        tools:ignore="HardcodedText" />
+
+    <ImageView
+        android:id="@+id/delete"
+        app:layout_constraintStart_toEndOf="@id/zero"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/space"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="?selectableItemBackground"
+        android:scaleType="center"
+        app:layout_constraintDimensionRatio="1f"
+        app:srcCompat="@drawable/ic_delete_keyboard" />
+
+</merge>

@@ -1,0 +1,13 @@
+syntax = "proto2";
+package present;
+option java_package = "present.proto";
+
+import "present/core.proto";
+
+service MessagingService {
+  rpc getChats(Empty) returns (ChatsResponse);
+}
+
+message ChatsResponse {
+  repeated Empty chats = 1;
+}

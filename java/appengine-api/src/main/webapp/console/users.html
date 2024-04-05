@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Admin Console</title>
+
+    <style type="text/css">
+      body {
+        font-family: Helvetica, sans-serif;
+      }
+
+      .customer-photo {
+          display: inline-block;
+          width: 32px;
+          height: 32px;
+          border-radius: 50%;
+          background-size: 32px 32px;
+          background-position: center center;
+          vertical-align: middle;
+          line-height: 32px;
+          box-shadow: inset 0 0 1px #999, inset 0 0 10px rgba(0,0,0,.2);
+          margin-left: 5px;
+      }
+
+      .toolbar {
+        height: 50px;
+      }
+
+      #searchbox {
+        font-size: medium;
+        width: 400px;
+        margin-top: 7px;
+        margin-right:15px;
+        margin-left:5px;
+        padding-left:5px;
+      }
+
+      .user-details{
+      }
+
+      #grid {
+        width: 2500px;
+      }
+
+      html .k-grid tr:hover {
+        background: transparent;
+      }
+
+      html .k-grid tr.k-alt:hover {
+        background: #f1f1f1;
+      }
+
+      .k-grid .k-grid-header .k-header .k-link {
+        height: auto;
+      }
+
+      .k-grid td{
+        white-space: nowrap;
+        text-overflow: ellipsis;
+      }
+
+      .k-grid-header .k-header th.k-header {
+        overflow: visible;
+        white-space: normal;
+      }
+    </style>
+
+    <link href="https://kendo.cdn.telerik.com/2017.2.504/styles/kendo.common.min.css" rel="stylesheet" />
+    <link href="https://kendo.cdn.telerik.com/2017.2.504/styles/kendo.default.min.css" rel="stylesheet" />
+    <link href="https://kendo.cdn.telerik.com/2017.2.504/styles/kendo.default.mobile.min.css" rel="stylesheet" />
+    <script src="https://code.jquery.com/jquery-1.12.3.min.js"></script>
+    <script src="https://kendo.cdn.telerik.com/2017.2.504/js/kendo.all.min.js"></script>
+  </head>
+  <body>
+    <p></p>
+    <div style="font-size: 200%">Present Users <span id="totalCount"></span></div>
+    <p></p>
+    <div id="grid"></div>
+
+    <script type="text/x-kendo-template" id="header-template">
+      <div class="toolbar">
+        <input type="search" id="searchbox" class="k-input" placeholder="Search...">
+      </div>
+    </script>
+
+    <script type="text/x-kendo-template" id="detail-template">
+      <div class='user-details'>
+        <div id="user-actions">
+          # if (availableActions.length == 0) { #
+          <label><em>No actions available.</em></label><br/>
+          # } else { #
+          <label>User Actions</label><br/>
+          # } #
+          <ul>
+            # for (var i = 0; i < availableActions.length; i++) { #
+            <li><span style="color: blue; cursor: pointer"
+              onclick="performUserAction('#=uuid#', '#=availableActions[i]#', this);">#=availableActions[i].toUpperCase()#</span></li>
+            # } #
+          </ul>
+        </div>
+        <label>Debug String</label><p/>
+        <textarea id="debugString" rows="3" style="width: 90%; border:none; word-break: break-all;;">#= debugString #</textarea>
+      </div>
+      <br/>
+    </script>
+
+    <script>
+      function getURLParameter(name) {
+          return decodeURIComponent((new RegExp('[?|&]' + name + '=' + '([^&;]+?)(&|#|;|$)').exec(location.search) || [null, ''])[1].replace(/\+/g, '%20')) || null;
+      }
+      var auth = getURLParameter('auth');
+      var start = getURLParameter('start');
+      var startParam = (start == null) ? "" : "&start="+start;
+      var end = getURLParameter('end');
+      var endParam = (end == null) ? "" : "&end="+end;
+
+      var apiUrl = "/rest/users";
+      var pushUpdate;
+      $("#grid").kendoGrid({
+        //toolbar: [],
+        sortable: true,
+        resizable: true,
+        filterable: true, //{ mode: "row" },
+        editable: "popup", // "inline"
+        columnMenu: true,
+        height: $(window).height()-100,
+        toolbar: kendo.template($("#header-template").html()),
+        detailTemplate: kendo.template($("#detail-template").html()),
+        detailInit: detailInit,
+        dataSource: {
+          error: function (e) {
+              console.log('error status: ',e.status);
+              //$('#grid').data("kendoGrid").cancelChanges();
+          },
+          transport: {
+            //read: { url: "users.json?auth="+auth, dataType: "json" },
+            read: { url: apiUrl+"?auth="+auth+startParam+endParam, dataType: "json" },
+            create: { url: apiUrl+"/create?auth="+auth, type: "POST" },
+            update: { url: apiUrl+"/update?auth="+auth, type: "POST" },
+            destroy: { url: apiUrl+"/delete?auth="+auth, type: "POST" },
+            // Capture callbacks used for update
+            push: function(callback) {
+              pushUpdate = callback.pushUpdate;
+            }
+          },
+          schema: {
+            data: "users",
+            model: {
+              id: "uuid",
+              fields: {
+                uuid: { type: "string", editable: false },
+                firstName: { type: "string", editable: false },
+                lastName: { type: "string", editable: false },
+                email: { type: "string", editable: false },
+                userState: { type: "string", editable: false },
+                signupCity: { type: "string", editable: false },
+                signupState: { type: "string", editable: false },
+                review: { type: "string", editable: false },
+                clients: { type: "string", editable: false },
+                referrals: { type: "number", editable: false }
+              }
+            }
+          },
+          change: function() {
+            $("#totalCount").text("("+this.data().length+")");
+          }
+        },
+        columns: [
+          {
+            title: "&nbsp;",
+            filterable: false,
+            width: 75,
+            template: '<div class="customer-photo" style="background-image: url(#=data.photo#)"></div>'
+          },
+          {
+            field: "firstName",
+            title: "First Name",
+            headerAttributes: { style: "white-space: normal"}
+          },
+          {
+            field: "lastName",
+            title: "Last Name",
+            headerAttributes: { style: "white-space: normal"}
+          },
+          {
+            field: "signupTime",
+            title: "Signup Date",
+            width: 125,
+            template: "#=kendo.toString(new Date(data.signupTime), 'MM/dd/yyyy')#",
+              headerAttributes: { style: "white-space: normal"}
+          },
+          {
+            field: "lastActivityTime",
+            title: "Last Activity",
+            width: 170,
+            template: "#=(data.lastActivityTime == 0) ? ' ' : kendo.toString(new Date(data.lastActivityTime), 'MM/dd/yyyy HH:mm') #",
+            headerAttributes: { style: "white-space: normal"}
+          },
+          {
+            field: "email",
+            title: "Email",
+            width: 130
+          },
+          {
+            field: "facebookLink",
+            title: "Facebook",
+            width: 140,
+            template: '#if(data.facebookLink==null) { #<span> </span># } else { #<a href="#=data.facebookLink#">facebook</a> # } #'
+          },
+          {
+            field: "presentLink",
+            title: "Present",
+            width: 130,
+            template: '<a href="#=data.presentLink#">present</a>'
+          },
+          {
+            field: "userState",
+            title: "User State",
+            template: '#= userState#',
+            width: 140,
+            filterable: { multi: true },
+            headerAttributes: { style: "white-space: normal"}
+          },
+          {
+          field: "notificationsEnabled",
+          title: "Notifications Enabled",
+            template: '#= typeof(notificationsEnabled) == "undefined" ? " " : (notificationsEnabled ? "Yes" : "No") #',
+            width: 150,
+            filterable: { multi: true },
+            headerAttributes: { style: "white-space: normal"}
+          },
+          {
+            field: "signupCity",
+            title: "Signup City",
+            width: 150,
+            filterable: { multi: true },
+            headerAttributes: { style: "white-space: normal"}
+          },
+          {
+            field: "signupState",
+            title: "Signup State",
+            filterable: { multi: true },
+            headerAttributes: { style: "white-space: normal"}
+          },
+          {
+            field: "review",
+            title: "Review",
+            filterable: { multi: true },
+            headerAttributes: { style: "white-space: normal"}
+          },
+          {
+            field: "clients",
+            title: "Clients",
+            filterable: { multi: true },
+            headerAttributes: { style: "white-space: normal"},
+            template: function(user) {
+              return user.clients.split(',').join('<br/>');
+            }
+          },
+          {
+            field: "referrals",
+            title: "Referrals",
+            filterable: { multi: true },
+            headerAttributes: { style: "white-space: normal"},
+          },
+          {
+            field: "uuid",
+            title: "UUID",
+            fieldAttributes: { style: "white-space: normal"}
+          }
+        ],
+        dataBound: function() {
+            console.log("dataBound: ", this.dataSource.total());
+        },
+      });
+
+      function detailInit(e) {
+          console.log("detail init");
+          var detailRow = e.detailRow;
+      }
+
+      function performUserAction(uuid, action, row) {
+        console.log("user action: "+uuid+", "+action);
+        var grid = $("#grid").data("kendoGrid");
+        $.post({
+            url: apiUrl+"/update"+"?auth="+auth,
+            data: { uuid: uuid, action: action },
+            dataType: "json"
+        }).done(
+          function(result) {
+              console.log( "update complete." );
+              console.log( result );
+              pushUpdate(result);
+          }
+        );
+      }
+
+      // Grid Search
+      $(document).ready(function () {
+        $("#searchbox").keyup(function (event) {
+          if (event.which == 13) {
+            var val = $('#searchbox').val();
+            var grid = $("#grid").data("kendoGrid");
+            if (val) {
+              var filters = [];
+              $.each(grid.options.dataSource.fields, function (index, value) {
+                if (value.field
+                  && grid.options.dataSource.schema.model.fields[value.field]
+                  && grid.options.dataSource.schema.model.fields[value.field].type == "string") {
+                  var filter = {
+                    field: value.field,
+                    operator: "contains",
+                    value: val
+                  };
+                  filters.push(filter);
+                }
+              });
+              grid.dataSource.filter({ logic: "or", filters: filters });
+            } else {
+                grid.dataSource.filter({ logic: "or", filters: [] });
+            }
+          }
+        });
+      });
+    </script>
+  </body>
+</html>

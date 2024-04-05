@@ -1,0 +1,197 @@
+#press-container{
+  background: url(/images/love-team@2x.png);
+  padding: 18rem 0 17rem;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: top center;
+  margin-top: 8px;
+}
+
+.press-title{
+  font-size: 30px;
+  color: #ffffff;
+  width: 512px;
+  height: 122px;
+  text-align: center;
+}
+
+.media-section{
+  padding: 4rem 0 0;
+}
+
+.fast-photos {
+    width: 164px;
+    height: 24px;
+  }
+
+  .media{
+    padding-left: 0 !important;
+  }
+
+  .media-right{
+    padding-right: 0 !important;
+    text-align: right;
+  }
+
+  .article-name {
+    color:#000;
+    margin: 0;
+    font-size: 14px;
+    font-weight: 500;
+  }
+
+
+.cnet-photos {
+    width: 77px;
+    height: 56px;
+    margin-top:-14px;
+}
+
+.brit-photos{
+  width:159px;
+  height: 25px;
+}
+
+.cheddar-photos{
+  margin-top:-8px;
+  width: 149px;
+  height: 32px;
+}
+
+.sec-press-title{
+ font-size: 24px;
+ font-weight: 600;
+ color: #ffffff;
+ text-align: center;
+}
+
+.article-summary{
+  margin-top: 17px;
+  margin-bottom: 5px;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1.5;
+  color: #4a4a4a;
+}
+
+.article-title-container {
+    margin: 41px 0;
+}
+
+.article-title {
+  width: 72%;
+  line-height: 27px;
+  margin-bottom: 2px;
+  font-size: 24px;
+  font-weight: bold;
+  color:#000;
+}
+
+.article-date {
+    margin-bottom: 10px;
+    font-size: 14px;
+    color: #9b9b9b;
+    font-weight: 500;
+}
+
+.media-dropbox{
+  padding-top:4rem;
+}
+
+.article-des {
+    font-size: 15px;
+    line-height: 26px;
+    margin-bottom: 34px;
+}
+
+.read-more-btn, .read-more-btn:hover,.read-more-btn:focus{
+    font-size: 18px;
+    color: #743cce;;
+    font-weight: bold;
+}
+
+.media-title, .media-title:hover, .media-title:focus{
+    font-size: 24px;
+    font-weight: bold;
+    letter-spacing: -0px;
+    color:#000;
+    text-align: center;
+}
+
+.title-title{
+  font-size:36px;
+}
+
+.media-photo {
+  width:300px;
+  margin-bottom: 13px;
+}
+
+.intr-btn{
+  margin-top:20px;
+}
+
+@media screen and (min-width:550px) and (max-width:640px){
+  .press-title{
+    width: 800px;
+    font-size: 25px;
+  }
+  .article-title{
+    width: 100%
+  }
+
+  .brit-photos, .cheddar-photos{
+    margin-top:20px;
+  }
+}
+
+@media screen and (max-width:1024px){
+  .press-title{
+    text-align: left;
+  }
+
+  .sec-press-title{
+    text-align: left;
+  }
+
+  #press-container{
+    padding:10rem 5rem 16rem;
+  }
+}
+
+
+
+@media screen and (max-width: 640px) and (min-width: 320px){
+    #press-container{
+        padding: 3rem 3rem 9rem;
+       }
+    .press-title{
+      font-size: 11px;
+      text-align: left !important;
+    }
+
+    .press-title {
+      padding-top: 67px;
+      font-size: 21px;
+      text-align: left !important;
+      line-height: 2rem;
+      width: 340px;
+    }
+
+    .media-title{
+      font-size: 11px;
+    }
+
+    .sec-press-title{
+      text-align: left;
+    }
+
+    .article-title{
+      width: 100%
+    }
+
+    .brit-photos, .cheddar-photos{
+      margin-top:20px;
+    }
+
+}

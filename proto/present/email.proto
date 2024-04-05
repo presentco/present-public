@@ -1,0 +1,20 @@
+syntax = "proto2";
+package present;
+option java_package = "present.proto";
+
+import "present/core.proto";
+
+service EmailService {
+  // Sends a separate copy of an email to each recipient.
+  rpc send(EmailRequest) returns (Empty);
+}
+
+message EmailRequest {
+  repeated EmailAddress to = 1;
+  required string id = 2;
+  required string subject = 3;
+  required string html = 4;
+
+  // ID from https://app.sendgrid.com/suppressions/advanced_suppression_manager
+  optional uint32 unsubscribeGroup = 5;
+}

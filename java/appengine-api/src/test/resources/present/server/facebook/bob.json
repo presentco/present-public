@@ -1,0 +1,15 @@
+{
+  "id": "bob-lee",
+  "name": "Bob Lee",
+  "first_name": "Bob",
+  "last_name": "Lee",
+  "email": "bob@present.co",
+  "friends": {
+    "data": [
+      {
+        "name": "Janete Perez",
+        "id": "janete-perez"
+      }
+    ]
+  }
+}

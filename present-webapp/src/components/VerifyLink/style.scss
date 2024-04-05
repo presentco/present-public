@@ -1,0 +1,74 @@
+
+  .divider{
+    position: fixed;
+    top:0;
+    width: 100%;
+    height:4px;
+  }
+
+  .logo-vertical {
+    margin-top:15%;
+    width: 215px;
+  }
+
+  .title-network{
+    text-align: center;
+    margin-top: 12px;
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 36px;
+  }
+
+  .error-msg {
+    position: relative;
+    color: red;
+    margin: 0;
+    padding: 0;
+    top: 22px;
+}
+
+  .display-none{
+    display: none;
+  }
+
+  .sign-in-btn,
+  .sign-in-btn:hover,
+  .sign-in-btn:focus
+  {
+    padding: 15px 30px;
+    color: #fff;
+    border-radius: 100px;
+    background-color: #743cce;
+    font-size: 18px;
+    font-weight: bold;
+    text-decoration: none;
+  }
+
+  .app-container {
+    margin-top: 50px;
+  }
+
+  .app-container img{
+    width:185px;
+    margin-right: 10px;
+  }
+
+  .app-container p{
+    font-size: 24px;
+    font-weight: bold;
+  }
+
+  .social-media {
+    margin-top: 50px;
+    padding-bottom: calc(100vh - 200px);
+  }
+
+  .social-media img{
+    width:33.2px;
+    height: 33.2px;
+    margin-right: 8px;
+  }
+
+  .body-verify-white{
+    background-color: #fff;
+  }

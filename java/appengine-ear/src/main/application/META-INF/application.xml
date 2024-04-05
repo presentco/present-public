@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<application xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/application_6.xsd" version="6">
+  <display-name>appengine-ear</display-name>
+  <!-- Default module first. -->
+  <module>
+    <web>
+      <web-uri>appengine-web-1.0.war</web-uri>
+      <context-root>appengine-web</context-root>
+    </web>
+  </module>
+  <module>
+    <web>
+      <web-uri>appengine-api-1.0.war</web-uri>
+      <context-root>appengine-api</context-root>
+    </web>
+  </module>
+  <library-directory>lib</library-directory>
+</application>

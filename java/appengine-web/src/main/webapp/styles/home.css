@@ -1,0 +1,727 @@
+
+#lets-present{
+  background-image:url(/images/video-background@2x.png);
+  color: #fff;
+  background-size: cover;
+  padding: 13rem 0 8rem;
+  background-repeat: no-repeat;
+  background-color: #9012fe;
+  background-position: center center;
+}
+
+.span-cir-wom{
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 18px;
+  line-height: 1.32;
+}
+
+.gray-bg-home{
+background-color:#f8f8f8;
+}
+
+.cursor-pointer{
+  cursor: pointer;
+}
+
+.join-present-text {
+  color: #a4aab3;
+  font-weight: 500;
+  font-size: 14px;
+  margin: 0;
+}
+
+.lets-present-title{
+  font-size: 64px;
+  font-weight: 900;
+  line-height: 0.6;
+  margin-bottom: 30px;
+}
+
+.reveal-modal{
+  outline: none;
+  width: 100% !important;
+}
+
+.reveal-modal .close-reveal-modal {
+  outline: none;
+  top: -7px !important;
+  right: 5px !important;
+}
+
+.flex-video{
+  margin-bottom: 0 !important;
+}
+
+.play-btn {
+  width: 75px;
+  height: 75px;
+  object-fit: contain;
+}
+
+#download-join{
+  width: 85%;
+  border-radius: 100px;
+  background-color: #ffffff;
+  border-color: #fff;
+  font-size: 15px;
+  font-weight: 500;
+  letter-spacing: -0px;
+  color: #7041DB;
+  padding: 14px;
+  outline: 0;
+  margin: 0 auto;
+  padding-top: 12px !important;
+  text-align: center;
+}
+
+.sec-tit{
+  width: 50%;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1.33;
+  margin: 0 auto;
+}
+
+.join-us-btn,
+.join-us-btn:hover,
+.join-us-btn:focus
+{
+  border-radius: 100px;
+  background-color: #ffffff;
+  border-color: #fff;
+  font-size: 18px;
+  font-weight: 900;
+  letter-spacing: -0px;
+  color: #7041DB;
+  outline:0;
+  padding: 9px 23px !important;
+}
+
+.pin-2{
+  width: 60px;
+  top: 47%;
+  left: 15%;
+}
+
+.app-container-mobile{
+  padding-bottom: 30px;
+}
+
+.slick-list{
+  padding-bottom: 30px !important;
+}
+
+.pin-1{
+  width: 46px;
+  top: 17%;
+  left: 18%;
+}
+
+.discover-1 {
+  display: inline-block;
+  top: 24%;
+  position: absolute;
+  width: 121px;
+  left: 7%;
+}
+
+.discover-2 {
+  top: 36%;
+  position: absolute;
+  width: 175px;
+  left: 15%;
+}
+
+.discover-3{
+  top: 11%;
+  position: absolute;
+  width: 229px;
+  left: 22%;
+}
+
+#join-btn{
+  position: absolute;
+  bottom: 19%;
+  left: 1%;
+}
+
+.app-contianer {
+  padding-top: 60px;
+}
+
+
+
+.join-us-btn.login{
+  padding: 14px 63px;
+  font-weight: normal;
+
+}
+
+.join-us-btn-purp,
+.join-us-btn-purp:hover,
+.join-us-btn-purp:focus{
+  background-color: #7041DB !important;
+  border-color: #7041DB;
+  color: #fff;
+
+}
+
+.join-phone{
+  position: relative;
+  top:87px;
+  width: 75% !important;
+  height: inherit !important;
+}
+
+.display-inline{
+  display: inline-block;
+}
+
+.yellow-2{
+  width: 129px;
+  top: 5%;
+  left: 24%;
+}
+
+.pink-3{
+  width: 104px;
+  bottom: 15%;
+  left: 26%;
+}
+
+.blue-1{
+  width:229px;
+  bottom: 16%;
+  left: 14%;
+}
+
+.pin {
+  width: 132px;
+  left: 23%;
+  top: 27%;
+}
+
+#discover{
+  position: relative;
+  background-color: #fff;
+  padding: 63px 0 52px;
+}
+
+#support{
+  position: relative;
+  background-color: #fff;
+  padding: 50px 0 37px;
+}
+
+.dis-container {
+  padding-top: 5rem;
+  position: relative;
+}
+
+.discover-present{
+  width: 214px;
+  height: 370px;
+  object-fit: contain;
+  float: right;
+}
+
+.connect-present{
+  width: 214px;
+  height: 370px;
+  object-fit: contain;
+  position: absolute;
+  top:0;
+}
+
+.connect-text{
+  width: 303px;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 18px;
+  line-height: 1.32;
+  margin-bottom: 24px;
+  margin-left: 10rem;
+}
+
+.connect-container{
+  text-align: right;
+  padding-top:5rem;
+  position: relative;
+}
+
+.white-color{
+  color: #fff;
+}
+
+.app-store{
+  width: 94px;
+  height: 39px;
+  object-fit: contain;
+  margin-right:15px;
+}
+
+.google-play{
+  width: 165.3px;
+  height: 49.2px;
+  object-fit: contain;
+}
+
+.discover-tit{
+  font-size: 30px;
+  font-weight: bold;
+  margin-bottom:9px;
+  /*width:250px;*/
+  line-height: 40px;
+}
+
+.margin-left{
+  margin-left:14rem;
+}
+
+.margin-right{
+  margin-right: 14rem;
+}
+
+.position-absolute{
+  position: absolute;
+}
+
+.blue-1{
+  width: 229px;
+}
+
+
+
+.cir-wom{
+  width: 300px;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 18px;
+  line-height: 1.32;
+  margin-bottom: 24px;
+}
+
+
+.social {
+  right: 0;
+  top: 31%;
+}
+
+#connect{
+  background-color: #f8f8f8;
+  padding: 14px 0 158px;
+  position: relative;
+}
+
+#Vibe{
+  background-color: #f8f8f8;
+  padding: 14px 0 158px;
+  position: relative;
+}
+
+.small-icons{
+  width: 54px;
+  position: absolute;
+}
+
+.health {
+  bottom: 14%;
+  left: 29%;
+  width: 54px;
+  z-index: 1;
+}
+
+.lifestyle {
+  width: 41px;
+  right: 30%;
+  top: 58%;
+}
+
+.hobbies {
+  right: 26%;
+  top: 281px;
+}
+
+.entertainment {
+  width: 45px;
+  right: 28%;
+  top: 349px;
+}
+
+.family {
+  width: 76.18px;
+  top: 303px;
+  right: 20%;
+}
+
+.fitness {
+  width: 59px;
+  top: 208px;
+  right: 20%;
+  z-index: 1;
+}
+
+.career {
+  width: 57.76px;
+  top: 274px;
+  right: 9%;
+}
+
+.food {
+  width: 72.46px;
+  top: 240px;
+  right: 16%;
+}
+
+.style {
+  top: 179px;
+  right: 10%;
+  width: 92px;
+}
+
+#inspire{
+  background: url(/images/group-2@2x.png);
+  background-size:cover;
+  padding: 60px 0 168px;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+#JOIN{
+  background: #fff;
+  padding:0 0 21px;
+}
+
+.join-present{
+  position: relative;
+  top: 110px;
+}
+
+.sm-foo{
+  padding-top: 31px;
+}
+
+.sm-foo .sm-btn{
+  margin:0 10px;
+}
+
+.slick-dots li button:before {
+  width: 10px;
+  height: 10px;
+  content: '';
+  border-radius: 100px;
+  border: 1px solid #000;
+}
+
+.slick-dots li.slick-active button:before{
+  border:1px solid #743CCE;
+  background-color:#743CCE;
+}
+
+.slick-dots {
+  position: absolute;
+  display: block;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  text-align: center;
+}
+
+.mobile-view{
+  padding-top: 29px;
+}
+
+.slick-next{
+  right:0px;
+  top:18rem;
+  z-index:1000;
+  width:50px;
+  height: 35px;
+  padding:7px 0;
+}
+
+
+.slick-prev{
+  left:0px;
+  top:18rem;
+  z-index:1000;
+  width:50px;
+  height: 35px;
+  padding:7px 0;
+}
+
+.slick-prev:after, .slick-next:before{
+  padding:50;
+}
+
+.join-container{
+  padding-top: 14rem;
+}
+
+.new-large-icon{
+  width: 96px !important;
+}
+
+.music {
+  width: 96px;
+}
+
+.career-share{
+  width: 71.45px;
+  left: 7%;
+  top: 38%;
+}
+
+.restaurant{
+  width: 92px;
+  left: 8%;
+  top: 19%;
+}
+
+.woman-share{
+  width: 72.36px;
+  left: 13%;
+  top: 33%;
+}
+
+.boat{
+  width: 50.18px;
+  left: 16%;
+  top: 28%;
+}
+
+.reading{
+  width: 76.49px;
+  left: 21%;
+  top: 34%;
+}
+
+.sun {
+  width: 45px;
+  left: 25%;
+  top: 54%;
+}
+
+.pink-share{
+  width: 91px;
+  left: 27%;
+  top: 33%;
+}
+
+.family-share{
+  width: 79px;
+  left: 16%;
+  top: 47%;
+}
+
+.health-share{
+  width: 54px;
+  left: 47%;
+  z-index: 0;
+  top: 76%;
+}
+
+@media screen and (min-width:550px) and (max-width:650px){
+  .slick-prev{
+    left:-1px;
+  }
+
+  .slick-next{
+    right:-7px;
+  }
+}
+
+@media screen and (min-width:400px) and (max-width:550px){
+
+  .test-height{
+    height:690px;
+  }
+
+  .reveal-modal {
+    min-height: 0 !important;
+  }
+
+  #videoModal {
+    top: 122px !important;
+  }
+
+  #lets-present{
+    padding:8rem 0 3rem;
+  }
+
+  .lets-present-title{
+    margin-bottom: 17px;
+    font-size: 30px;
+  }
+
+  .sec-tit{
+    margin-bottom:0;
+    width: 100%;
+    font-size: 16px;
+  }
+
+  .discover-present{
+    margin:0 auto;
+    float:none;
+    width:300px;
+    height: 450px;
+    margin-bottom: 15px;
+  }
+
+  .header-container {
+    margin: 47px 0;
+  }
+
+  .discover-tit{
+    width: 70%;
+    font-size: 31px;
+    margin:0 auto;
+  }
+
+  .dis-container{
+    padding-top:0;
+    padding-left:0;
+    text-align: center;
+  }
+
+  .cir-wom{
+    font-size: 23px;
+    margin:0 auto 32px;;
+    text-align: center;
+  }
+
+  .app-store{
+    margin:15px auto;
+  }
+}
+
+
+@media screen and (min-width:550px) and  (max-width:996px){
+  .connect-text{
+    margin-left:0px ;
+  }
+
+  .connect-container{
+    text-align: left;
+    padding-left:46px;
+  }
+}
+
+@media screen and (max-width:1024px){
+  .food, .family, .entertainment, .hobbies, .fitness{
+    display: none !important;
+  }
+}
+
+@media screen and (min-width:551px) and (max-width:640px){
+  .dis-container{
+    margin:0 65px;
+  }
+
+  .discover-present{
+    margin-right: 28px;
+    margin-top: 54px;
+  }
+
+  .slick-list.draggable {
+    height: 500px;
+}
+
+
+}
+
+
+@media screen and (max-width:400px){
+
+  .test-height{
+    height:675px;
+  }
+
+  .dis-container{
+    padding-top:0;
+  }
+
+  .reveal-modal {
+    min-height: 0 !important;
+  }
+
+  #videoModal {
+    top: 122px !important;
+  }
+
+  .connect-container{
+    text-align: center;
+  }
+
+  .connect-text{
+    margin-left:0;
+  }
+
+  .connect-present{
+    position: relative;
+  }
+
+
+  #lets-present{
+    background: url(/images/video-background@2x.png) no-repeat;
+    background-size: cover;
+    padding: 8rem 0 3rem;
+    background-repeat: no-repeat;
+    background-position: center center;
+  }
+
+  .lets-present-title{
+    margin-bottom: 18px;
+  }
+
+  .sec-tit{
+    margin-bottom: 0;
+    width:100%;
+    font-size: 16px;
+  }
+
+  .dis-container{
+    padding-left:0;
+    text-align: center;
+    margin-bottom: 37px;
+  }
+
+  .main-color-bg{
+    background-color: #9012fe;
+    color:#fff;
+    padding:4rem 0rem;
+  }
+
+  .discover-present{
+    float: none;
+    width:300px;
+    height: 450px;
+    margin:0 auto;
+    margin-bottom: 15px;
+
+  }
+
+  .sm-contariner{
+    text-align: center;
+  }
+
+  .discover-tit{
+    width: 70%;
+    font-size: 25px;
+    margin:0 auto;
+    line-height: 30px;
+  }
+
+  .cir-wom{
+    font-size: 18px;
+    margin:0 auto 20px;
+  }
+
+  .lets-present-title{
+    font-size: 31px;
+  }
+
+  .app-store{
+    margin:15px auto 0;
+  }
+
+}

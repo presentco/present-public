@@ -1,0 +1,86 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <parent>
+    <groupId>present</groupId>
+    <artifactId>light-module</artifactId>
+    <version>1.0</version>
+    <relativePath>../light-module/pom.xml</relativePath>
+  </parent>
+
+  <artifactId>proto</artifactId>
+  <packaging>jar</packaging>
+
+  <dependencies>
+    <dependency>
+      <groupId>com.squareup.wire</groupId>
+      <artifactId>wire-runtime</artifactId>
+    </dependency>
+  </dependencies>
+
+  <build>
+    <plugins>
+      <!-- Wire Protocol Buffer compiler -->
+      <plugin>
+        <groupId>com.squareup.wire</groupId>
+        <artifactId>wire-maven-plugin</artifactId>
+        <configuration>
+          <protoPaths><param>${basedir}/../../proto</param></protoPaths>
+          <protoFiles>
+            <param>present/group.proto</param>
+            <param>present/core.proto</param>
+            <param>present/datastore.proto</param>
+            <param>present/headers.proto</param>
+            <param>present/live.proto</param>
+            <param>present/live-internal.proto</param>
+            <param>present/ping.proto</param>
+            <param>present/user.proto</param>
+            <param>present/messaging.proto</param>
+            <param>present/content.proto</param>
+            <param>present/activity.proto</param>
+            <param>present/slack.proto</param>
+            <param>present/url.proto</param>
+            <param>present/email.proto</param>
+            <param>present/phone.proto</param>
+          </protoFiles>
+        </configuration>
+      </plugin>
+
+      <plugin>
+        <groupId>present</groupId>
+        <artifactId>wire-service-generator</artifactId>
+        <version>1.0</version>
+        <executions>
+          <execution>
+            <goals>
+              <goal>generate-sources</goal>
+            </goals>
+            <phase>generate-sources</phase>
+          </execution>
+        </executions>
+        <configuration>
+          <protoPaths><param>${basedir}/../../proto</param></protoPaths>
+          <protoFiles>
+            <param>present/group.proto</param>
+            <param>present/core.proto</param>
+            <param>present/datastore.proto</param>
+            <param>present/headers.proto</param>
+            <param>present/live.proto</param>
+            <param>present/live-internal.proto</param>
+            <param>present/ping.proto</param>
+            <param>present/rpc.proto</param>
+            <param>present/user.proto</param>
+            <param>present/messaging.proto</param>
+            <param>present/content.proto</param>
+            <param>present/activity.proto</param>
+            <param>present/slack.proto</param>
+            <param>present/url.proto</param>
+            <param>present/email.proto</param>
+            <param>present/phone.proto</param>
+          </protoFiles>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+</project>

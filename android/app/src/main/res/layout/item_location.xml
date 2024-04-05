@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:paddingStart="@dimen/spacing_small"
+    android:paddingBottom="@dimen/spacing_small"
+    android:paddingTop="@dimen/spacing_small"
+    android:layout_height="wrap_content"
+    tools:ignore="RtlSymmetry">
+
+    <TextView
+        style="@style/Body"
+        android:maxLines="1"
+        android:ellipsize="end"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/carat"
+        android:id="@+id/text"
+        android:layout_width="0dp"
+        android:layout_marginEnd="@dimen/spacing_medium"
+        xmlns:tools="http://schemas.android.com/tools"
+        tools:text="Forest Hills"
+        android:fontFamily="sans-serif-medium"
+        android:layout_height="wrap_content" />
+
+
+    <ImageView
+        android:id="@+id/carat"
+        android:tint="@color/midGray"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/spacing_small"
+        app:layout_constraintBottom_toBottomOf="@id/text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/text"
+        app:srcCompat="@drawable/right_carat" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+

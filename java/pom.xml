@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>present</groupId>
+  <artifactId>java</artifactId>
+  <version>1.0</version>
+  <packaging>pom</packaging>
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  </properties>
+
+  <modules>
+    <module>acceptance-test</module>
+    <module>appengine-api</module>
+    <module>appengine-ear</module>
+    <module>appengine-web</module>
+    <module>ban-guice-aop</module>
+    <module>gcs</module>
+    <module>jetty</module>
+    <module>internal-live-client</module>
+    <module>light-module</module>
+    <module>live-client</module>
+    <module>live-server</module>
+    <module>module</module>
+    <module>phone</module>
+    <module>environment</module>
+    <module>proto</module>
+    <module>s2-geometry</module>
+    <module>shortid</module>
+    <module>ssl</module>
+    <module>wire-rpc-client</module>
+    <module>wire-rpc-core</module>
+    <module>wire-rpc-server</module>
+    <module>wire-service-generator</module>
+  </modules>
+  
+</project>

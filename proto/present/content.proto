@@ -1,0 +1,66 @@
+// Public API Messages
+
+syntax = "proto2";
+package present;
+option java_package = "present.proto";
+
+service ContentService {
+  // Publicly-accessible RPCs
+
+  // Uploads content.
+  rpc putContent(ContentUploadRequest) returns (ContentResponse);
+
+  // Retrieves content by UUID.
+  rpc getContent(ContentRequest) returns (ContentResponse);
+}
+
+enum ContentType {
+  JPEG = 1;
+  MP4 = 2;
+}
+
+// Used to request content by UUID.
+message ContentRequest {
+  required string uuid = 1;
+}
+
+// Request to upload binary content and store it with the associated uuid.
+message ContentUploadRequest {
+  // The client supplied uuid to be associated with the content
+  required string uuid = 1;
+
+  // Type of content.
+  required ContentType type = 2;
+
+  // The content binary
+  required bytes content = 3;
+
+  // A binary JPEG representation of the content
+  optional bytes contentThumbnail = 4;
+}
+
+// Request that references content already stored
+message ContentReferenceRequest {
+  // The uuid of the content
+  required string uuid = 1;
+
+  // Type of content.
+  required ContentType type = 2;
+}
+
+// Response describing stored content.
+message ContentResponse {
+  // The uuid of the content
+  required string uuid = 1;
+
+  // The type of content.
+  required ContentType contentType = 7;
+
+  // The content URL
+  required string content = 8;
+
+  // The content thumbnail URL
+  optional string contentThumbnail = 9;
+}
+
+
